@@ -5,6 +5,8 @@ class Producto {
         this.ruta = ruta
     }
 
+    // save(Object) : Number
+
     async save(obj) {
         try {
 
@@ -12,22 +14,25 @@ class Producto {
             let dataArchParse = JSON.parse(dataArch);
             if (dataArchParse.length) {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { ...obj, id: dataArchParse.length + 1 }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { ...obj, id: dataArchParse[dataArchParse.length - 1].id + 1 }], null, 2))
+                let idProduct = dataArchParse[dataArchParse.length - 1].id + 1
+                console.log(`El producto tiene el ID: ${idProduct}`);
+                return idProduct;
 
             } else {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...obj, id: dataArchParse.length + 1 }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...obj, id: 1 }], null, 2))
+                console.log(`El producto tiene el ID: 1`);
+                return 1;
 
             }
-            console.log(`El producto tiene el ID: ${dataArchParse.length + 1}`);
-            return dataArchParse.length + 1;
 
         } catch (error) {
             console.log(error);
         }
     }
 
-    // GetByID
+    // getByID(Number) : Object
 
     async getById(id) {
         try {
@@ -46,7 +51,7 @@ class Producto {
         }
     }
 
-    //GetAllProducts
+    // getAll() : Object[]
 
     async getAll() {
         try {
@@ -65,7 +70,7 @@ class Producto {
         }
     }
 
-    // DeleteById
+    // deleteById(Number) : void
 
     async deleteById(id) {
         try {
@@ -76,7 +81,6 @@ class Producto {
                 let dataArchParseFiltered = dataArchParse.filter(producto => producto.id !== id)
                 await fs.promises.writeFile(this.ruta, JSON.stringify(dataArchParseFiltered, null, 2))
                 console.log('Producto Eliminado')
-
             } else {
                 console.log('No se encontró el producto')
             }
@@ -85,6 +89,13 @@ class Producto {
             console.log(error);
 
         }
+    }
+
+    // deleteAll() : void
+
+    async deleteAll() {
+        await fs.promises.writeFile(this.ruta, JSON.stringify([], null, 2), 'utf8')
+        console.log('Todos los productos se han eliminado')
     }
 }
 

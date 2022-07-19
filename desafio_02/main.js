@@ -16,5 +16,6 @@ const producto = new Producto('./productos.txt');
 
 // producto.getAll();
 
-producto.deleteById(3)
+// producto.deleteById(2)
 
+// producto.deleteAll()
