@@ -1,9 +1,12 @@
 const express = require('express')
+const { Router } = express
 const Producto = require("./contenedor")
+
 
 const producto = new Producto('./productos.txt')
 
 const app = express()
+const routerProductos = Router()
 
 const PORT = 8080
 const server = app.listen(PORT, () => {
@@ -13,30 +16,33 @@ const server = app.listen(PORT, () => {
 app.use(express.json())
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use('/api/productos', routerProductos)
 server.on('error', (err) => console.log(err))
+
+//********************** CONTROLADOR DE PRODUCTOS ********************************************
 
 //********************** GET (Devuelve todos los productos) **********************************
 
-app.get('/api/productos', async (req, res) => {
+routerProductos.get('/', async (req, res) => {
     const listaProductos = await producto.getAll()
     res.json(listaProductos)
 })
 
 //********************** GET (Devuelve un producto según ID) **********************************
 
-app.get('/api/productos/:id', async (req, res) => {
+routerProductos.get('/:id', async (req, res) => {
 
     const { id } = req.params
     const productoById = await producto.getById(parseInt(id))
     productoById ?
-        res.json(productoById)
+    res.json(productoById)
         :
         res.json({ error: 'Producto no encontrado' })
-})
-
+    })
+    
 //************************ POST (Recibe y Agrega un producto) **********************************
 
-app.post('/api/productos/', async (req, res) => {
+routerProductos.post('/', async (req, res) => {
     const idProduct = await producto.save(req.body)
     const productoById = await producto.getById(parseInt(idProduct))
     res.json(productoById)
@@ -44,7 +50,7 @@ app.post('/api/productos/', async (req, res) => {
 
 //************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
 
-app.put('/api/productos/:id', async (req, res) => {
+routerProductos.put('/:id', async (req, res) => {
 
     const { id } = req.params
     producto.updateById(parseInt(id), req.body)
@@ -57,7 +63,7 @@ app.put('/api/productos/:id', async (req, res) => {
 
 //************************ DELETE (Elimina un producto según su ID) ***********************
 
-app.delete('/api/productos/:id', async (req, res) => {
+routerProductos.delete('/:id', async (req, res) => {
     const { id } = req.params
     producto.deleteById(parseInt(id))
     

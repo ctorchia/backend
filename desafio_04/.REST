@@ -5,14 +5,14 @@
 #     "nombre": "Cristian"
 # }
 
-PUT http://localhost:8080/api/productos/5 HTTP/1.1
-content-type: application/json
-
-{
-    "title": "Teclado",
-    "price": "123",
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png"
-}
-
-# DELETE http://localhost:8080/api/productos/6 HTTP/1.1
+# PUT http://localhost:8080/api/productos/5 HTTP/1.1
 # content-type: application/json
+
+# {
+#     "title": "Teclado",
+#     "price": "123456",
+#     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png"
+# }
+
+DELETE http://localhost:8080/api/productos/6 HTTP/1.1
+content-type: application/json
