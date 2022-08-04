@@ -35,11 +35,11 @@ routerProductos.get('/:id', async (req, res) => {
     const { id } = req.params
     const productoById = await producto.getById(parseInt(id))
     productoById ?
-    res.json(productoById)
+        res.json(productoById)
         :
         res.json({ error: 'Producto no encontrado' })
-    })
-    
+})
+
 //************************ POST (Recibe y Agrega un producto) **********************************
 
 routerProductos.post('/', async (req, res) => {
@@ -53,18 +53,13 @@ routerProductos.post('/', async (req, res) => {
 routerProductos.put('/:id', async (req, res) => {
 
     const { id } = req.params
-    producto.updateById(parseInt(id), req.body)
-    // const productoById = await producto.getById(parseInt(id))
-    // productoById ?
-    //     res.json(productoById)
-    //     :
-    //     res.json({ error: 'Producto no encontrado' })
+    const respuesta = await producto.updateById(parseInt(id), req.body)
+    res.json(respuesta)
 })
 
 //************************ DELETE (Elimina un producto según su ID) ***********************
 
 routerProductos.delete('/:id', async (req, res) => {
     const { id } = req.params
-    producto.deleteById(parseInt(id))
-    
+    await producto.deleteById(parseInt(id))
 })

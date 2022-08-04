@@ -78,11 +78,17 @@ class Producto {
 
         try {
             const products = await this.getAll()
-            // console.log(products);
             const index = products.findIndex(obj => obj.id === id)
-            console.log(index);
-            products[index] = product
-            await fs.promises.writeFile(this.ruta, JSON.stringify(products, null, 2))
+            // console.log(index);
+            if (index !== -1){
+                products[index] = product
+                await fs.promises.writeFile(this.ruta, JSON.stringify(products, null, 2))
+                return {error: 'Producto actualizado'}
+
+            } else {
+                return {error: 'Producto no encontrado'}
+            }
+        
         } catch (error) {
             console.log(error);
         }
@@ -105,7 +111,6 @@ class Producto {
 
         } catch (error) {
             console.log(error);
-
         }
     }
 
