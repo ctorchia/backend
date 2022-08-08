@@ -83,10 +83,10 @@ class Producto {
             if (index !== -1){
                 products[index] = product
                 await fs.promises.writeFile(this.ruta, JSON.stringify(products, null, 2))
-                return {error: 'Producto actualizado'}
+                return {mensaje: 'Producto actualizado'}
 
             } else {
-                return {error: 'Producto no encontrado'}
+                return {mensaje: 'Producto no encontrado'}
             }
         
         } catch (error) {

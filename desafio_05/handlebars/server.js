@@ -2,12 +2,12 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 // const { Router } = express
 // const Producto = require("./contenedor")
-
-
 // const producto = new Producto('./productos.txt')
 
 const app = express()
 // const routerProductos = Router()
+// app.use(express.urlencoded({ extended: true }))
+
 const PORT = 8080
 const server = app.listen(PORT, () => {
     console.log(`Escuchando en el puerto: ${server.address().port}`);
@@ -29,23 +29,56 @@ app.set('views', './views')
 app.use(express.static('public'))
 
 const apiTest = () => [
-    {firstName: 'Cristian', lastName: 'Torchia'},
-    {firstName: 'Cristian', lastName: 'Torchia'},
-    {firstName: 'Cristian', lastName: 'Torchia'},
-    {firstName: 'Cristian', lastName: 'Torchia'},
-    {firstName: 'Cristian', lastName: 'Torchia'}
+    {
+        "title": "Escuadra",
+        "price": 123.45,
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
+        "id": 1
+    },
+    {
+        "title": "Calculadora",
+        "price": 234.56,
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
+        "id": 2
+    },
+    {
+        "title": "Globo Terráqueo",
+        "price": 345.67,
+        "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+        "id": 3
+    },
+    {
+        "title": "Regla",
+        "price": 356.67,
+        "thumbnail": "https://cdn0.iconfinder.com/data/icons/graphic-design-tools-1/32/Ruler-Measurement-Scale-Measure-256.png",
+        "id": 4
+    }
 ]
 
 app.get('/', (req, res) => {
-    res.render('main', {listExist:true, list: apiTest()})
+    res.render('main', {
+        listExist:true,
+        mensaje:'Lista de Productos',
+        list: apiTest()
+    })
+})
+
+app.post('/productos', (req, res) => {
+    
+    const obj = req.body
+    console.log(obj)
+    // Validar si viene vacio
+    productos.push(obj)
+    res.render('main', {
+        mensaje:'Lista de Productos',
+        listExist:true,
+    })
 })
 
 // app.use(express.json())
 // app.use(express.urlencoded({ extended: true }))
 // app.use('/api/productos', routerProductos)
 // server.on('error', (err) => console.log(err))
-
-
 
 // //********************** CONTROLADOR DE PRODUCTOS ********************************************
 

@@ -29,26 +29,26 @@ const productos = [{
 {
     "title": "Regla",
     "price": 356.67,
-    "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/graphic-design-tools-1/32/Ruler-Measurement-Scale-Measure-256.png",
     "id": 4
 }] 
 
 app.get('/', (req, res) => {
     
-    
     res.render('pages/index', {
-        mensaje: 'Mensaje de prueba',
+        mensaje: 'Lista de Productos:',
         productos
     })
 })
 
 app.post('/productos', (req, res) => {
+    
     const obj = req.body
     console.log(obj)
     // Validar si viene vacio
     productos.push(obj)
     res.render('pages/index', {
-        mensaje:'Hola Ejs',
+        mensaje:'Lista de Productos',
         productos
     })
 })
