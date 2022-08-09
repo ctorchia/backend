@@ -45,7 +45,6 @@ app.post('/productos', (req, res) => {
     
     const obj = req.body
     console.log(obj)
-    // Validar si viene vacio
     productos.push(obj)
     res.render('pages/index', {
         mensaje:'Lista de Productos',
