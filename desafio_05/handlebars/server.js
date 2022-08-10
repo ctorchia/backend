@@ -20,7 +20,6 @@ app.engine(
 
 app.set('view engine', 'hbs')
 app.set('views', './views')
-app.use(express.static('public'))
 
 const list = [
     {
