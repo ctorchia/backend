@@ -3,9 +3,24 @@ const socket = io('http://localhost:3000');
 const render = (productos) => {
     let listado = document.querySelector('#listado');
     let html= productos.map((prod => {
-        return `<li>${prod.name}</li>`
+        return `<li>
+                Nombre: ${prod.title}
+                Precio: ${prod.price}
+                </li>`
     }))
     listado.innerHTML = html.join(' ');
+}
+
+const addProduct = (evt) => {
+    const title = document.querySelector('#title').value;
+    const price = document.querySelector('#price').value;
+    const product = {title, price}
+
+    socket.emit('producto-nuevo', product, (id)=>{ // callback para obtener el id del producto
+        console.log(id);
+    });
+
+    return false;
 }
 
 socket.on('connect', ()=> {

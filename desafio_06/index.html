@@ -15,7 +15,13 @@
 
     <div class="row">
         <div class="col">
-
+            <form onsubmit="return addProduct(this)" class="mt-5">
+                <input class="form-control" type="text" id="title" placeholder="Nombre del Producto" >
+                <br>
+                <input class="form-control" type="text" id="price" placeholder="Precio del Producto">
+                <br>
+                <input type="submit" value="Add Product">
+            </form>            
         </div>
         <div class="col">
             <ul id="listado">
@@ -27,3 +33,9 @@
     <script src="/index.js"></script>
 </body>
 </html>
+
+<!-- <form onsubmit="return addProduct(this)">
+    <input type="text" id="username" placeholder="Tu Nombre" >
+    <input type="text" id="texto" placeholder="Cuéntanos algo...">
+    <input type="submit" value="Enviar">
+</form>     -->
