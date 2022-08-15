@@ -55,7 +55,9 @@ const renderChat = (mensajes) => {
     let mensajesChat = document.querySelector('#mensajesChat');
     let html = mensajes.map((msj => {
         return `<div class="d-flex">
-                        <p class="text-primary">${msj.name}</p> : <p class="text-success">${msj.message}</p> 
+                        <p class="text-primary px-2">${msj.name}</p>
+                        <p class="text-danger px-2">[${msj.dateMessage}]:</p>
+                        <p class="text-success px-2">${msj.message}</p> 
                 </div>
                 `
     }))
@@ -65,9 +67,10 @@ const renderChat = (mensajes) => {
 const addMessage = (evt) => {
     const name = document.querySelector('#name').value;
     const message = document.querySelector('#message').value;
-    const messageComplete = { name, message };
+    const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
+    const messageComplete = { name, dateMessage, message };
 
-    console.log(messageComplete);
+    // console.log(messageComplete);
 
     socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del producto
         console.log(id);

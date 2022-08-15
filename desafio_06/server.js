@@ -49,7 +49,8 @@ const productos = [
 
 const mensajes = [
     {   
-        "name": "Administrador",   
+        "name": "Administrador",  
+        "dateMessage": "",
         "message": "Bienvenidos al chat"
     }
 ]
@@ -96,7 +97,7 @@ io.on('connection',(socket)=>{
     
     socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
         console.log(messageComplete);
-        
+
         mensajes.push(messageComplete);
         const mensaje = {
             mensaje: 'Mensaje Insertado',
