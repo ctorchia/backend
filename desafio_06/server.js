@@ -12,10 +12,6 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('public'))  
 
-// app.get('/',(req,res)=>{
-//     res.sendFile('index.html',{root:__dirname}); 
-// })
-
 app.get('/', (req, res) => {
     
     res.render('pages/index', {
@@ -23,17 +19,6 @@ app.get('/', (req, res) => {
         productos
     })
 })
-
-// app.post('/productos', (req, res) => {
-    
-//     const obj = req.body
-//     console.log(obj)
-//     productos.push(obj)
-//     res.render('pages/index', {
-//         mensaje:'Lista de Productos',
-//         productos
-//     })
-// })
 
 const productos = [
     {
@@ -60,14 +45,19 @@ const productos = [
         "thumbnail": "https://cdn0.iconfinder.com/data/icons/graphic-design-tools-1/32/Ruler-Measurement-Scale-Measure-256.png",
         "id": 4
     }
-    // {id:1, name:'Producto 1', price:100},
-    // {id:2, name:'Producto 2', price:200},
-    // {id:3, name:'Producto 3', price:300}
 ];
+
+const mensajes = [
+    {   
+        "name": "Administrador",   
+        "message": "Bienvenidos al chat"
+    }
+]
 
 io.on('connection',(socket)=>{
     console.log('nueva conexion');
 
+    // ----------------- Products ------------------------------- //
     const mensaje = {
         mensaje: 'ok',
         productos
@@ -96,10 +86,27 @@ io.on('connection',(socket)=>{
         io.sockets.emit('mensaje-server', mensaje)
     })
 
-    // socket.on('mensaje',(data)=>{
-    //     console.log(data);
-    //     io.emit('mensaje',data);
-    // } )
+// ----------------- Chat ------------------------------- //
+    const mensajeChat = {
+        mensaje: 'Envio de Mensaje: OK',
+        mensajes
+    }
+
+    socket.emit('mensajeChat-server',mensajeChat);
+    
+    socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
+        console.log(messageComplete);
+        
+        mensajes.push(messageComplete);
+        const mensaje = {
+            mensaje: 'Mensaje Insertado',
+            mensajes
+        }
+        const id = new Date().getTime();
+        io.sockets.emit('mensajeChat-server',mensaje);
+        cb(id);
+    })
+
 })
 
 // serverHttp.listen(PORT, (err) => {

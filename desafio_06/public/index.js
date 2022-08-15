@@ -1,15 +1,6 @@
 const socket = io('http://localhost:3000');
 
-// const render = (productos) => {
-//     let listado = document.querySelector('#listado');
-//     let html= productos.map((prod => {
-//         return `<li>
-//                 Nombre: ${prod.title}
-//                 Precio: ${prod.price}
-//                 </li>`
-//     }))
-//     listado.innerHTML = html.join(' ');
-// }
+// ----------------- Products ------------------------------- //
 
 const render = (productos) => {
     let listado = document.querySelector('#listado');
@@ -56,5 +47,35 @@ socket.on('disconnect', () => {
 
 socket.on('mensaje-server', (mensaje) => {
     render(mensaje.productos)
-    console.log(mensaje)
+})
+
+// ----------------- Chat ------------------------------- //
+
+const renderChat = (mensajes) => {
+    let mensajesChat = document.querySelector('#mensajesChat');
+    let html = mensajes.map((msj => {
+        return `<div class="d-flex">
+                        <p class="text-primary">${msj.name}</p> : <p class="text-success">${msj.message}</p> 
+                </div>
+                `
+    }))
+    mensajesChat.innerHTML = html.join(' ');
+}
+
+const addMessage = (evt) => {
+    const name = document.querySelector('#name').value;
+    const message = document.querySelector('#message').value;
+    const messageComplete = { name, message };
+
+    console.log(messageComplete);
+
+    socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del producto
+        console.log(id);
+    });
+
+    return false;
+}
+
+socket.on('mensajeChat-server', (mensaje) => {
+    renderChat(mensaje.mensajes)
 })
