@@ -3,8 +3,8 @@ const app = express();
 // const PORT = process.env.PORT || 8080
 app.use(express.urlencoded({ extended: true }))
 
-// app.set('view engine', 'ejs') // Prueba 2
-// app.set('views', './views')
+app.set('view engine', 'ejs') // Prueba 2
+app.set('views', './views')
 
 const {Server: HttpServer} = require('http') 
 const {Server: IOServer} = require('socket.io')
@@ -12,14 +12,25 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('public'))  
 
-app.get('/',(req,res)=>{
-    res.sendFile('index.html',{root:__dirname}); 
+// app.get('/',(req,res)=>{
+//     res.sendFile('index.html',{root:__dirname}); 
+// })
+
+app.get('/', (req, res) => {
+    
+    res.render('pages/index', {
+        mensaje: 'Lista de Productos:', // Prueba 2
+        productos
+    })
 })
 
-// app.get('/', (req, res) => {
+// app.post('/productos', (req, res) => {
     
+//     const obj = req.body
+//     console.log(obj)
+//     productos.push(obj)
 //     res.render('pages/index', {
-//         mensaje: 'Lista de Productos:', // Prueba 2
+//         mensaje:'Lista de Productos',
 //         productos
 //     })
 // })
@@ -69,6 +80,7 @@ io.on('connection',(socket)=>{
     })
 
     socket.on('producto-nuevo',async (producto,cb)=>{
+        console.log(producto);
         productos.push(producto);
         const mensaje = {
             mensaje: 'Producto Insertado',
@@ -77,7 +89,7 @@ io.on('connection',(socket)=>{
         const id = new Date().getTime();
         io.sockets.emit('mensaje-server',mensaje);
         cb(id);
-        // console.log(productos);
+        console.log(productos);
     })
 
     socket.on('mensaje-cliente',(data)=>{
