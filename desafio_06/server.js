@@ -89,7 +89,6 @@ io.on('connection',(socket)=>{
         const id = new Date().getTime();
         io.sockets.emit('mensaje-server',mensaje);
         cb(id);
-        console.log(productos);
     })
 
     socket.on('mensaje-cliente',(data)=>{

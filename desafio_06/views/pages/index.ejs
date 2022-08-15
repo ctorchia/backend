@@ -32,20 +32,8 @@
                             <th scope="col">Miniatura:</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <% productos.forEach(prod=> { %>
-                            <tr>
-                                <td>
-                                    <%= prod.title%>
-                                </td>
-                                <td>
-                                    $ <%= prod.price%>
-                                </td>
-                                <td>
-                                    <img src=<%=prod.thumbnail%> width="50" height="50">
-                                </td>
-                            </tr>
-                            <% }) %>
+                    <tbody id="listado">
+
                     </tbody>
                 </table>
             </div>
