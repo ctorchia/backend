@@ -1,6 +1,8 @@
 const Producto = require("./contenedor")
 const objProducto = new Producto('./productos.txt')
 
+const objMensaje = new Producto('./mensajes.txt')
+
 const express = require('express');
 const app = express();
 // const PORT = process.env.PORT || 8080
@@ -20,10 +22,12 @@ let productos = []
 app.get('/', async (req, res) => {
     
     productos = await objProducto.getAll()
+    mensajes = await objMensaje.getAll()
 
     res.render('pages/index', {
         mensaje: 'Lista de Productos:', // Prueba 2
-        productos
+        productos,
+        mensajes
     })
 })
 
