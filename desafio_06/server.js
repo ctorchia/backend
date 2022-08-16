@@ -46,7 +46,9 @@ io.on('connection',(socket)=>{
 
     socket.on('producto-nuevo',async (producto,cb)=>{
         console.log(producto);
-        productos.push(producto);
+        // productos.push(producto);
+        await objProducto.save(producto)
+        productos = await objProducto.getAll()
         const mensaje = {
             mensaje: 'Producto Insertado',
             productos

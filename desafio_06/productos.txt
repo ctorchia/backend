@@ -28,5 +28,11 @@
     "price": 56.67,
     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
     "id": 5
+  },
+  {
+    "title": "Teclado",
+    "price": "1234",
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "id": 6
   }
 ]
