@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000');
+const socket = io('http://localhost:8080');
 
 // ----------------- Products ------------------------------- //
 
@@ -6,13 +6,13 @@ const render = (productos) => {
     let listado = document.querySelector('#listado');
     let html = productos.map((prod => {
         return `<tr>
-                    <td>
+                    <td  class="text-center">
                         ${prod.title}
                     </td>
-                    <td>
+                    <td  class="text-center">
                         $ ${prod.price} 
                     </td>
-                    <td>
+                    <td class="text-center">
                         <img src=${prod.thumbnail} width="50" height="50">
                     </td>
                 </tr>
@@ -58,11 +58,11 @@ socket.on('mensaje-server', (mensaje) => {
 const renderChat = (mensajes) => {
     let mensajesChat = document.querySelector('#mensajesChat');
     let html = mensajes.map((msj => {
-        return `<div class="d-flex">
-                        <p class="text-primary fw-bold px-2">${msj.name}</p>
-                        <p class="text-danger px-2">[${msj.dateMessage}]:</p>
-                        <p class="text-success fst-italic px-2">${msj.message}</p> 
-                </div>
+        return `<tr>
+                    <td class="text-primary fw-bold px-2">${msj.name}</td>
+                    <td class="text-danger px-2">[${msj.dateMessage}]:</td>
+                    <td class="text-success fst-italic px-2">${msj.message}</td> 
+                </tr>
                 `
     }))
     mensajesChat.innerHTML = html.join(' ');
@@ -76,7 +76,7 @@ const addMessage = (evt) => {
 
     document.querySelector('#message').value = ""
 
-    socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del producto
+    socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del mensaje
         console.log(id);
     });
 

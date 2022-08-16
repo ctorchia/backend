@@ -5,10 +5,10 @@ const objMensaje = new Producto('./mensajes.txt')
 
 const express = require('express');
 const app = express();
-// const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080
 app.use(express.urlencoded({ extended: true }))
 
-app.set('view engine', 'ejs') // Prueba 2
+app.set('view engine', 'ejs')
 app.set('views', './views')
 
 const {Server: HttpServer} = require('http') 
@@ -25,7 +25,7 @@ app.get('/', async (req, res) => {
     mensajes = await objMensaje.getAll()
 
     res.render('pages/index', {
-        mensaje: 'Lista de Productos:', // Prueba 2
+        mensaje: 'Lista de Productos:',
         productos,
         mensajes
     })
@@ -50,7 +50,6 @@ io.on('connection',(socket)=>{
 
     socket.on('producto-nuevo',async (producto,cb)=>{
         console.log(producto);
-        // productos.push(producto);
         await objProducto.save(producto)
         productos = await objProducto.getAll()
         const mensaje = {
@@ -76,11 +75,9 @@ io.on('connection',(socket)=>{
     socket.emit('mensajeChat-server',mensajeChat);
     
     socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
-        // console.log(messageComplete);
 
         await objMensaje.save(messageComplete)
         mensajes = await objMensaje.getAll()
-        // mensajes.push(messageComplete);
         const mensaje = {
             mensaje: 'Mensaje Insertado',
             mensajes
@@ -92,13 +89,7 @@ io.on('connection',(socket)=>{
 
 })
 
-// serverHttp.listen(PORT, (err) => {
-//     if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
-//     console.log(`Servidor corriendo en el puerto ${PORT}`)
-// })
-
-serverHttp.listen(3000,()=>{
-    console.log('Server on port 3000')
+serverHttp.listen(PORT, (err) => {
+    if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
+    console.log(`Servidor corriendo en el puerto ${PORT}`)
 })
-
-
