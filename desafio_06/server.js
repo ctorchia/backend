@@ -76,9 +76,11 @@ io.on('connection',(socket)=>{
     socket.emit('mensajeChat-server',mensajeChat);
     
     socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
-        console.log(messageComplete);
+        // console.log(messageComplete);
 
-        mensajes.push(messageComplete);
+        await objMensaje.save(messageComplete)
+        mensajes = await objMensaje.getAll()
+        // mensajes.push(messageComplete);
         const mensaje = {
             mensaje: 'Mensaje Insertado',
             mensajes
