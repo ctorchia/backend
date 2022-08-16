@@ -27,6 +27,10 @@ const addProduct = (evt) => {
     const thumbnail = document.querySelector('#thumbnail').value;
     const product = { title, price, thumbnail };
 
+    document.querySelector('#title').value = ""
+    document.querySelector('#price').value = ""
+    document.querySelector('#thumbnail').value = ""
+
     console.log(product);
 
     socket.emit('producto-nuevo', product, (id) => { // callback para obtener el id del producto
@@ -70,7 +74,7 @@ const addMessage = (evt) => {
     const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
     const messageComplete = { name, dateMessage, message };
 
-    // console.log(messageComplete);
+    document.querySelector('#message').value = ""
 
     socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del producto
         console.log(id);
