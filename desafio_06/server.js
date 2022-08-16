@@ -1,3 +1,6 @@
+const Producto = require("./contenedor")
+const objProducto = new Producto('./productos.txt')
+
 const express = require('express');
 const app = express();
 // const PORT = process.env.PORT || 8080
@@ -7,7 +10,7 @@ app.set('view engine', 'ejs') // Prueba 2
 app.set('views', './views')
 
 const {Server: HttpServer} = require('http') 
-const {Server: IOServer} = require('socket.io')
+const {Server: IOServer} = require('socket.io');
 const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('public'))  
@@ -19,6 +22,10 @@ app.get('/', (req, res) => {
         productos
     })
 })
+// async ()=>{
+// productos = await objProducto.getAll()
+// console.log(productos);
+// }
 
 const productos = [
     {
@@ -49,9 +56,9 @@ const productos = [
 
 const mensajes = [
     {   
-        "name": "Administrador",  
+        "name": "Administrador:",  
         "dateMessage": "",
-        "message": "Bienvenidos al chat"
+        "message": "Bienvenidos!!"
     }
 ]
 

@@ -55,9 +55,9 @@ const renderChat = (mensajes) => {
     let mensajesChat = document.querySelector('#mensajesChat');
     let html = mensajes.map((msj => {
         return `<div class="d-flex">
-                        <p class="text-primary px-2">${msj.name}</p>
+                        <p class="text-primary fw-bold px-2">${msj.name}</p>
                         <p class="text-danger px-2">[${msj.dateMessage}]:</p>
-                        <p class="text-success px-2">${msj.message}</p> 
+                        <p class="text-success fst-italic px-2">${msj.message}</p> 
                 </div>
                 `
     }))
