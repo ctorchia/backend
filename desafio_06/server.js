@@ -17,21 +17,22 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('public'))  
 
-let productos = []
+let mensajes = (async ()=>{
+    mensajes = await objMensaje.getAll()
+})();
+
+let productos = (async ()=>{
+    productos = await objProducto.getAll()
+})();
 
 app.get('/', async (req, res) => {
     
-    productos = await objProducto.getAll()
-    mensajes = await objMensaje.getAll()
-
     res.render('pages/index', {
         mensaje: 'Lista de Productos:',
         productos,
         mensajes
     })
 })
-
-let mensajes = []
 
 io.on('connection',(socket)=>{
     console.log('nueva conexion');
