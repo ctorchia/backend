@@ -1,9 +1,11 @@
 const express = require('express')
 const { Router } = express
 const Producto = require("./contenedor")
-
+const Carrito = require("./contenedorCarrito")
 
 const producto = new Producto('./productos.json')
+const carrito = new Carrito('./carritos.json')
+
 
 const app = express()
 const routerProductos = Router()
@@ -72,6 +74,12 @@ routerProductos.delete('/:id', async (req, res) => {
 
 //********************** POST: '/' (Crea un carrito y devuelve su ID) **********************************
 
+routerCarrito.post('/', async (req, res) => {
+    const idCarrito = await carrito.save(req.body)
+    // const carritoById = await carrito.getById(parseInt(idCarrito))
+    res.json(carritoById)
+})
+
 //********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
 
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
@@ -80,6 +88,7 @@ routerCarrito.get('/', async (req, res) => {
     // const listaProductos = await producto.getAll()
     res.json({"Prueba":"Mensaje de Prueba"})
 })
+
 //********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
 
 //********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
