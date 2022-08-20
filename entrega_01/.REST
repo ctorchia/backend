@@ -3,19 +3,19 @@
 # GET http://localhost:8080/api/productos/1 HTTP/1.1
 # content-type: application/json
 
-POST http://localhost:8080/api/productos/ HTTP/1.1
-content-type: application/json
+# POST http://localhost:8080/api/productos/ HTTP/1.1
+# content-type: application/json
 
-{
-    "id": 6,
-    "timestamp": "",
-    "name": "Teclado",
-    "description": "",
-    "code": 10109,
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-    "price": 200,
-    "stock": 15
-}
+# {
+#     "id": 6,
+#     "timestamp": "",
+#     "name": "Teclado",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+#     "price": 200,
+#     "stock": 15
+# }
 
 # PUT http://localhost:8080/api/productos/5 HTTP/1.1
 # content-type: application/json
@@ -31,9 +31,9 @@ content-type: application/json
 #     "stock": 15
 # }
 
-
-# DELETE http://localhost:8080/api/productos/4 HTTP/1.1
+# DELETE http://localhost:8080/api/productos/5 HTTP/1.1
 # content-type: application/json
+
 
 ################### PARA CARRITO ############################################
 

@@ -55,7 +55,7 @@ routerProductos.post('/', async (req, res) => {
     else {
         res.json({
             error: -1,
-            description: "Ruta api/productos, Metodo POST, No autorizado"
+            description: "Ruta api/productos, Método POST, No autorizado"
         })
     }
 })
@@ -63,17 +63,32 @@ routerProductos.post('/', async (req, res) => {
 //************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
 
 routerProductos.put('/:id', async (req, res) => {
-
-    const { id } = req.params
-    const respuesta = await producto.updateById(parseInt(id), req.body)
-    res.json(respuesta)
+    if (administrador) {
+        const { id } = req.params
+        const respuesta = await producto.updateById(parseInt(id), req.body)
+        res.json(respuesta)
+    }
+    else {
+        res.json({
+            error: -1,
+            description: "Ruta api/productos/id, Método PUT, No autorizado"
+        })
+    }
 })
 
 //************************ DELETE (Elimina un producto según su ID) ***********************
 
 routerProductos.delete('/:id', async (req, res) => {
-    const { id } = req.params
-    await producto.deleteById(parseInt(id))
+    if (administrador) {
+        const { id } = req.params
+        await producto.deleteById(parseInt(id))
+    }
+    else {
+        res.json({
+            error: -1,
+            description: "Ruta api/productos/id, Método DELETE, No autorizado"
+        })
+    }
 })
 
 
