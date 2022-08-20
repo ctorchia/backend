@@ -5,12 +5,11 @@ const Carrito = require("./contenedorCarrito")
 
 const producto = new Producto('./productos.json')
 const carrito = new Carrito('./carritos.json')
-
+const administrador = true
 
 const app = express()
 const routerProductos = Router()
 const routerCarrito = Router()
-
 
 const PORT = 8080
 const server = app.listen(PORT, () => {
@@ -48,9 +47,17 @@ routerProductos.get('/:id', async (req, res) => {
 //************************ POST (Recibe y Agrega un producto) **********************************
 
 routerProductos.post('/', async (req, res) => {
-    const idProduct = await producto.save(req.body)
-    const productoById = await producto.getById(parseInt(idProduct))
-    res.json(productoById)
+    if (administrador) {
+        const idProduct = await producto.save(req.body)
+        const productoById = await producto.getById(parseInt(idProduct))
+        res.json(productoById)
+    }
+    else {
+        res.json({
+            error: -1,
+            description: "Ruta api/productos, Metodo POST, No autorizado"
+        })
+    }
 })
 
 //************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
