@@ -14,14 +14,14 @@ class Carrito {
             let dataArchParse = JSON.parse(dataArch);
             if (dataArchParse.length) {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { ...obj, id: dataArchParse[dataArchParse.length - 1].id + 1 }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { id: dataArchParse[dataArchParse.length - 1].id + 1,...obj}], null, 2))
                 let idProduct = dataArchParse[dataArchParse.length - 1].id + 1
                 console.log(`El carrito tiene el ID: ${idProduct}`);
                 return idProduct;
 
             } else {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...obj, id: 1 }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([{id: 1, ...obj }], null, 2))
                 console.log(`El carrito tiene el ID: 1`);
                 return 1;
 
@@ -34,85 +34,106 @@ class Carrito {
 
     // getByID(Number) : Object
 
-    // async getById(id) {
-    //     try {
-    //         let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
-    //         let dataArchParse = JSON.parse(dataArch)
+    async getById(id) {
+        try {
+            let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
+            let dataArchParse = JSON.parse(dataArch)
 
-    //         let producto = dataArchParse.find(producto => producto.id === id)
-    //         if (producto) {
-    //             console.log(producto)
-    //             return producto
-    //         } else {
-    //             console.log('El producto no existe');
-    //             return null
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+            let carrito = dataArchParse.find(carrito => carrito.id === id)
+            if (carrito) {
+                console.log(carrito)
+                return carrito
+            } else {
+                console.log('El carrito no existe');
+                return null
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // getAll() : Object[]
 
-    // async getAll() {
-    //     try {
-    //         let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
-    //         let dataArchParse = JSON.parse(dataArch)
-    //         if (dataArchParse.length) {
-    //             // console.log(dataArchParse)
-    //             return dataArchParse
+    async getAll() {
+        try {
+            let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
+            let dataArchParse = JSON.parse(dataArch)
+            if (dataArchParse.length) {
+                // console.log(dataArchParse)
+                return dataArchParse
 
-    //         } else {
-    //             console.log('No hay Productos')
-    //         }
+            } else {
+                console.log('No hay Carritos')
+            }
 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // updateById
 
-    // async updateById(id, product) {
-    //     product.id = id
+    async updateById(id, carrito) {
+        carrito.id = id
 
-    //     try {
-    //         const products = await this.getAll()
-    //         const index = products.findIndex(obj => obj.id === id)
-    //         // console.log(index);
-    //         if (index !== -1){
-    //             products[index] = product
-    //             await fs.promises.writeFile(this.ruta, JSON.stringify(products, null, 2))
-    //             return {mensaje: 'Producto actualizado'}
+        try {
+            const carritos = await this.getAll()
+            const index = carritos.findIndex(obj => obj.id === id)
+            // console.log(index);
+            if (index !== -1){
+                carritos[index] = carrito
+                await fs.promises.writeFile(this.ruta, JSON.stringify(carritos, null, 2))
+                return {mensaje: 'Carrito actualizado'}
 
-    //         } else {
-    //             return {mensaje: 'Producto no encontrado'}
-    //         }
+            } else {
+                return {mensaje: 'Carrito no encontrado'}
+            }
         
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // deleteById(Number) : void
 
-    // async deleteById(id) {
-    //     try {
-    //         let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
-    //         let dataArchParse = JSON.parse(dataArch)
-    //         let producto = dataArchParse.find(producto => producto.id === id)
-    //         if (producto) {
-    //             let dataArchParseFiltered = dataArchParse.filter(producto => producto.id !== id)
-    //             await fs.promises.writeFile(this.ruta, JSON.stringify(dataArchParseFiltered, null, 2))
-    //             console.log('Producto Eliminado')
-    //         } else {
-    //             console.log('No se encontró el producto')
-    //         }
+    async deleteById(id) {
+        try {
+            let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
+            let dataArchParse = JSON.parse(dataArch)
+            let carrito = dataArchParse.find(carrito => carrito.id === id)
+            if (carrito) {
+                let dataArchParseFiltered = dataArchParse.filter(carrito => carrito.id !== id)
+                await fs.promises.writeFile(this.ruta, JSON.stringify(dataArchParseFiltered, null, 2))
+                console.log('Carrito Eliminado')
+            } else {
+                console.log('No se encontró el Carrito')
+            }
 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async deleteProductById(idCart, idProduct) {
+        try {
+            let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
+            let dataArchParse = JSON.parse(dataArch)
+            let carrito = dataArchParse.find(carrito => carrito.id === idCart)
+            let product = carrito.products.find(product => product.id === idProduct)
+            console.log(product);
+            if (product) {
+                let productosFiltrados = carrito.products.filter(product => product.id !== idProduct)
+                carrito.products = productosFiltrados
+                this.updateById(idCart, carrito)
+                console.log('Producto Eliminado')
+            } else {
+                console.log('No se encontró el Producto')
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // deleteAll() : void
 

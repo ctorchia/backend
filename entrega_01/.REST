@@ -35,8 +35,36 @@
 # DELETE http://localhost:8080/api/productos/4 HTTP/1.1
 # content-type: application/json
 
-#################### PARA CARRITO ############################################
+################### PARA CARRITO ############################################
 
-POST http://localhost:8080/api/carrito/ HTTP/1.1
+# POST http://localhost:8080/api/carrito/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "timestamp": "2019-01-01T00:00:00.000Z",
+#     "products":[]
+# }
+
+# DELETE http://localhost:8080/api/carrito/1 HTTP/1.1
+# content-type: application/json
+
+# GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# content-type: application/json
+
+# POST http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# content-type: application/json
+
+# {
+#     "id": 5,
+#     "timestamp": "",
+#     "name": "Teclado",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+#     "price": 200,
+#     "stock": 15
+# }
+
+DELETE http://localhost:8080/api/carrito/1/productos/1 HTTP/1.1
 content-type: application/json
 

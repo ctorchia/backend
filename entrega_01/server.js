@@ -77,22 +77,44 @@ routerProductos.delete('/:id', async (req, res) => {
 routerCarrito.post('/', async (req, res) => {
     const idCarrito = await carrito.save(req.body)
     // const carritoById = await carrito.getById(parseInt(idCarrito))
-    res.json(carritoById)
+    res.json(idCarrito)
 })
 
 //********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
 
+routerCarrito.delete('/:id', async (req, res) => {
+    const { id } = req.params
+    await carrito.deleteById(parseInt(id))
+})
+
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
 
-routerCarrito.get('/', async (req, res) => {
+routerCarrito.get('/:id/productos', async (req, res) => {
     // const listaProductos = await producto.getAll()
-    res.json({"Prueba":"Mensaje de Prueba"})
+    const { id } = req.params
+    const carritoById = await carrito.getById(parseInt(id))
+    listaProductos = carritoById.products
+    res.json(listaProductos)
 })
 
 //********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
 
+routerCarrito.post('/:id/productos', async (req, res) => {
+    const { id } = req.params
+    const carritoById = await carrito.getById(parseInt(id))
+    const productoParaAgregar = req.body
+    carritoById.products.push(productoParaAgregar)
+    await carrito.updateById(parseInt(id), carritoById)
+    res.json(carritoById)
+})
+
 //********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
 
+routerCarrito.delete('/:idCart/productos/:idProduct', async (req, res) => {
+    const { idCart, idProduct } = req.params
+    await carrito.deleteProductById(parseInt(idCart), parseInt(idProduct))
+    // console.log(idCart, idProduct);
+})
 
 //--- INFO ---
 // const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
