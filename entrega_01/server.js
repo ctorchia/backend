@@ -1,6 +1,6 @@
 const express = require('express')
 const { Router } = express
-const Producto = require("./contenedor")
+const Producto = require("./contenedorProducto")
 const Carrito = require("./contenedorCarrito")
 
 const producto = new Producto('./productos.json')
