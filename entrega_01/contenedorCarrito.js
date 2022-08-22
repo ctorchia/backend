@@ -32,6 +32,34 @@ class Carrito {
         }
     }
 
+        // addProductToCart(Number, Object) : Number (In Process)
+
+        async addProductToCart(idCart, product) {
+            try {
+    
+                const carritoById = await this.getById(parseInt(idCart))
+                if (carritoById.products.length) {
+                    let productToAdd = { id: carritoById.products[carritoById.products.length - 1].id + 1,...product}
+                    carritoById.products.push(productToAdd)
+                    console.log(carritoById.products);
+                    await this.updateById(parseInt(idCart), carritoById)
+                    let idProduct = carritoById.products[carritoById.products.length - 1].id
+                    console.log(`El producto agregado tiene el ID: ${idProduct}`);
+                    return idProduct;
+    
+                } else {
+    
+                    // await fs.promises.writeFile(this.ruta, JSON.stringify([{id: 1, ...obj }], null, 2))
+                    console.log(`El producto agregado tiene el ID: 1`);
+                    return 1;
+    
+                }
+    
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
     // getByID(Number) : Object
 
     async getById(id) {

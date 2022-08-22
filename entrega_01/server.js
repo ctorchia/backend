@@ -123,10 +123,11 @@ routerCarrito.get('/:id/productos', async (req, res) => {
 
 routerCarrito.post('/:id/productos', async (req, res) => {
     const { id } = req.params
-    const carritoById = await carrito.getById(parseInt(id))
+    // const carritoById = await carrito.getById(parseInt(id))
     const productoParaAgregar = req.body
-    carritoById.products.push(productoParaAgregar)
-    await carrito.updateById(parseInt(id), carritoById)
+    carritoById = await carrito.addProductToCart(id, productoParaAgregar)
+    // carritoById.products.push(productoParaAgregar)
+    // await carrito.updateById(parseInt(id), carritoById)
     res.json(carritoById)
 })
 
