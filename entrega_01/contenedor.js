@@ -12,16 +12,17 @@ class Producto {
 
             let dataArch = await fs.promises.readFile(this.ruta, 'utf8');
             let dataArchParse = JSON.parse(dataArch);
+            let timestamp = Date.now()
             if (dataArchParse.length) {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { ...obj, id: dataArchParse[dataArchParse.length - 1].id + 1 }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { id: dataArchParse[dataArchParse.length - 1].id + 1, timestamp: timestamp, ...obj}], null, 2))
                 let idProduct = dataArchParse[dataArchParse.length - 1].id + 1
                 console.log(`El producto tiene el ID: ${idProduct}`);
                 return idProduct;
 
             } else {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...obj, id: 1 }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([{id: 1, timestamp: timestamp,...obj }], null, 2))
                 console.log(`El producto tiene el ID: 1`);
                 return 1;
 
@@ -79,8 +80,9 @@ class Producto {
         try {
             const products = await this.getAll()
             const index = products.findIndex(obj => obj.id === id)
-            // console.log(index);
+            let timestamp = Date.now()
             if (index !== -1){
+                product.timestamp = timestamp
                 products[index] = product
                 await fs.promises.writeFile(this.ruta, JSON.stringify(products, null, 2))
                 return {mensaje: 'Producto actualizado'}

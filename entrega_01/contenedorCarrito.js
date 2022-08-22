@@ -12,16 +12,17 @@ class Carrito {
 
             let dataArch = await fs.promises.readFile(this.ruta, 'utf8');
             let dataArchParse = JSON.parse(dataArch);
+            let timestamp = Date.now()
             if (dataArchParse.length) {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { id: dataArchParse[dataArchParse.length - 1].id + 1,...obj}], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { id: dataArchParse[dataArchParse.length - 1].id + 1,timestamp: timestamp, ...obj}], null, 2))
                 let idProduct = dataArchParse[dataArchParse.length - 1].id + 1
                 console.log(`El carrito tiene el ID: ${idProduct}`);
                 return idProduct;
 
             } else {
 
-                await fs.promises.writeFile(this.ruta, JSON.stringify([{id: 1, ...obj }], null, 2))
+                await fs.promises.writeFile(this.ruta, JSON.stringify([{id: 1,timestamp: timestamp, ...obj }], null, 2))
                 console.log(`El carrito tiene el ID: 1`);
                 return 1;
 
@@ -38,10 +39,11 @@ class Carrito {
             try {
     
                 const carritoById = await this.getById(parseInt(idCart))
+                let timestamp = Date.now()
                 if (carritoById.products.length) {
-                    let productToAdd = { id: carritoById.products[carritoById.products.length - 1].id + 1,...product}
+                    
+                    let productToAdd = { id: carritoById.products[carritoById.products.length - 1].id + 1, timestamp,...product}
                     carritoById.products.push(productToAdd)
-                    console.log(carritoById.products);
                     await this.updateById(parseInt(idCart), carritoById)
                     let idProduct = carritoById.products[carritoById.products.length - 1].id
                     console.log(`El producto agregado tiene el ID: ${idProduct}`);
@@ -49,7 +51,10 @@ class Carrito {
     
                 } else {
     
-                    // await fs.promises.writeFile(this.ruta, JSON.stringify([{id: 1, ...obj }], null, 2))
+                    let productToAdd = { id: 1, timestamp, ...product}
+                    carritoById.products.push(productToAdd)
+                    await this.updateById(parseInt(idCart), carritoById)
+
                     console.log(`El producto agregado tiene el ID: 1`);
                     return 1;
     

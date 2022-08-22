@@ -22,16 +22,6 @@
         "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png",
         "price": 200.1,
         "stock": 20
-      },
-      {
-        "id": 3,
-        "timestamp": "",
-        "name": "Teclado",
-        "description": "",
-        "code": 10109,
-        "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-        "price": 200,
-        "stock": 15
       }
     ]
   },

@@ -91,6 +91,15 @@ routerProductos.delete('/:id', async (req, res) => {
     }
 })
 
+//********************** '*' Rest of the routes **********************************
+
+routerProductos.get('*', async (req, res) => {
+    res.json({
+        error: -2,
+        description: "Ruta no implementada"
+    })
+})
+
 
 //********************** CONTROLADOR DE CARRITO ********************************************
 
@@ -98,7 +107,6 @@ routerProductos.delete('/:id', async (req, res) => {
 
 routerCarrito.post('/', async (req, res) => {
     const idCarrito = await carrito.save(req.body)
-    // const carritoById = await carrito.getById(parseInt(idCarrito))
     res.json(idCarrito)
 })
 
@@ -112,7 +120,6 @@ routerCarrito.delete('/:id', async (req, res) => {
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
 
 routerCarrito.get('/:id/productos', async (req, res) => {
-    // const listaProductos = await producto.getAll()
     const { id } = req.params
     const carritoById = await carrito.getById(parseInt(id))
     listaProductos = carritoById.products
@@ -123,11 +130,8 @@ routerCarrito.get('/:id/productos', async (req, res) => {
 
 routerCarrito.post('/:id/productos', async (req, res) => {
     const { id } = req.params
-    // const carritoById = await carrito.getById(parseInt(id))
     const productoParaAgregar = req.body
     carritoById = await carrito.addProductToCart(id, productoParaAgregar)
-    // carritoById.products.push(productoParaAgregar)
-    // await carrito.updateById(parseInt(id), carritoById)
     res.json(carritoById)
 })
 
@@ -136,8 +140,13 @@ routerCarrito.post('/:id/productos', async (req, res) => {
 routerCarrito.delete('/:idCart/productos/:idProduct', async (req, res) => {
     const { idCart, idProduct } = req.params
     await carrito.deleteProductById(parseInt(idCart), parseInt(idProduct))
-    // console.log(idCart, idProduct);
 })
 
-//--- INFO ---
-// const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
+//********************** '*' Rest of the routes **********************************
+
+routerCarrito.get('*', async (req, res) => {
+    res.json({
+        error: -2,
+        description: "Ruta no implementada"
+    })
+})
