@@ -57,7 +57,7 @@ io.on('connection',(socket)=>{
 
     socket.on('producto-nuevo',async (producto,cb)=>{
         console.log(producto);
-        await objProducto.save(producto)
+        await objProducto.add(producto)
         productos = await objProducto.getAll()
         const mensaje = {
             mensaje: 'Producto Insertado',
@@ -83,7 +83,7 @@ io.on('connection',(socket)=>{
     
     socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
 
-        await objMensaje.save(messageComplete)
+        await objMensaje.add(messageComplete)
         mensajes = await objMensaje.getAll()
         const mensaje = {
             mensaje: 'Mensaje Insertado',

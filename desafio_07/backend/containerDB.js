@@ -6,32 +6,16 @@ class HandlerDB {
         this.tableName = tableName
     }
 
-    // save(Object) : Number
+    // add(Object) : Number
 
-    // async save(obj) {
-    //     try {
-
-    //         let dataArch = await fs.promises.readFile(this.ruta, 'utf8');
-    //         let dataArchParse = JSON.parse(dataArch);
-    //         if (dataArchParse.length) {
-
-    //             await fs.promises.writeFile(this.ruta, JSON.stringify([...dataArchParse, { ...obj, id: dataArchParse[dataArchParse.length - 1].id + 1 }], null, 2))
-    //             let idProduct = dataArchParse[dataArchParse.length - 1].id + 1
-    //             console.log(`El producto tiene el ID: ${idProduct}`);
-    //             return idProduct;
-
-    //         } else {
-
-    //             await fs.promises.writeFile(this.ruta, JSON.stringify([{ ...obj, id: 1 }], null, 2))
-    //             console.log(`El producto tiene el ID: 1`);
-    //             return 1;
-
-    //         }
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+    async add(obj) {
+        try {
+            await this.knex(this.tableName).insert(obj)  // Le podemos pasar un obj o un array
+            return {message: 'Producto agregado'}    
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // getByID(Number) : Object
 
@@ -57,20 +41,8 @@ class HandlerDB {
 
     async getAll() {
         try {
-
             let items = this.knex.from(this.tableName).select('*')
-            // console.log(items);
             return items
-            // let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
-            // let dataArchParse = JSON.parse(dataArch)
-            // if (dataArchParse.length) {
-            //     // console.log(dataArchParse)
-            //     return dataArchParse
-
-            // } else {
-            //     console.log('No hay Productos')
-            // }
-
         } catch (error) {
             console.log(error);
         }
