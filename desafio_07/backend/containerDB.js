@@ -2,7 +2,7 @@
 
 class HandlerDB {
     constructor(configKnex, tableName) {
-        this.configKnex = configKnex
+        this.knex = configKnex
         this.tableName = tableName
     }
 
@@ -55,22 +55,26 @@ class HandlerDB {
 
     // getAll() : Object[]
 
-    // async getAll() {
-    //     try {
-    //         let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
-    //         let dataArchParse = JSON.parse(dataArch)
-    //         if (dataArchParse.length) {
-    //             // console.log(dataArchParse)
-    //             return dataArchParse
+    async getAll() {
+        try {
 
-    //         } else {
-    //             console.log('No hay Productos')
-    //         }
+            let items = this.knex.from(this.tableName).select('*')
+            // console.log(items);
+            return items
+            // let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
+            // let dataArchParse = JSON.parse(dataArch)
+            // if (dataArchParse.length) {
+            //     // console.log(dataArchParse)
+            //     return dataArchParse
 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+            // } else {
+            //     console.log('No hay Productos')
+            // }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // updateById
 
@@ -89,7 +93,7 @@ class HandlerDB {
     //         } else {
     //             return {mensaje: 'Producto no encontrado'}
     //         }
-        
+
     //     } catch (error) {
     //         console.log(error);
     //     }

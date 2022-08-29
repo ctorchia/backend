@@ -1,7 +1,13 @@
-const Producto = require("./contenedor.js")
-const objProducto = new Producto('./productos.txt')
+const HandlerDB = require("./containerDB.js")
 
-const objMensaje = new Producto('./mensajes.txt')
+const { optionsMariaDB } = require('../backend/options/mariaDB')
+const { optionsSqlite3 } = require('../backend/options/sqlite3.js')
+
+const knexMariaDB = require('knex')(optionsMariaDB)
+const knexSqlite3 = require('knex')(optionsSqlite3)
+
+const objProducto = new HandlerDB(knexMariaDB,'products')
+const objMensaje = new HandlerDB(knexSqlite3,'messages')
 
 const express = require('express');
 const app = express();
@@ -17,12 +23,12 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('../public'))  
 
-let mensajes = (async ()=>{
-    mensajes = await objMensaje.getAll()
-})();
-
 let productos = (async ()=>{
     productos = await objProducto.getAll()
+})();
+
+let mensajes = (async ()=>{
+    mensajes = await objMensaje.getAll()
 })();
 
 app.get('/', async (req, res) => {

@@ -1,4 +1,5 @@
-const { options } = require('../options/mariaDB')
+// const { options } = require('../options/mariaDB')
+const { options } = require('../options/sqlite3.js')
 
 const knex = require('knex')(options)
 

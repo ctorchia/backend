@@ -1,5 +1,5 @@
 // const { options } = require('../options/mariaDB')
-const { options } = require('../options/sqlite3.js')
+const { optionsSqlite3: options } = require('../options/sqlite3.js')
 
 const knex = require('knex') (options)
 
@@ -13,16 +13,16 @@ const knex = require('knex') (options)
 // .catch((err) => {console.log(err); throw err })
 // .finally(() => knex.destroy())
 
-const nameTable = "products" 
+const nameTable = "messages" 
 
 const createTable = async (nameTable) =>{
     try {
         
         await knex.schema.createTable(nameTable, table =>{
             table.increments('id')
-            table.string('title')
-            table.float('price')
-            table.string('thumbnail')
+            table.string('name')
+            table.float('dateMessage')
+            table.string('message')
         })
 
     } catch (error) {
