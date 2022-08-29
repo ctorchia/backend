@@ -19,29 +19,20 @@ class HandlerDB {
 
     // getByID(Number) : Object
 
-    // async getById(id) {
-    //     try {
-    //         let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
-    //         let dataArchParse = JSON.parse(dataArch)
-
-    //         let producto = dataArchParse.find(producto => producto.id === id)
-    //         if (producto) {
-    //             console.log(producto)
-    //             return producto
-    //         } else {
-    //             console.log('El producto no existe');
-    //             return null
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+    async getById(id) {
+        try {
+            let item = await knex.from(this.tableName).select('*').where({id:id})
+            return item
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     // getAll() : Object[]
 
     async getAll() {
         try {
-            let items = this.knex.from(this.tableName).select('*')
+            let items = await this.knex.from(this.tableName).select('*')
             return items
         } catch (error) {
             console.log(error);
