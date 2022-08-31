@@ -13,6 +13,8 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -100,3 +102,64 @@ serverHttp.listen(PORT, (err) => {
     if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
     console.log(`Servidor corriendo en el puerto ${PORT}`)
 })
+
+
+// ------ PRUEBAS PRODUCTOS - getById , updateById , deleteById y deleteAll ---------
+
+app.get('/api/productos/:id', async (req, res) => {
+    const { id } = req.params
+    const productoById = await objProducto.getById(id)
+    productoById ?
+        res.json(productoById)
+        :
+        res.json({ error: 'Producto no encontrado' })
+})
+
+app.put('/api/productos/:id', async (req, res) => {
+    const { id } = req.params
+    const respuesta = await objProducto.updateById(id, req.body)
+    res.json(respuesta)
+    productos = await objProducto.getAll()
+})
+
+app.delete('/api/productos/:id', async (req, res) => {
+    const { id } = req.params
+    res.json(await objProducto.deleteById(id))
+    productos = await objProducto.getAll()
+})
+
+app.delete('/api/productos', async (req, res) => {
+    res.json(await objProducto.deleteAll())
+    productos = await objProducto.getAll()
+
+})
+
+// ------ PRUEBAS CHAT - getById , updateById , deleteById y deleteAll ---------
+
+app.get('/api/mensajes/:id', async (req, res) => {
+    const { id } = req.params
+    const productoById = await objMensaje.getById(id)
+    productoById ?
+        res.json(productoById)
+        :
+        res.json({ error: 'Producto no encontrado' })
+})
+
+app.put('/api/mensajes/:id', async (req, res) => {
+    const { id } = req.params
+    const respuesta = await objMensaje.updateById(id, req.body)
+    res.json(respuesta)
+    mensajes = await objMensaje.getAll()
+})
+
+app.delete('/api/mensajes/:id', async (req, res) => {
+    const { id } = req.params
+    res.json(await objMensaje.deleteById(id))
+    mensajes = await objMensaje.getAll()
+})
+
+app.delete('/api/mensajes', async (req, res) => {
+    res.json(await objMensaje.deleteAll())
+    mensajes = await objMensaje.getAll()
+})
+

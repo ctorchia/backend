@@ -1,0 +1,23 @@
+
+#################### PARA PRODUCTOS LOCALHOST ############################################
+
+# GET http://localhost:8080/api/productos/1 HTTP/1.1
+# content-type: application/json
+
+# DELETE http://localhost:8080/api/productos HTTP/1.1
+# content-type: application/json
+
+# DELETE http://localhost:8080/api/mensajes/2 HTTP/1.1
+# content-type: application/json
+
+# DELETE http://localhost:8080/api/productos/8 HTTP/1.1
+# content-type: application/json
+
+# PUT http://localhost:8080/api/productos/6 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "title": "Teclado",
+#     "price": "3333",
+#     "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png"
+# }
