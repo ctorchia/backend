@@ -1,0 +1,61 @@
+use ecommerce
+db.createCollection("productos")
+db.createCollection("mensajes")
+// 1. y 2.
+db.productos.insertMany([
+    {title: "Escuadra",price: 150,thumbnail: "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png"},
+    {title: "Calculadora",price: 200.50,thumbnail: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-256.png"},
+    {title: "Globo Terráqueo",price: 300,thumbnail: "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png"},
+    {title: "Regla",price: 1500,thumbnail: "https://cdn0.iconfinder.com/data/icons/graphic-design-tools-1/32/Ruler-Measurement-Scale-Measure-256.png"},
+    {title: "Goma",price: 500,thumbnail: "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png"},
+    {title: "Teclado",price: 2500,thumbnail: "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png"},
+    {title: "Mouse",price: 3000,thumbnail: "https://cdn0.iconfinder.com/data/icons/freebies-2/24/mouse-256.png"},
+    {title: "Lapiz",price: 4500,thumbnail: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/pencil-256.png"},
+    {title: "Cuaderno",price: 3900,thumbnail: "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/pencil-256.png"},
+    {title: "Pincel",price: 2100,thumbnail: "https://cdn3.iconfinder.com/data/icons/geest-women-kit/128/bag_icons-24-256.png"}
+  ])
+
+  db.mensajes.insertMany([
+    {name: "cristian@gmail.com",dateMessage: "16/08/2022 11:59:26",message: "Hola"},
+    {name: "mara@gmail.com",dateMessage: "16/08/2022 11:59:37",message: "Como estas?"},
+    {name: "cristian@gmail.com",dateMessage: "16/08/2022 11:59:55",message: "Todo bien!"},
+    {name: "cristian@gmail.com",dateMessage: "16/08/2022 12:05:36",message: "Todo perfecto!"},
+    {name: "mara@gmail.com",dateMessage: "16/08/2022 12:10:59",message: "Me alegro"},
+    {name: "cristian@gmail.com",dateMessage: "16/08/2022 12:11:14",message: "Y vos?"},
+    {name: "mara@gmail.com",dateMessage: "16/08/2022 12:20:14",message: "Todo muy bien!"},
+    {name: "mara@gmail.com",dateMessage: "16/08/2022 12:21:14",message: "Como seguis del dolor de piernas?"},
+    {name: "cristian@gmail.com",dateMessage: "16/08/2022 12:22:14",message: "Por suerte mejorando"},
+    {name: "cristian@gmail.com",dateMessage: "16/08/2022 12:23:14",message: "Muchas gracias por preguntar!"}
+  ])
+
+// 3.
+  db.productos.find()
+  db.mensajes.find()
+
+// 4.
+  db.productos.estimatedDocumentCount()
+  db.mensajes.estimatedDocumentCount()
+
+// 5 a
+  db.productos.insertOne({title: "Monitor",price: 5000,thumbnail: "https://cdn4.iconfinder.com/data/icons/48-bubbles/48/29.Mac-256.png"})
+
+// 5 b i
+  db.productos.find({price:{$lt: 1000}})
+// 5 b ii
+  db.productos.find({ $and: [{ price: {$gte : 1000} }, { price:{$lte : 3000} }]})  
+// 5 b iii
+  db.productos.find({price:{ $gt : 3000 }})
+// 5 b iv
+  db.productos.find({},{title:1}).sort({price:1}).skip(2).limit(1)
+
+// 5 c
+  db.productos.updateMany({}, {$set: {stock: 100}}) 
+
+// 5 d
+  db.productos.updateMany({price: {$gt: 4000 }}, {$set: {stock: 0}})
+
+// 5 e
+  db.productos.deleteMany({price: {$lt: 1000 }})  
+
+// 6.  
+  db.createUser({user: "pepe",pwd: "asd456",roles: [{ role: "read", db: "ecommerce" }]})
