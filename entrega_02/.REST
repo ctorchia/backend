@@ -1,0 +1,107 @@
+#################### PARA PRODUCTOS GLITCH ############################################
+
+# GET https://glowing-neighborly-ricotta.glitch.me/api/productos HTTP/1.1
+# content-type: application/json
+
+# POST https://glowing-neighborly-ricotta.glitch.me/api/productos/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Teclado",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+#     "price": 200,
+#     "stock": 15
+# }
+
+# PUT https://glowing-neighborly-ricotta.glitch.me/api/productos/6 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Goma",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
+#     "price": 1000,
+#     "stock": 15
+# }
+
+# DELETE https://glowing-neighborly-ricotta.glitch.me/api/productos/6 HTTP/1.1
+# content-type: application/json
+
+#################### PARA PRODUCTOS LOCALHOST ############################################
+
+# GET http://localhost:8080/api/productos/1 HTTP/1.1
+# content-type: application/json
+
+# POST http://localhost:8080/api/productos/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Teclado",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+#     "price": 200,
+#     "stock": 15
+# }
+
+    # "id": 6,
+    # "timestamp": "",
+
+# PUT http://localhost:8080/api/productos/5 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Goma",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
+#     "price": 1000,
+#     "stock": 15
+# }
+
+#     "id": 5,
+#     "timestamp": "",
+
+# DELETE http://localhost:8080/api/productos/5 HTTP/1.1
+# content-type: application/json
+
+
+################### PARA CARRITO ############################################
+
+# POST http://localhost:8080/api/carrito/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "products":[]
+# }
+
+    # "timestamp": "2019-01-01T00:00:00.000Z",
+
+
+# DELETE http://localhost:8080/api/carrito/2 HTTP/1.1
+# content-type: application/json
+
+# GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# content-type: application/json
+
+# POST http://localhost:8080/api/carrito/2/productos HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Teclado",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+#     "price": 200,
+#     "stock": 15
+# }
+
+    # "timestamp": "",
+    # "id": 5,
+
+# DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1
+# content-type: application/json
+
