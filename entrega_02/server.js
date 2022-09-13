@@ -23,6 +23,11 @@ app.use('/api/productos', routerProductos)
 app.use('/api/carrito', routerCarrito)
 server.on('error', (err) => console.log(err))
 
+const dotenv = require('dotenv').config() // 1
+const Users = require('./mongoDB/models/users.models') // 1
+const connectDB = require('./mongoDB/connection')  // 1
+connectDB() // 1
+
 //********************** CONTROLADOR DE PRODUCTOS ********************************************
 
 //********************** GET (Devuelve todos los productos) **********************************
