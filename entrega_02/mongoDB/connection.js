@@ -6,6 +6,8 @@ const mongoose = require('mongoose')  //Hacerlo con Import
 const connectDB = async () => {
     try {
         // const url = 'mongodb://localhost:27017/ecommerce'
+        // const url = 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'
+
         const url = process.env.MONGODB_CONNECTION
         await mongoose.connect(url,{
             useNewUrlParser: true,
@@ -17,3 +19,5 @@ const connectDB = async () => {
     }
 }
 module.exports = connectDB
+
+

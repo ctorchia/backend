@@ -1,13 +1,29 @@
 const express = require('express')
 const { Router } = express
 
-const ProductosDaoArchivo = require('./daos/productos/ProductosDaoArchivo')
-const CarritosDaoArchivo = require('./daos/carritos/CarritosDaoArchivo')
+// *** Contenedor Archivo *****
+// const ProductosDaoArchivo = require('./daos/productos/ProductosDaoArchivo')
+// const CarritosDaoArchivo = require('./daos/carritos/CarritosDaoArchivo')
 
-const producto = new ProductosDaoArchivo('./database/productos.json')
-const carrito = new CarritosDaoArchivo('./database/carritos.json')
+// const producto = new ProductosDaoArchivo('./database/productos.json')
+// const carrito = new CarritosDaoArchivo('./database/carritos.json')
+
+// *** Contenedor MongoDb *****
+const ProductosDaoMongoDb = require('./daos/productos/ProductosDaoMongoDb')
+const CarritosDaoMongoDb = require('./daos/carritos/CarritosDaoMongoDb')
+
+const producto = new ProductosDaoMongoDb
+const carrito = new CarritosDaoMongoDb
+
+
+
+
+// const Users = require('./mongoDB/models/users.models') // 1
+const dotenv = require('dotenv').config() // 1
+// const connectDB = require('./mongoDB/connection')  // 1
+// connectDB() // 1
+
 const administrador = true
-
 const app = express()
 const routerProductos = Router()
 const routerCarrito = Router()
@@ -23,11 +39,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/api/productos', routerProductos)
 app.use('/api/carrito', routerCarrito)
 server.on('error', (err) => console.log(err))
-
-const dotenv = require('dotenv').config() // 1
-const Users = require('./mongoDB/models/users.models') // 1
-const connectDB = require('./mongoDB/connection')  // 1
-connectDB() // 1
 
 //********************** CONTROLADOR DE PRODUCTOS ********************************************
 
@@ -55,8 +66,8 @@ routerProductos.get('/:id', async (req, res) => {
 routerProductos.post('/', async (req, res) => {
     if (administrador) {
         const idProduct = await producto.save(req.body)
-        const productoById = await producto.getById(parseInt(idProduct))
-        res.json(productoById)
+        // const productoById = await producto.getById(parseInt(idProduct))
+        // res.json(productoById)
     }
     else {
         res.json({
