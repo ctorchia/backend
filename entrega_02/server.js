@@ -1,10 +1,11 @@
 const express = require('express')
 const { Router } = express
-const Producto = require("./contenedorProducto")
-const Carrito = require("./contenedorCarrito")
 
-const producto = new Producto('./productos.json')
-const carrito = new Carrito('./carritos.json')
+const ProductosDaoArchivo = require('./daos/productos/ProductosDaoArchivo')
+const CarritosDaoArchivo = require('./daos/carritos/CarritosDaoArchivo')
+
+const producto = new ProductosDaoArchivo('./database/productos.json')
+const carrito = new CarritosDaoArchivo('./database/carritos.json')
 const administrador = true
 
 const app = express()

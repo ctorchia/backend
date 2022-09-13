@@ -27,7 +27,7 @@
   },
   {
     "id": 2,
-    "timestamp": "2019-01-01T00:00:00.000Z",
+    "timestamp": 1663084921511,
     "products": [
       {
         "id": 1,
@@ -38,6 +38,16 @@
         "thumbnail": "https://cdn3.iconfinder.com/data/icons/education-209/64/ruler-triangle-stationary-school-256.png",
         "price": 123.45,
         "stock": 18
+      },
+      {
+        "id": 2,
+        "timestamp": 1663084921507,
+        "name": "Teclado",
+        "description": "",
+        "code": 10109,
+        "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+        "price": 200,
+        "stock": 15
       }
     ]
   }

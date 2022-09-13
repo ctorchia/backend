@@ -48,5 +48,15 @@
     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
     "price": 2000,
     "stock": 15
+  },
+  {
+    "id": 6,
+    "timestamp": 1663084886014,
+    "name": "Teclado",
+    "description": "",
+    "code": 10109,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "price": 200,
+    "stock": 15
   }
 ]
