@@ -1,13 +1,13 @@
 #################### PARA PRODUCTOS LOCALHOST ############################################
 
-# GET http://localhost:8080/api/productos/1 HTTP/1.1
+# GET http://localhost:8080/api/productos/7 HTTP/1.1
 # content-type: application/json
 
 POST http://localhost:8080/api/productos/ HTTP/1.1
 content-type: application/json
 
 {
-    "id": 6,
+    "id": 4,
     "name": "Teclado",
     "description": "",
     "code": 10109,
@@ -18,7 +18,7 @@ content-type: application/json
 
     # "timestamp": "",
 
-# PUT http://localhost:8080/api/productos/5 HTTP/1.1
+# PUT http://localhost:8080/api/productos/6 HTTP/1.1
 # content-type: application/json
 
 # {

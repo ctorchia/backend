@@ -1,16 +1,24 @@
-const Products = require('../mongoDB/models/products.models') // 1
+// const Products = require('../mongoDB/models/products.models') // 1
 
 const dotenv = require('dotenv').config() // 1
 const connectDB = require('../mongoDB/connection')  // 1
 connectDB() // 1
+
 class ContenedorMongoDb {
+
+    constructor(prueba, model){
+        this.model = model
+        this.prueba = prueba
+    }
 
     // save(Object) : Number
 
     async save(obj) {
         try {
+            console.log(this.model);
+            console.log(this.prueba);
 
-            let product = new Products(obj)
+            let product = new this.model(obj)
             await product.save()
             console.log('Objeto Agregado');
         } catch (error) {
