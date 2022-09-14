@@ -1,8 +1,8 @@
 const ContenedorFirebase = require('../../contenedores/ContenedorFirebase')
-const collection = 'productos'
+let coll = 'productos'
 class ProductosDaoFirebase extends ContenedorFirebase {
     constructor(){
-        super(collection)
+        super(coll)
     }
 
     // Otras funciones diferentes

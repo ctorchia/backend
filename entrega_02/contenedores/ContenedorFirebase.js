@@ -1,33 +1,44 @@
 const dotenv = require('dotenv').config() // 1
+var admin = require("firebase-admin");
+var serviceAccount = require("../firebase/backend-clase-20-firebase-adminsdk-ywa7k-48e0910906.json");
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+});
+const db = admin.firestore()
+console.log('Firestore Conectado');
 
 class ContenedorFirebase {
 
-    constructor(coll){
+    constructor(coll) {
         this.coll = coll
-        // this.query = db.collection(coll)
+        this.query = db.collection('productos')
     }
-// ************************************************************************* //
     // save(Object) : Number
 
     async save(obj) {
         try {
-            let product = new this.model(obj)
-            await product.save()
-            console.log('Objeto Agregado');
+            const doc = this.query.doc(`${obj.id}`)
+            let item = await doc.create(obj);
+            console.log('Objeto agregado correctamente');
+            return item;
+
         } catch (error) {
             console.log(error);
         }
     }
+    // ************************************************************************* //
 
     // getByID(Number) : Object
 
     async getById(id) {
         try {
-            let objeto = await this.model.find({ id: id })
+            const doc = this.query.doc(`${id}`);
+            const queryReadOne = await doc.get()
+            const respuesta = { id: queryReadOne.id, ...queryReadOne.data() }
 
-            if (objeto) {
-                console.log(objeto)
-                return objeto
+            if (respuesta) {
+                console.log(respuesta)
+                return respuesta
             } else {
                 console.log('El item no existe');
                 return null
@@ -41,9 +52,10 @@ class ContenedorFirebase {
 
     async getAll() {
         try {
-            let objetos = await this.model.find()
-            if (objetos) {
-                return objetos
+            const queryRead = await this.query.get()
+            const data = queryRead.docs.map(document => ({id: document.id, ...document.data()}))
+            if (data) {
+                return data
             } else {
                 console.log('No hay Productos')
             }
@@ -61,7 +73,8 @@ class ContenedorFirebase {
             let timestamp = Date.now()
             if (this.getById(id)) {
                 product.timestamp = timestamp
-                await this.model.updateOne({ id: id }, { $set: product })
+                const doc = this.query.doc(`${id}`)
+                const item = await doc.update(product)
                 return { mensaje: 'Objeto actualizado' }
             } else {
                 return { mensaje: 'Objeto no encontrado' }
