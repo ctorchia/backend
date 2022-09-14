@@ -6,18 +6,14 @@ connectDB() // 1
 
 class ContenedorMongoDb {
 
-    constructor(prueba, model){
+    constructor(model){
         this.model = model
-        this.prueba = prueba
     }
 
     // save(Object) : Number
 
     async save(obj) {
         try {
-            console.log(this.model);
-            console.log(this.prueba);
-
             let product = new this.model(obj)
             await product.save()
             console.log('Objeto Agregado');

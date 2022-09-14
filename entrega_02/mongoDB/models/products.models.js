@@ -8,7 +8,7 @@ const ProductsSchema = new mongoose.Schema({
         unique: true
     },
     timestamp: {
-        type: Number,
+        type: String,
         required: false,
         trim: true
     },
