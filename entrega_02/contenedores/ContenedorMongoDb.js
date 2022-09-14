@@ -26,7 +26,7 @@ class ContenedorMongoDb {
 
     async getById(id) {
         try {
-            let objeto = await Products.find({ id: id })
+            let objeto = await this.model.find({ id: id })
 
             if (objeto) {
                 console.log(objeto)
@@ -44,7 +44,7 @@ class ContenedorMongoDb {
 
     async getAll() {
         try {
-            let objetos = await Products.find()
+            let objetos = await this.model.find()
             if (objetos) {
                 return objetos
             } else {
@@ -64,7 +64,7 @@ class ContenedorMongoDb {
             let timestamp = Date.now()
             if (this.getById(id)) {
                 product.timestamp = timestamp
-                await Products.updateOne({ id: id }, { $set: product })
+                await this.model.updateOne({ id: id }, { $set: product })
                 return { mensaje: 'Objeto actualizado' }
             } else {
                 return { mensaje: 'Objeto no encontrado' }
@@ -79,7 +79,7 @@ class ContenedorMongoDb {
     async deleteById(id) {
         try {
             if (this.getById(id)) {
-                await Products.deleteOne({ id: id })
+                await this.model.deleteOne({ id: id })
                 console.log('Objeto Eliminado')
             } else {
                 console.log('No se encontró el objeto')
@@ -93,8 +93,8 @@ class ContenedorMongoDb {
     // deleteAll() : void   (Ver)
 
     async deleteAll() {
-        await Products.deleteMany()
-        // await Products.deleteAll()
+        await this.model.deleteMany()
+        // await this.model.deleteAll()
         console.log('Todos los objetos se han eliminado')
     }
 

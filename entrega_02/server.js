@@ -108,6 +108,7 @@ routerProductos.get('*', async (req, res) => {
 //********************** POST: '/' (Crea un carrito y devuelve su ID) **********************************
 
 routerCarrito.post('/', async (req, res) => {
+    // console.log(req.body);
     const idCarrito = await carrito.save(req.body)
     res.json(idCarrito)
 })

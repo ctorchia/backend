@@ -1,18 +1,18 @@
 const mongoose = require('mongoose')
 
 const CartsSchema = new mongoose.Schema({ 
-    // id: {
-    //     type: Number,
-    //     required: false,
-    //     trim: true,
-    //     unique: true
-    // },
+    id: {
+        type: Number,
+        required: true,
+        trim: true,
+        unique: true
+    },
     timestamp: {
         type: String,
         required: false,
         trim: true
     },
-    productos: {
+    products: {
         type: Array,
         required: true,
     }
