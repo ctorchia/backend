@@ -11,7 +11,7 @@ class ContenedorFirebase {
 
     constructor(coll) {
         this.coll = coll
-        this.query = db.collection('productos')
+        this.query = db.collection(`${coll}`)
     }
     // save(Object) : Number
 
@@ -26,16 +26,15 @@ class ContenedorFirebase {
             console.log(error);
         }
     }
-    // ************************************************************************* //
-
+    
     // getByID(Number) : Object
-
+    
     async getById(id) {
         try {
             const doc = this.query.doc(`${id}`);
             const queryReadOne = await doc.get()
             const respuesta = { id: queryReadOne.id, ...queryReadOne.data() }
-
+            
             if (respuesta) {
                 console.log(respuesta)
                 return respuesta
@@ -49,7 +48,7 @@ class ContenedorFirebase {
     }
 
     // getAll() : Object[]
-
+    
     async getAll() {
         try {
             const queryRead = await this.query.get()
@@ -59,14 +58,14 @@ class ContenedorFirebase {
             } else {
                 console.log('No hay Productos')
             }
-
+            
         } catch (error) {
             console.log(error);
         }
     }
-
+    
     // updateById
-
+    
     async updateById(id, product) {
 
         try {
@@ -83,13 +82,15 @@ class ContenedorFirebase {
             console.log(error);
         }
     }
+    // ************************************************************************* //
 
     // deleteById(Number) : void
 
     async deleteById(id) {
         try {
             if (this.getById(id)) {
-                await this.model.deleteOne({ id: id })
+                const doc = this.query.doc(`${id}`)
+                const item = await doc.delete()
                 console.log('Objeto Eliminado')
             } else {
                 console.log('No se encontró el objeto')
@@ -98,14 +99,6 @@ class ContenedorFirebase {
         } catch (error) {
             console.log(error);
         }
-    }
-
-    // deleteAll() : void   (Ver)
-
-    async deleteAll() {
-        await this.model.deleteMany()
-        // await this.model.deleteAll()
-        console.log('Todos los objetos se han eliminado')
     }
 
 }
