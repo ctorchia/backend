@@ -1,27 +1,12 @@
 const express = require('express')
 const { Router } = express
 
-// *** Contenedor Archivo *****
-// const ProductosDaoArchivo = require('./daos/productos/ProductosDaoArchivo')
-// const CarritosDaoArchivo = require('./daos/carritos/CarritosDaoArchivo')
+// Import from index.js 
+const {productosDao,carritosDao} = require("./daos/index");
+const producto = productosDao
+const carrito = carritosDao
 
-// const producto = new ProductosDaoArchivo('./database/productos.json')
-// const carrito = new CarritosDaoArchivo('./database/carritos.json')
-
-// *** Contenedor MongoDb *****
-const ProductosDaoMongoDb = require('./daos/productos/ProductosDaoMongoDb')
-const CarritosDaoMongoDb = require('./daos/carritos/CarritosDaoMongoDb')
-
-const producto = new ProductosDaoMongoDb
-const carrito = new CarritosDaoMongoDb
-
-
-
-
-// const Users = require('./mongoDB/models/users.models') // 1
 const dotenv = require('dotenv').config() // 1
-// const connectDB = require('./mongoDB/connection')  // 1
-// connectDB() // 1
 
 const administrador = true
 const app = express()

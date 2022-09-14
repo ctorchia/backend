@@ -1,9 +1,10 @@
 const ContenedorArchivo = require('../../contenedores/ContenedorArchivo.js')
+const ruta = './database/carritos.json'
 
 class CarritosDaoArchivo extends ContenedorArchivo {
-    // constructor() {
-    //     super('../../database/carritos.json')
-    // }
+    constructor(){
+        super(ruta)
+    }
 
     // addProductToCart(Number, Object) : Number (In Process)
 

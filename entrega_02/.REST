@@ -3,19 +3,19 @@
 # GET http://localhost:8080/api/productos/7 HTTP/1.1
 # content-type: application/json
 
-POST http://localhost:8080/api/productos/ HTTP/1.1
-content-type: application/json
+# POST http://localhost:8080/api/productos/ HTTP/1.1
+# content-type: application/json
 
-{
-    "id": 4,
-    "name": "Teclado",
-    "description": "",
-    "code": 10109,
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-    "price": 200,
-    "stock": 15
-}
+# {
+#     "name": "Teclado",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+#     "price": 200,
+#     "stock": 15
+# }
 
+    # "id": 7,
     # "timestamp": "",
 
 # PUT http://localhost:8080/api/productos/6 HTTP/1.1
