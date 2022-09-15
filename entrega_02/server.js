@@ -51,8 +51,6 @@ routerProductos.get('/:id', async (req, res) => {
 routerProductos.post('/', async (req, res) => {
     if (administrador) {
         const idProduct = await producto.save(req.body)
-        // const productoById = await producto.getById(parseInt(idProduct))
-        // res.json(productoById)
     }
     else {
         res.json({

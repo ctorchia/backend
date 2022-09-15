@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')  //Hacerlo con Import
+const mongoose = require('mongoose')
 const { MONGODB_CONNECTION } = require('../config')
 
 const connectDB = async () => {
