@@ -1,5 +1,7 @@
 const ContenedorArchivo = require('../../contenedores/ContenedorArchivo.js')
 const ruta = './database/carritos.json'
+const fs = require('fs');
+
 
 class CarritosDaoArchivo extends ContenedorArchivo {
     constructor(){

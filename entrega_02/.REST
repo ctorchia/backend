@@ -3,64 +3,11 @@
 # GET http://localhost:8080/api/productos/1 HTTP/1.1
 # content-type: application/json
 
-POST http://localhost:8080/api/productos/ HTTP/1.1
-content-type: application/json
-
-{
-    "id": "2",
-    "name": "Teclado",
-    "description": "",
-    "code": 10109,
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-    "price": 200,
-    "stock": 15
-}
-
-    # "timestamp": "",
-
-# PUT http://localhost:8080/api/productos/6 HTTP/1.1
+# POST http://localhost:8080/api/productos/ HTTP/1.1
 # content-type: application/json
 
 # {
-#     "id": "5",
-#     "name": "Goma",
-#     "description": "",
-#     "code": 10109,
-#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
-#     "price": 1000,
-#     "stock": 15
-# }
-
-#     "timestamp": "",
-
-# DELETE http://localhost:8080/api/productos/5 HTTP/1.1
-# content-type: application/json
-
-
-################### PARA CARRITO ############################################
-
-# POST http://localhost:8080/api/carrito/ HTTP/1.1
-# content-type: application/json
-
-# {
-#     "id": 1,
-#     "products":[]
-# }
-
-    # "timestamp": "2019-01-01T00:00:00.000Z",
-
-
-# DELETE http://localhost:8080/api/carrito/2 HTTP/1.1
-# content-type: application/json
-
-# GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
-# content-type: application/json
-
-# POST http://localhost:8080/api/carrito/1/productos HTTP/1.1
-# content-type: application/json
-
-# {
-#     "id": 5,
+#     "id": 3,
 #     "name": "Teclado",
 #     "description": "",
 #     "code": 10109,
@@ -71,7 +18,60 @@ content-type: application/json
 
     # "timestamp": "",
 
-# DELETE http://localhost:8080/api/carrito/1/productos/6 HTTP/1.1
+# PUT http://localhost:8080/api/productos/1 HTTP/1.1
+# content-type: application/json
+
+# {
+#     "id": 6,
+#     "name": "Goma",
+#     "description": "",
+#     "code": 10109,
+#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
+#     "price": 1000,
+#     "stock": 15
+# }
+
+#     "timestamp": "",
+
+# DELETE http://localhost:8080/api/productos/6 HTTP/1.1
+# content-type: application/json
+
+
+################### PARA CARRITO ############################################
+
+# POST http://localhost:8080/api/carrito/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "id": 2,
+#     "products":[]
+# }
+
+    # "timestamp": "2019-01-01T00:00:00.000Z",
+
+
+# DELETE http://localhost:8080/api/carrito/3 HTTP/1.1
+# content-type: application/json
+
+# GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# content-type: application/json
+
+POST http://localhost:8080/api/carrito/3/productos HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Teclado",
+    "description": "",
+    "code": 10109,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "price": 200,
+    "stock": 15
+}
+
+    # "timestamp": "",
+
+# DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1
 # content-type: application/json
 
 

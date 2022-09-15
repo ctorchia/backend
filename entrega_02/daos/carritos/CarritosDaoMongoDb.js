@@ -37,7 +37,7 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
 
     async deleteProductById(idCart, idProduct) {
         try {
-            let cart = (await this.getById(idCart))[0]
+            let cart = (await this.getById(idCart))
             
             console.log(`Carrito Seleccionado: ${cart}`);
             console.log(`Productos: ${cart.products}`);

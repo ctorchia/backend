@@ -30,7 +30,7 @@ class ContenedorMongoDb {
 
             if (objeto) {
                 console.log(objeto)
-                return objeto
+                return objeto[0]
             } else {
                 console.log('El item no existe');
                 return null
