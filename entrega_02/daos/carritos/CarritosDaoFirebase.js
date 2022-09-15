@@ -39,7 +39,7 @@ class CarritosDaoFirebase extends ContenedorFirebase {
                 let productosFiltrados = carritoById.products.filter(product => product.id !== idProduct)
                 carritoById.products = productosFiltrados
                 await this.updateById(idCart, carritoById)
-                console.log('Producto Eliminado')
+                console.log('Producto Eliminado 2')
             } else {
                 console.log('No se encontró el Producto')
             }

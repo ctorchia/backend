@@ -19,7 +19,7 @@
 #     "stock": 15
 # }
 
-# PUT http://localhost:8080/api/productos/1 HTTP/1.1
+# PUT http://localhost:8080/api/productos/6 HTTP/1.1
 # content-type: application/json
 
 # {
@@ -31,7 +31,7 @@
 #     "stock": 15
 # }
 
-# DELETE http://localhost:8080/api/productos/2 HTTP/1.1
+# DELETE http://localhost:8080/api/productos/6 HTTP/1.1
 # content-type: application/json
 
 ################### PARA CARRITO ############################################
@@ -49,7 +49,7 @@
 # GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
 # content-type: application/json
 
-# POST http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# POST http://localhost:8080/api/carrito/3/productos HTTP/1.1
 # content-type: application/json
 
 # {
@@ -61,7 +61,7 @@
 #     "stock": 15
 # }
 
-# DELETE http://localhost:8080/api/carrito/1/productos/2 HTTP/1.1
+# DELETE http://localhost:8080/api/carrito/3/productos/2 HTTP/1.1
 # content-type: application/json
 
 
@@ -81,7 +81,7 @@
 
 # {
 #     "id": "2",
-#     "name": "Teclado 4",
+#     "name": "Teclado 2",
 #     "description": "",
 #     "code": 10109,
 #     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
@@ -90,11 +90,11 @@
 # }
     
 
-# PUT http://localhost:8080/api/productos/1 HTTP/1.1
+# PUT http://localhost:8080/api/productos/2 HTTP/1.1
 # content-type: application/json
 
 # {
-#     "id": "1",
+#     "id": "2",
 #     "name": "Goma",
 #     "description": "",
 #     "code": 10109,
@@ -112,7 +112,7 @@
 # content-type: application/json
 
 # {
-#     "id": 2,
+#     "id": "3",
 #     "products":[]
 # }
 
@@ -122,12 +122,12 @@
 # GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
 # content-type: application/json
 
-# POST http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# POST http://localhost:8080/api/carrito/2/productos HTTP/1.1
 # content-type: application/json
 
 # {
-#     "id": 2,
-#     "name": "Teclado 2",
+#     "id": "1",
+#     "name": "Teclado 1",
 #     "description": "",
 #     "code": 10109,
 #     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
@@ -135,5 +135,5 @@
 #     "stock": 15
 # }
 
-# DELETE http://localhost:8080/api/carrito/1/productos/2 HTTP/1.1
-# content-type: application/json
+DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1
+content-type: application/json
