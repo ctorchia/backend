@@ -1,9 +1,8 @@
-## Desafio 04:
-Realizar un proyecto de servidor basado en node.js y express que ofrezca una API RESTful de productos. 
-En detalle, que incorpore las siguientes rutas:
+## Entrega 02:
+Basándose en los contenedores ya desarrollados (memoria, archivos) desarrollar dos contenedores más (que cumplan con la misma interfaz) que permitan realizar las operaciones básicas de CRUD en MongoDb (ya sea local o remoto) y en Firebase. Luego, para cada contenedor, crear dos clases derivadas, una para trabajar con Productos, y otra para trabajar con Carritos.
 
-- GET '/api/productos' -> devuelve todos los productos.
-- GET '/api/productos/:id' -> devuelve un producto según su id.
-- POST '/api/productos' -> recibe y agrega un producto, y lo devuelve con su id asignado.
-- PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
-- DELETE '/api/productos/:id' -> elimina un producto según su id.
+
+- A las clases derivadas de los contenedores se las conoce como DAOs (Data Access Objects), y pueden ir todas incluidas en una misma carpeta de ‘daos’.
+- En la carpeta de daos, incluir un archivo que importe todas las clases y exporte una instancia de dao de productos y una de dao de carritos, según corresponda. Esta decisión se tomará en base al valor de una variable de entorno cargada al momento de ejecutar el servidor (opcional: investigar el uso de imports dinámicos).
+- Incluir un archivo de configuración (config) que contenga los datos correspondientes para conectarse a las bases de datos o medio de persistencia que corresponda.
+

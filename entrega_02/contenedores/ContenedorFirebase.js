@@ -82,7 +82,6 @@ class ContenedorFirebase {
             console.log(error);
         }
     }
-    // ************************************************************************* //
 
     // deleteById(Number) : void
 

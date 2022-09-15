@@ -45,7 +45,7 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
 
                 let productosFiltrados = cart.products.filter(product => product.id !== idProduct)
                 cart.products = productosFiltrados
-                this.updateById(idCart, cart)
+                await this.updateById(idCart, cart)
                 console.log('Producto Eliminado')
             } else {
                 console.log('No se encontró el Producto')
