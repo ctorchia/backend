@@ -43,6 +43,9 @@ class CarritosDaoArchivo extends ContenedorArchivo {
     // deleteProductById(idCart, idProduct) 
 
     async deleteProductById(idCart, idProduct) {
+        idCart = parseInt(idCart)
+        idProduct = parseInt(idProduct);
+
         try {
             let dataArch = await fs.promises.readFile(this.ruta, 'utf8')
             let dataArchParse = JSON.parse(dataArch)

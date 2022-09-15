@@ -1,12 +1,8 @@
 const { response } = require('express')
-
-// Import from index.js 
 const {productosDao} = require("../daos/index");
 const producto = productosDao
 
 const administrador = true
-
-//********************** CONTROLADOR DE PRODUCTOS ********************************************
 
 //********************** GET (Devuelve todos los productos) **********************************
 const getProducts = async (req, res) => {

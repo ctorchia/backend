@@ -1,10 +1,6 @@
 const { response } = require('express')
-
-// Import from index.js 
 const {carritosDao} = require("../daos/index"); 
 const carrito = carritosDao    
-
-//********************** CONTROLADOR DE CARRITO ********************************************
 
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
 
@@ -43,7 +39,7 @@ const deleteCartById = async (req, res) => {
 
 const deleteProductFromCart = async (req, res) => {
     const { idCart, idProduct } = req.params
-    await carrito.deleteProductById(parseInt(idCart), parseInt(idProduct))
+    await carrito.deleteProductById(idCart, idProduct)
 }
 
 //********************** '*' Rest of the routes **********************************
