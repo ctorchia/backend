@@ -1,4 +1,4 @@
-const HandlerDB = require("./containerDB.js")
+const HandlerDB = require("./containers/containerDB")
 
 const { optionsMariaDB } = require('../backend/options/mariaDB')
 const { optionsSqlite3 } = require('../backend/options/sqlite3.js')
@@ -9,12 +9,14 @@ const knexSqlite3 = require('knex')(optionsSqlite3)
 const objProducto = new HandlerDB(knexMariaDB,'products')
 const objMensaje = new HandlerDB(knexSqlite3,'messages')
 
+const ApiProductsMock = require('../backend/api/productsMock.js');
+const apiProduct = new ApiProductsMock();
+
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -41,6 +43,12 @@ app.get('/', async (req, res) => {
         mensajes
     })
 })
+
+// ------------------- Mock DATA ------------------- //
+app.get('/api/productos-test', async (req,res)=>{
+    res.json(await apiProduct.popular(5))
+})
+// -------------------------------------------------- //
 
 io.on('connection',(socket)=>{
     console.log('nueva conexion');

@@ -43,6 +43,7 @@ const addProduct = (evt) => {
 socket.on('connect', () => {
     console.log('conectado al Servidor');
     socket.emit('mensaje-cliente', 'Hola Server'); //Se envia lo que se escriba en el input
+    
 })
 
 socket.on('disconnect', () => {
@@ -86,3 +87,36 @@ const addMessage = (evt) => {
 socket.on('mensajeChat-server', (mensaje) => {
     renderChat(mensaje.mensajes)
 })
+
+// ----------------- Products Mock ------------------------------- //
+
+const renderProductsMock = (productsMock) => {
+    let productsMockList = document.querySelector('#productsMockList');
+    let html = productsMock.map((prod => {
+        return `<tr>
+                    <td  class="text-center">
+                        ${prod.title}
+                    </td>
+                    <td  class="text-center">
+                        $ ${prod.price} 
+                    </td>
+                    <td class="text-center">
+                        <img src=${prod.thumbnail} width="50" height="50">
+                    </td>
+                </tr>
+                `
+    }))
+    productsMockList.innerHTML = html.join(' ');
+}
+
+getProductsFetch = () =>{
+    fetch('http://localhost:8080/api/productos-test')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        renderProductsMock(data)
+    });
+}
+
+getProductsFetch();
+
