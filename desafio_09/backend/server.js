@@ -9,6 +9,8 @@ const knexSqlite3 = require('knex')(optionsSqlite3)
 const objProducto = new HandlerDB(knexMariaDB,'products')
 const objMensaje = new HandlerDB(knexSqlite3,'messages')
 
+const normalizar = require('../backend/utils/normalizar')
+
 const ApiProductsMock = require('../backend/api/productsMock.js');
 const apiProduct = new ApiProductsMock();
 
@@ -36,7 +38,12 @@ let productos = (async ()=>{
 })();
 
 let mensajes = (async ()=>{
-    mensajes = await objMensaje.getAll()
+    mensajes = await objMessages.getAll()
+    // console.log(mensajes)
+    chatNormalized = normalizar({id:'mensajes',messages:mensajes})
+    // console.log(chatNormalized)
+    // console.log(chatNormalized.entities)
+    // console.log(chatNormalized.messages)
 })();
 
 app.get('/', async (req, res) => {
@@ -66,6 +73,8 @@ app.post('/mongo-test', async (req, res) => {
 
 io.on('connection',(socket)=>{
     console.log('nueva conexion');
+
+    
 
     // ----------------- Products ------------------------------- //
     const mensaje = {
@@ -98,6 +107,7 @@ io.on('connection',(socket)=>{
     })
 
 // ----------------- Chat ------------------------------- //
+    
     const mensajeChat = {
         mensaje: 'Envio de Mensaje: OK',
         mensajes
