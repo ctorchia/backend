@@ -1,23 +1,29 @@
- <!-- Chat -->
+<!-- Chat -->
 
 <div class="container col-8 align-self-center border mt-3 bg-light p-3">
     <h2 class="text-center">Centro de Mensajes:</h2>
     <form onsubmit="return addMessage(this)" class="mt-5">
         <div class="mb-3">
-            <input type="text" class="form-control" id="name" name="name" placeholder="ingrese su email" required>
+            <input type="email" class="form-control" id="id" name="id" placeholder="Email" required>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" required>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" required>
+            <input type="number" class="form-control" id="age" name="age" placeholder="Edad" required>
+            <input type="text" class="form-control" id="alias" name="alias" placeholder="Alias" required>
+            <input type="text" class="form-control" id="avatar" name="avatar" placeholder="Avatar" required>
         </div>
 
         <div class="container col-12">
             <table class="table">
                 <tbody id="mensajesChat">
-        
+
                 </tbody>
             </table>
         </div>
 
         <div class="mb-3 d-flex align-items-center">
             <div class="col-10">
-                <input type="text" class="form-control" id="message" name="message" placeholder="Ingrese su mensaje..." required>
+                <input type="text" class="form-control" id="text" name="text" placeholder="Ingrese su mensaje..."
+                    required>
             </div>
             <div class="col-2 ml-2 text-center">
                 <input type="submit" value="Enviar">

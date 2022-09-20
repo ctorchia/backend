@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 const MessagesSchema = new mongoose.Schema({ 
     author: {  
         id: { type: String, require: true },
-        nombre: { type: String, require: true },
-        apellido: { type: String, require: true },
-        edad: { type: Number, require: true },
+        firstName: { type: String, require: true },
+        lastName: { type: String, require: true },
+        age: { type: Number, require: true },
         alias: { type: String, require: true },
         avatar: { type: String, require: true },
       },

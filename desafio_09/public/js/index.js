@@ -70,12 +70,30 @@ const renderChat = (mensajes) => {
 }
 
 const addMessage = (evt) => {
-    const name = document.querySelector('#name').value;
-    const message = document.querySelector('#message').value;
+    const id = document.querySelector('#id').value;
+    const firstName = document.querySelector('#firstName').value;
+    const lastName = document.querySelector('#lastName').value;
+    const age = document.querySelector('#age').value;
+    const alias = document.querySelector('#alias').value;
+    const avatar = document.querySelector('#avatar').value;
+    
+    const text = document.querySelector('#text').value;
     const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
-    const messageComplete = { name, dateMessage, message };
+    
+    let messageComplete = { 
+        author: {
+            id:id,
+            firstName:firstName,
+            lastName:lastName,
+            age:age,
+            alias:alias,
+            avatar:avatar
+        },
+        date:dateMessage,
+        text:text
+    };
 
-    document.querySelector('#message').value = ""
+    document.querySelector('#text').value = ""
 
     socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del mensaje
         console.log(id);

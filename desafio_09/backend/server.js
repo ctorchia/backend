@@ -26,6 +26,7 @@ app.set('views', './views')
 
 const {Server: HttpServer} = require('http') 
 const {Server: IOServer} = require('socket.io');
+const { log } = require("console")
 const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('../public'))  
@@ -105,9 +106,9 @@ io.on('connection',(socket)=>{
     socket.emit('mensajeChat-server',mensajeChat);
     
     socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
-
-        await objMensaje.add(messageComplete)
-        mensajes = await objMensaje.getAll()
+        console.log(messageComplete);
+        await objMessages.save(messageComplete)
+        mensajes = await objMessages.getAll()
         const mensaje = {
             mensaje: 'Mensaje Insertado',
             mensajes
