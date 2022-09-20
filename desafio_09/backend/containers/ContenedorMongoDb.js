@@ -1,7 +1,7 @@
 // const Products = require('../mongoDB/models/products.models') // 1
 
-const dotenv = require('dotenv').config() // 1
-const connectDB = require('../mongoDB/connection')  // 1
+// const dotenv = require('dotenv').config() // 1
+const connectDB = require('../mongoDb/connection')  // 1
 connectDB() // 1
 
 class ContenedorMongoDb {

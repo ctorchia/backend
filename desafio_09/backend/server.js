@@ -12,6 +12,9 @@ const objMensaje = new HandlerDB(knexSqlite3,'messages')
 const ApiProductsMock = require('../backend/api/productsMock.js');
 const apiProduct = new ApiProductsMock();
 
+const MessagesDaoMongoDb = require('../backend/daos/messagesDaoMongo.js');
+const objMessages = new MessagesDaoMongoDb()
+
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8080
@@ -49,6 +52,16 @@ app.get('/api/productos-test', async (req,res)=>{
     res.json(await apiProduct.popular(5))
 })
 // -------------------------------------------------- //
+
+// ------------------- MongoDb ------------------- //
+app.post('/mongo-test', async (req, res) => {
+
+        const idProduct = await objMessages.save(req.body)
+        // const productoById = await objMessages.getById(parseInt(idProduct))
+        // res.json(productoById)
+    
+})
+// ------------------------------------------------ //
 
 io.on('connection',(socket)=>{
     console.log('nueva conexion');
