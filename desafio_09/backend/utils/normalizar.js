@@ -1,8 +1,5 @@
 const normalizr = require("normalizr");
 const { normalize, denormalize, schema } = normalizr
-// const normalize = normalizr.normalize;
-//const denormalize = normalizr.denormalize;
-// const schema = normalizr.schema;
 
 const util = require('util');
 
@@ -12,8 +9,6 @@ const print = (obj) => {
 
 function normalizar (original){
 
-    // console.log(original)
-
     const authorSchema = new schema.Entity('author');
 
     const messageSchema = new schema.Entity('message',{
@@ -21,21 +16,25 @@ function normalizar (original){
     });
 
     const messagesSchema = new schema.Entity('messages',{
-        messages:[messageSchema]
+        messages: [ messageSchema ]
     });
 
     const normalizedData = normalize(original,messagesSchema);
 
+    // const denormalizedData = denormalize(normalizedData.result, messagesSchema, normalizedData.entities);
+
+    print(original)
+    // console.log(original)
+
+    // console.log(JSON.stringify(original).length)
+    // console.log(JSON.stringify(normalizedData).length)
+
+    console.log(JSON.stringify(original))
+    console.log(JSON.stringify(normalizedData))
+
     console.log(normalizedData)
 
-    const denormalizedData = denormalize(normalizedData.result, messagesSchema, normalizedData.entities);
-    console.log(denormalizedData)
-
-    print(normalizedData)
-
-    // return normalizedData
-    return denormalizedData
-
+    return normalizedData
 
 }
 
