@@ -33,25 +33,21 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('../public'))  
 
-let productos = (async ()=>{
-    productos = await objProducto.getAll()
-})();
+// let productos = (async ()=>{
+//     productos = await objProducto.getAll()
+// })();
 
 let mensajes = (async ()=>{
     mensajes = await objMessages.getAll()
-    // console.log(mensajes)
-    chatNormalized = normalizar({id:'mensajes',messages:mensajes})
-    // console.log(chatNormalized)
-    // console.log(chatNormalized.entities)
-    // console.log(chatNormalized.messages)
 })();
+// mensajes = normalizar({id:'mensajes',messages:mensajesCrudo})
 
 app.get('/', async (req, res) => {
     
     res.render('pages/index', {
         mensaje: 'Lista de Productos:',
-        productos,
-        mensajes
+        // productos,
+        // mensajes
     })
 })
 
@@ -77,34 +73,34 @@ io.on('connection',(socket)=>{
     
 
     // ----------------- Products ------------------------------- //
-    const mensaje = {
-        mensaje: 'ok',
-        productos
-    }
+    // const mensaje = {
+    //     mensaje: 'ok',
+    //     productos
+    // }
 
-    socket.emit('mensaje-server',mensaje);
+    // socket.emit('mensaje-server',mensaje);
 
-    socket.on('disconnect',()=>{
-        console.log('conexion cerrada', socket.id);
-    })
+    // socket.on('disconnect',()=>{
+    //     console.log('conexion cerrada', socket.id);
+    // })
 
-    socket.on('producto-nuevo',async (producto,cb)=>{
-        console.log(producto);
-        await objProducto.add(producto)
-        productos = await objProducto.getAll()
-        const mensaje = {
-            mensaje: 'Producto Insertado',
-            productos
-        }
-        const id = new Date().getTime();
-        io.sockets.emit('mensaje-server',mensaje);
-        cb(id);
-    })
+    // socket.on('producto-nuevo',async (producto,cb)=>{
+    //     console.log(producto);
+    //     await objProducto.add(producto)
+    //     productos = await objProducto.getAll()
+    //     const mensaje = {
+    //         mensaje: 'Producto Insertado',
+    //         productos
+    //     }
+    //     const id = new Date().getTime();
+    //     io.sockets.emit('mensaje-server',mensaje);
+    //     cb(id);
+    // })
 
-    socket.on('mensaje-cliente',(data)=>{
-        console.log(data);
-        io.sockets.emit('mensaje-server', mensaje)
-    })
+    // socket.on('mensaje-cliente',(data)=>{
+    //     console.log(data);
+    //     io.sockets.emit('mensaje-server', mensaje)
+    // })
 
 // ----------------- Chat ------------------------------- //
     
@@ -135,63 +131,4 @@ serverHttp.listen(PORT, (err) => {
     console.log(`Servidor corriendo en el puerto ${PORT}`)
 })
 
-
-// ------ PRUEBAS PRODUCTOS - getById , updateById , deleteById y deleteAll ---------
-
-app.get('/api/productos/:id', async (req, res) => {
-    const { id } = req.params
-    const productoById = await objProducto.getById(id)
-    productoById ?
-        res.json(productoById)
-        :
-        res.json({ error: 'Producto no encontrado' })
-})
-
-app.put('/api/productos/:id', async (req, res) => {
-    const { id } = req.params
-    const respuesta = await objProducto.updateById(id, req.body)
-    res.json(respuesta)
-    productos = await objProducto.getAll()
-})
-
-app.delete('/api/productos/:id', async (req, res) => {
-    const { id } = req.params
-    res.json(await objProducto.deleteById(id))
-    productos = await objProducto.getAll()
-})
-
-app.delete('/api/productos', async (req, res) => {
-    res.json(await objProducto.deleteAll())
-    productos = await objProducto.getAll()
-
-})
-
-// ------ PRUEBAS CHAT - getById , updateById , deleteById y deleteAll ---------
-
-app.get('/api/mensajes/:id', async (req, res) => {
-    const { id } = req.params
-    const productoById = await objMensaje.getById(id)
-    productoById ?
-        res.json(productoById)
-        :
-        res.json({ error: 'Producto no encontrado' })
-})
-
-app.put('/api/mensajes/:id', async (req, res) => {
-    const { id } = req.params
-    const respuesta = await objMensaje.updateById(id, req.body)
-    res.json(respuesta)
-    mensajes = await objMensaje.getAll()
-})
-
-app.delete('/api/mensajes/:id', async (req, res) => {
-    const { id } = req.params
-    res.json(await objMensaje.deleteById(id))
-    mensajes = await objMensaje.getAll()
-})
-
-app.delete('/api/mensajes', async (req, res) => {
-    res.json(await objMensaje.deleteAll())
-    mensajes = await objMensaje.getAll()
-})
 

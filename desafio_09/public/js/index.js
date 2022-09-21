@@ -57,6 +57,7 @@ socket.on('mensaje-server', (mensaje) => {
 // ----------------- Chat ------------------------------- //
 
 const renderChat = (mensajes) => {
+    
     let mensajesChat = document.querySelector('#mensajesChat');
     let html = mensajes.map((msj => {
         return `<tr>
@@ -104,6 +105,9 @@ const addMessage = (evt) => {
 
 socket.on('mensajeChat-server', (mensaje) => {
     renderChat(mensaje.mensajes)
+    // console.log(denormalizar(mensaje.mensajes));
+    console.log(mensaje.mensajes);
+
 })
 
 // ----------------- Products Mock ------------------------------- //
@@ -140,16 +144,19 @@ getProductsFetch();
 
 // ----------------- Denormalizer ------------------------------- //
 
-// function denormalizar(normalizado){
+function denormalizar(normalizedData){
 
-//     const user = new normalizr.schema.Entity('users');
-//     const mensaje = new normalizr.schema.Entity('mensaje',{
-//         author:user
-//     });
-//     const mensajes = new normalizr.schema.Entity('mensajes',{
-//         mensajes:[mensaje]
-//     });
-//     const denormalizeData = normalizr.denormalize(normalizado.result, mensajes, normalizado.entities);
-//     return denormalizeData;
-// }
+    const authorSchema = new normalizr.schema.Entity('author');
+
+    const messageSchema = new normalizr.schema.Entity('message',{
+        author:authorSchema
+    });
+
+    const messagesSchema = new normalizr.schema.Entity('messages',{
+        messages: [ messageSchema ]
+    });
+    const denormalizedData = normalizr.denormalize(normalizedData.result, messagesSchema, normalizedData.entities);
+
+    return denormalizedData;
+}
 
