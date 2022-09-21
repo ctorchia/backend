@@ -44,8 +44,15 @@ class ContenedorMongoDb {
 
     async getAll() {
         try {
-            let objetos = await this.model.find()
+            let objetosC = await this.model.find({},{"__v":0})
+            // let objetos = await this.model.find()
+            
+            let objetos = objetosC.map(element => {
+               return {...element._doc, id: element._id.toString()}
+            });
+
             if (objetos) {
+                // console.log(objetos);
                 return objetos
             } else {
                 console.log('No hay Productos')

@@ -23,17 +23,19 @@ function normalizar (original){
 
     // const denormalizedData = denormalize(normalizedData.result, messagesSchema, normalizedData.entities);
 
-    print(original)
-    // console.log(original)
+    // print(original)
+    // print(normalizedData)
+    // console.log(normalizedData)
+    // console.log(JSON.stringify(normalizedData))
+    // print(JSON.stringify(normalizedData))
 
-    // console.log(JSON.stringify(original).length)
-    // console.log(JSON.stringify(normalizedData).length)
-
-    console.log(JSON.stringify(original))
-    console.log(JSON.stringify(normalizedData))
-
-    console.log(normalizedData)
-
+    // console.log(original.messages)
+    // print(normalizedData.entities)
+    
+    // console.log(JSON.stringify(original))
+    console.log(JSON.stringify(original).length)
+    console.log(JSON.stringify(normalizedData).length)
+    
     return normalizedData
 
 }

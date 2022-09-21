@@ -138,3 +138,18 @@ getProductsFetch = () =>{
 
 getProductsFetch();
 
+// ----------------- Denormalizer ------------------------------- //
+
+// function denormalizar(normalizado){
+
+//     const user = new normalizr.schema.Entity('users');
+//     const mensaje = new normalizr.schema.Entity('mensaje',{
+//         author:user
+//     });
+//     const mensajes = new normalizr.schema.Entity('mensajes',{
+//         mensajes:[mensaje]
+//     });
+//     const denormalizeData = normalizr.denormalize(normalizado.result, mensajes, normalizado.entities);
+//     return denormalizeData;
+// }
+
