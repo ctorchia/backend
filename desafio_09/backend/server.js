@@ -1,14 +1,3 @@
-const HandlerDB = require("./containers/containerDB")
-
-const { optionsMariaDB } = require('../backend/options/mariaDB')
-const { optionsSqlite3 } = require('../backend/options/sqlite3.js')
-
-const knexMariaDB = require('knex')(optionsMariaDB)
-const knexSqlite3 = require('knex')(optionsSqlite3)
-
-const objProducto = new HandlerDB(knexMariaDB,'products')
-const objMensaje = new HandlerDB(knexSqlite3,'messages')
-
 const normalizar = require('../backend/utils/normalizar')
 
 const ApiProductsMock = require('../backend/api/productsMock.js');
@@ -33,15 +22,6 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('../public'))  
 
-// let productos = (async ()=>{
-//     productos = await objProducto.getAll()
-// })();
-
-// let mensajes = (async ()=>{
-//     mensajes = await objMessages.getAll()
-// })();
-// mensajes = normalizar({id:'mensajes',messages:mensajesCrudo})
-
 app.get('/', async (req, res) => {
     
     res.render('pages/index', {
@@ -57,50 +37,17 @@ app.get('/api/productos-test', async (req,res)=>{
 })
 // -------------------------------------------------- //
 
-// ------------------- MongoDb ------------------- //
-// app.post('/mongo-test', async (req, res) => {
-
-//         const idProduct = await objMessages.save(req.body)
-//         // const productoById = await objMessages.getById(parseInt(idProduct))
-//         // res.json(productoById)
-    
-// })
-// ------------------------------------------------ //
-
 io.on('connection',(socket)=>{
     console.log('nueva conexion');
 
 // ----------------- Chat ------------------------------- //
     
-    // const mensajeChat = {
-    //     mensaje: 'Envio de Mensaje: OK',
-    //     mensajes
-    // }
-
     objMessages.getAll().then(chats =>{
         let chatNormalizado = normalizar({id:'mensajes',messages:chats});
         // console.log(chatNormalizado);
         io.sockets.emit('mensajeChat-server',chatNormalizado);
     })
 
-    // socket.emit('mensajeChat-server',mensajeChat);
-    
-    // socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
-    //     // console.log(messageComplete);
-    //     await objMessages.save(messageComplete)
-    //     mensajes = await objMessages.getAll()
-    //     let chatNormalizado = normalizar({id:'mensajes',messages:mensajes});
-        
-    //     // const mensaje = {
-    //     //     mensaje: 'Mensaje Insertado',
-    //     //     mensajes
-    //     // }
-    //     const id = new Date().getTime();
-    //     // io.sockets.emit('mensajeChat-server',chatNormalizado);
-    //     socket.emit('mensajeChat-server',chatNormalizado);
-    //     cb(id);
-    // })
-    
     socket.on('mensajeChat-nuevo',messageComplete=>{
         objMessages.save(messageComplete).then(res =>{
             objMessages.getAll().then(chats =>{
