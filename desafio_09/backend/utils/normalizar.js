@@ -33,8 +33,8 @@ function normalizar (original){
     // print(normalizedData.entities)
     
     // console.log(JSON.stringify(original))
-    console.log(JSON.stringify(original).length)
-    console.log(JSON.stringify(normalizedData).length)
+    // console.log(JSON.stringify(original).length)
+    // console.log(JSON.stringify(normalizedData).length)
     
     return normalizedData
 

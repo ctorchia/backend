@@ -77,10 +77,12 @@ function denormalizar(normalizedData){
 
 // ----------------- Chat ------------------------------- //
 
-const renderChat = (mensajes) => {
+const renderChat = (normalizedData) => {
     
+    let denormalizedData = denormalizar(normalizedData);
+
     let mensajesChat = document.querySelector('#mensajesChat');
-    let html = mensajes.map((msj => {
+    let html = denormalizedData.messages.map((msj => {
         return `<tr>
                     <td class="text-primary fw-bold px-2">${msj.author.id}</td>
                     <td class="text-danger px-2">[${msj.date}]:</td>
@@ -89,6 +91,19 @@ const renderChat = (mensajes) => {
                 `
     }))
     mensajesChat.innerHTML = html.join(' ');
+
+// ---------- Ratio Compresion ----------------
+    let SizeNormalized = JSON.stringify(normalizedData).length;
+    let SizeDenormalized = JSON.stringify(denormalizedData).length;
+
+    console.log(`Tamaño de Datos Normalizados:${SizeNormalized}`);
+    console.log(`Tamaño de Datos Denormalizados:${SizeDenormalized}`)
+
+    let ratioCompresion = ((100*SizeNormalized)/SizeDenormalized).toFixed(2)
+    console.log(`Ratio de Compresion: ${ratioCompresion}%`);
+
+    let ratio = document.querySelector('#ratio')
+    ratio.innerHTML = `Ratio de Compresion: ${ratioCompresion}%`
 }
 
 const addMessage = (evt) => {
@@ -125,8 +140,9 @@ const addMessage = (evt) => {
 }
 
 socket.on('mensajeChat-server', (mensaje) => {
-    let mensajes = denormalizar(mensaje);
-    renderChat(mensajes.messages)
+    // let mensajes = denormalizar(mensaje);
+    // renderChat(mensajes.messages)
+    renderChat(mensaje)
 })
 
 
