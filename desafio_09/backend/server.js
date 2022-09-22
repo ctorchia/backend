@@ -80,29 +80,37 @@ io.on('connection',(socket)=>{
     objMessages.getAll().then(chats =>{
         let chatNormalizado = normalizar({id:'mensajes',messages:chats});
         // console.log(chatNormalizado);
-        socket.emit('mensajeChat-server',chatNormalizado);
+        io.sockets.emit('mensajeChat-server',chatNormalizado);
     })
 
     // socket.emit('mensajeChat-server',mensajeChat);
     
-    socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
-        console.log(messageComplete);
-        await objMessages.save(messageComplete)
+    // socket.on('mensajeChat-nuevo',async (messageComplete,cb)=>{
+    //     // console.log(messageComplete);
+    //     await objMessages.save(messageComplete)
+    //     mensajes = await objMessages.getAll()
+    //     let chatNormalizado = normalizar({id:'mensajes',messages:mensajes});
         
-        mensajes = await objMessages.getAll()
-        let chatNormalizado = normalizar({id:'mensajes',messages:mensajes});
-        
-        // const mensaje = {
-        //     mensaje: 'Mensaje Insertado',
-        //     mensajes
-        // }
-        const id = new Date().getTime();
-        // io.sockets.emit('mensajeChat-server',chatNormalizado);
-        socket.emit('mensajeChat-server',chatNormalizado);
-
-        cb(id);
+    //     // const mensaje = {
+    //     //     mensaje: 'Mensaje Insertado',
+    //     //     mensajes
+    //     // }
+    //     const id = new Date().getTime();
+    //     // io.sockets.emit('mensajeChat-server',chatNormalizado);
+    //     socket.emit('mensajeChat-server',chatNormalizado);
+    //     cb(id);
+    // })
+    
+    socket.on('mensajeChat-nuevo',messageComplete=>{
+        objMessages.save(messageComplete).then(res =>{
+            objMessages.getAll().then(chats =>{
+                let chatNormalizado = normalizar({id:'mensajes',messages:chats});
+                io.sockets.emit('mensajeChat-server',chatNormalizado);
+            })
+        }
+        );
     })
-
+    
 })
 
 serverHttp.listen(PORT, (err) => {
