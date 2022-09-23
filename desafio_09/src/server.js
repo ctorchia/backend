@@ -1,9 +1,9 @@
-const normalizar = require('../backend/utils/normalizar')
+const normalizar = require('./utils/normalizar');
 
-const ApiProductsMock = require('../backend/api/productsMock.js');
+const ApiProductsMock = require('./api/productsMock');
 const apiProduct = new ApiProductsMock();
 
-const MessagesDaoMongoDb = require('../backend/daos/messagesDaoMongo.js');
+const MessagesDaoMongoDb = require('./daos/messagesDaoMongo');
 const objMessages = new MessagesDaoMongoDb()
 
 const express = require('express');
@@ -13,14 +13,14 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.set('view engine', 'ejs')
-app.set('views', './views')
+app.set('views', './src/views')
 
 const {Server: HttpServer} = require('http') 
 const {Server: IOServer} = require('socket.io');
 const { log } = require("console")
 const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
-app.use(express.static('../public'))  
+app.use(express.static('public'))  
 
 app.get('/', async (req, res) => {
     
