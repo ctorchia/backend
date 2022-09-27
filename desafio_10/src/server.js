@@ -1,13 +1,9 @@
-const normalizar = require('./utils/normalizar');
-
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 
 const login = require('./routes/login.routes.js')
 const products = require('./routes/products.routes.js');
-
-const MessagesDaoMongoDb = require('./daos/messagesDaoMongo');
-const objMessages = new MessagesDaoMongoDb()
+const messages = require('./routes/messages.routes.js');
 
 const express = require('express');
 const app = express();
@@ -44,24 +40,7 @@ app.use(products)
 
 io.on('connection', (socket) => {
     console.log('nueva conexion');
-
-    // ----------------- Chat ------------------------------- //
-
-    objMessages.getAll().then(chats => {
-        let chatNormalizado = normalizar({ id: 'mensajes', messages: chats });
-        io.sockets.emit('mensajeChat-server', chatNormalizado);
-    })
-
-    socket.on('mensajeChat-nuevo', messageComplete => {
-        objMessages.save(messageComplete).then(res => {
-            objMessages.getAll().then(chats => {
-                let chatNormalizado = normalizar({ id: 'mensajes', messages: chats });
-                io.sockets.emit('mensajeChat-server', chatNormalizado);
-            })
-        }
-        );
-    })
-
+    messages(socket,io)
 })
 
 serverHttp.listen(PORT, (err) => {
