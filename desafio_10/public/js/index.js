@@ -9,7 +9,7 @@ logoutButton.addEventListener('click', () => {
         .then(data => {
             console.log(data);
             let html = `
-        <div>
+        <div class="container col-8 align-self-center border mt-3 bg-light p-3">
             <h2>Hasta la próxima ${data.name} </h2>
         </div>
         `;

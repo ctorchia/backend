@@ -2,10 +2,9 @@ const normalizar = require('./utils/normalizar');
 
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
-const login = require('./routes/login.routes.js')
 
-const ApiProductsMock = require('./api/productsMock');
-const apiProduct = new ApiProductsMock();
+const login = require('./routes/login.routes.js')
+const products = require('./routes/products.routes.js');
 
 const MessagesDaoMongoDb = require('./daos/messagesDaoMongo');
 const objMessages = new MessagesDaoMongoDb()
@@ -19,55 +18,50 @@ app.use(express.json())
 app.set('view engine', 'ejs')
 app.set('views', './src/views')
 
-const {Server: HttpServer} = require('http') 
-const {Server: IOServer} = require('socket.io');
+const { Server: HttpServer } = require('http')
+const { Server: IOServer } = require('socket.io');
 const { log } = require("console")
 const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
-app.use(express.static('public'))  
+app.use(express.static('public'))
 
 app.use(session({
     store: MongoStore.create({
-        mongoUrl:'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
-        mongoOptions: {useNewUrlParser:true, useUnifiedTopology:true}
+        mongoUrl: 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
+        mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
     }),
-    secret:'secreto',
+    secret: 'secreto',
     resave: true,
     saveUninitialized: true,
-    rolling: true,                  
+    rolling: true,
     cookie: {
-        maxAge: 1000 * 60 * 10                    
+        maxAge: 1000 * 60 * 10
     }
 }))
 
 app.use(login);
+app.use(products)
 
-// ------------------- Mock DATA ------------------- //
-app.get('/api/productos-test', async (req,res)=>{
-    res.json(await apiProduct.popular(5))
-})
-// -------------------------------------------------- //
-
-io.on('connection',(socket)=>{
+io.on('connection', (socket) => {
     console.log('nueva conexion');
 
-// ----------------- Chat ------------------------------- //
-    
-    objMessages.getAll().then(chats =>{
-        let chatNormalizado = normalizar({id:'mensajes',messages:chats});
-        io.sockets.emit('mensajeChat-server',chatNormalizado);
+    // ----------------- Chat ------------------------------- //
+
+    objMessages.getAll().then(chats => {
+        let chatNormalizado = normalizar({ id: 'mensajes', messages: chats });
+        io.sockets.emit('mensajeChat-server', chatNormalizado);
     })
 
-    socket.on('mensajeChat-nuevo',messageComplete=>{
-        objMessages.save(messageComplete).then(res =>{
-            objMessages.getAll().then(chats =>{
-                let chatNormalizado = normalizar({id:'mensajes',messages:chats});
-                io.sockets.emit('mensajeChat-server',chatNormalizado);
+    socket.on('mensajeChat-nuevo', messageComplete => {
+        objMessages.save(messageComplete).then(res => {
+            objMessages.getAll().then(chats => {
+                let chatNormalizado = normalizar({ id: 'mensajes', messages: chats });
+                io.sockets.emit('mensajeChat-server', chatNormalizado);
             })
         }
         );
     })
-    
+
 })
 
 serverHttp.listen(PORT, (err) => {
