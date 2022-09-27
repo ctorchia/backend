@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
-// const { MONGODB_CONNECTION } = require('../config')
-
-const MONGODB_CONNECTION='mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'
+const { MONGODB_CONNECTION } = require('../config')
 
 const connectDB = async () => {
     try {

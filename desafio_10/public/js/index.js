@@ -10,13 +10,13 @@ logoutButton.addEventListener('click', () => {
             console.log(data);
             let html = `
         <div>
-            <h2>Hasta la próxima ${data.nombre} </h2>
+            <h2>Hasta la próxima ${data.name} </h2>
         </div>
         `;
             container.innerHTML = html;
             setTimeout(() => {
                 location.href = '/login'
-            }, 3000)
+            }, 2000)
         })
 });
 // ----------------- Denormalizer ------------------------------- //

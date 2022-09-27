@@ -12,6 +12,11 @@ router.get('/', authMiddleware, async (req, res) => {
     })
 })
 
+router.get('/login', async (req, res) => {
+    console.log(`El usuario logueado es ${req.session.username}`);
+    res.render('pages/login')
+})
+
 
 // router.get("/", authMiddleware, counterMiddleware, async (req, res) => {
 //   try {
@@ -53,7 +58,7 @@ router.get("/logout", async (req, res) => {  // metodo debe ser delete
             return res.status(500).send(`<h1>No se pudo cerrar sesion</h1>`)
         }
     })
-    return res.json({ nombre: username, status: "destoyed" })
+    return res.json({ name: username, status: "destoyed" })
     // return res.status(200).send(`<h1>Hasta la vuelta</h1>`)
   } catch (err) {
     res.status(500).json({
