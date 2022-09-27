@@ -1,10 +1,8 @@
 const normalizar = require('./utils/normalizar');
 
-
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const login = require('./routes/login.routes.js')
-
 
 const ApiProductsMock = require('./api/productsMock');
 const apiProduct = new ApiProductsMock();
@@ -28,14 +26,6 @@ const serverHttp = new HttpServer(app);
 const io = new IOServer(serverHttp);
 app.use(express.static('public'))  
 
-// ----------------------------------------------
-// app.use(session({
-//     secret: 'secreto',
-//     resave: true,
-//     saveUninitialized: true
-//     // cookie: { secure: false }
-// }))
-
 app.use(session({
     store: MongoStore.create({
         mongoUrl:'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
@@ -52,17 +42,6 @@ app.use(session({
 
 app.use(login);
 
-// -----------------------------------------------
-
-// app.get('/', async (req, res) => {
-    
-//     res.render('pages/index', {
-//         mensaje: 'Lista de Productos:',
-//         // productos,
-//         // mensajes
-//     })
-// })
-
 // ------------------- Mock DATA ------------------- //
 app.get('/api/productos-test', async (req,res)=>{
     res.json(await apiProduct.popular(5))
@@ -76,7 +55,6 @@ io.on('connection',(socket)=>{
     
     objMessages.getAll().then(chats =>{
         let chatNormalizado = normalizar({id:'mensajes',messages:chats});
-        // console.log(chatNormalizado);
         io.sockets.emit('mensajeChat-server',chatNormalizado);
     })
 
