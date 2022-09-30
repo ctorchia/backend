@@ -1,0 +1,18 @@
+<div class="container col-5 align-self-center border bg-info bg-gradient mt-3 p-3">
+    <h2 class="text-center">Formulario:</h2>
+    <form onsubmit="return addProduct(this)" class="mt-5">
+        <div class="mb-3">
+            <label for="title" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Precio:</label>
+            <input type="number" step=".01" class="form-control" id="price" name="price" required>
+        </div>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">Miniatura:</label>
+            <input type="text" class="form-control" id="thumbnail" name="thumbnail" required>
+        </div>
+        <input type="submit" value="Aceptar">
+    </form>
+</div>
