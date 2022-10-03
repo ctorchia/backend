@@ -6,10 +6,12 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const Users = require('./users')  // Simula Base de Datos
 
+const UsersDaoMongoDb = require('./daos/usersDaoMongo')
+const users = new UsersDaoMongoDb()
 
 const login = require('./routes/login.routes.js')
-const products = require('./routes/products.routes.js');
-const messages = require('./routes/messages.routes.js');
+const products = require('./routes/products.routes.js')
+const messages = require('./routes/messages.routes.js')
 
 const express = require('express');
 const app = express();
@@ -21,10 +23,10 @@ app.set('view engine', 'ejs')
 app.set('views', './src/views/pages')
 
 const { Server: HttpServer } = require('http')
-const { Server: IOServer } = require('socket.io');
+const { Server: IOServer } = require('socket.io')
 const { log } = require("console")
-const serverHttp = new HttpServer(app);
-const io = new IOServer(serverHttp);
+const serverHttp = new HttpServer(app)
+const io = new IOServer(serverHttp)
 app.use(express.static('public'))
 
 app.use(session({
@@ -61,24 +63,25 @@ const createHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null)
 }
 
-const checkAuth = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        next()
-    } else {
-        res.redirect('/login')
-    }
-}
+// const checkAuth = (req, res, next) => {
+//     if (req.isAuthenticated()) {
+//         next()
+//     } else {
+//         res.redirect('/login')
+//     }
+// }
 
 // ----------------- Serializers ----------------------
-passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
 
-passport.deserializeUser((id, done) => {
-    let user = Users.find( user => user.id === id )   // Buscar Usuario en BD
-
-    done(null, user)
-})
+passport.serializeUser(function (user, done) {
+    console.log("serialize");
+    done(null, user);
+  });
+  
+  passport.deserializeUser(function (user, done) {
+    console.log("deserialize");
+    done(null, user);
+  });
 
 // ------------- Passport Middlewares -----------------
 passport.use('login', new LocalStrategy(
@@ -107,19 +110,20 @@ passport.use('signup', new LocalStrategy({
     passReqToCallback: true
 }, (req, username, password, done) => {
     let user = Users.find(user => user.username === username)
-    const { name, email } = req.body
-
+    
     if (user) {
         console.log(`El usuario ${username} ya existe`)
         return done(null, false, { message: 'User already exists' })
     }
-
+    
+    const {/*  name, */ email } = req.body
+    
     let newUser = {
         id: Users.length + 1,
         username,
         // password: createHash(password),
         password,
-        name,
+        // name,
         email
     }
 
@@ -134,5 +138,4 @@ serverHttp.listen(PORT, (err) => {
     if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
     console.log(`Servidor corriendo en el puerto ${PORT}`)
 })
-
 

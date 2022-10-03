@@ -3,7 +3,6 @@ const authMiddleware = require('../middlewares/auth.middleware');
 
 const passport = require('passport')
 
-
 const checkAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
       next()
@@ -11,7 +10,6 @@ const checkAuth = (req, res, next) => {
       res.redirect('/login')
   }
 }
-
 
 const router = express.Router();
 
@@ -70,6 +68,7 @@ router.get("/logout", async (req, res) => {  // metodo debe ser delete
       }
     })
     return res.json({ name: username, status: "destoyed" })
+    // return res.redirect('/login')
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -81,5 +80,9 @@ router.get("/logout", async (req, res) => {  // metodo debe ser delete
 router.get("/signup", async (req, res) => {
   res.render('signup')
 })
+
+router.post('/signup',passport.authenticate('signup'),(req,res)=>{
+  res.redirect('/');
+});
 
 module.exports = router;
