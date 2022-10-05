@@ -14,9 +14,10 @@ const checkAuth = (req, res, next) => {
 const router = express.Router();
 
 router.get('/', /* authMiddleware, */ checkAuth, async (req, res) => {
-  console.log(`El usuario logueado es ${req.session.username}`);
+  // console.log(req.session.passport.user.username);
+  console.log(`El usuario logueado es ${req.session.passport.user.username}`);
   res.render('index', {
-    username: req.session.username,
+    username: req.session.passport.user.username,
   })
 })
 
@@ -58,9 +59,8 @@ router.post('/login', passport.authenticate('login', {
   res.render('index')
 })
 
-
 router.get("/logout", async (req, res) => {  // metodo debe ser delete
-  let username = req.session.username
+  let username = req.session.passport.user.username
   try {
     req.session.destroy(err => {
       if (err) {

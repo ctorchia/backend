@@ -4,7 +4,7 @@ const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
-const Users = require('./users')  // Simula Base de Datos
+// const Users = require('./users')  // Simula Base de Datos
 
 const UsersDaoMongoDb = require('./daos/usersDaoMongo')
 const users = new UsersDaoMongoDb()
@@ -85,8 +85,10 @@ passport.serializeUser(function (user, done) {
 
 // ------------- Passport Middlewares -----------------
 passport.use('login', new LocalStrategy(
-    (username, password, done) => {
-        let user = Users.find(user => user.username === username)  // Buscar en BD
+    async (username, password, done) => {
+        // let user = Users.find(user => user.username === username)  // Buscar en BD
+        let user = await users.getByUsername(username)
+        console.log(user);
 
         if (!user) {
             console.log(`No existe el usuario ${username}`)
@@ -108,8 +110,8 @@ passport.use('login', new LocalStrategy(
 
 passport.use('signup', new LocalStrategy({
     passReqToCallback: true
-}, (req, username, password, done) => {
-    let user = Users.find(user => user.username === username)
+}, async (req, username, password, done) => {
+    let user = await users.getByUsername(user => user.username === username)
     
     if (user) {
         console.log(`El usuario ${username} ya existe`)
@@ -119,15 +121,15 @@ passport.use('signup', new LocalStrategy({
     const {/*  name, */ email } = req.body
     
     let newUser = {
-        id: Users.length + 1,
+        // id: Users.length + 1,
         username,
-        // password: createHash(password),
-        password,
+        password: createHash(password),
+        // password,
         // name,
         email
     }
 
-    Users.push(newUser)  // Grabar usuario en BD
+    await users.save(newUser)  // Grabar usuario en BD
 
     return done(null, newUser.id)
 
