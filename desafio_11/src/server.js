@@ -4,7 +4,6 @@ const session = require('express-session')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
-// const Users = require('./users')  // Simula Base de Datos
 
 const UsersDaoMongoDb = require('./daos/usersDaoMongo')
 const users = new UsersDaoMongoDb()
@@ -63,16 +62,7 @@ const createHash = (password) => {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null)
 }
 
-// const checkAuth = (req, res, next) => {
-//     if (req.isAuthenticated()) {
-//         next()
-//     } else {
-//         res.redirect('/login')
-//     }
-// }
-
 // ----------------- Serializers ----------------------
-
 passport.serializeUser(function (user, done) {
     console.log("serialize");
     done(null, user);
@@ -86,7 +76,6 @@ passport.serializeUser(function (user, done) {
 // ------------- Passport Middlewares -----------------
 passport.use('login', new LocalStrategy(
     async (username, password, done) => {
-        // let user = Users.find(user => user.username === username)  // Buscar en BD
         let user = await users.getByUsername(username)
         console.log(user);
 
@@ -95,15 +84,11 @@ passport.use('login', new LocalStrategy(
             return done(null, false, { message: 'User not found' })
         }
 
-        // if (!isValidPassword(user, password)) {
-        //     console.log('Password incorrecto')
-        //     return done(null, false, { message: 'Password incorrect' })
-        // }
-
-        if (user.password !== password) {
+        if (!isValidPassword(user, password)) {
             console.log('Password incorrecto')
             return done(null, false, { message: 'Password incorrect' })
         }
+
         done(null, user)
     }
 ))
@@ -111,21 +96,18 @@ passport.use('login', new LocalStrategy(
 passport.use('signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    let user = await users.getByUsername(user => user.username === username)
+    let user = await users.getByUsername(username)
     
     if (user) {
         console.log(`El usuario ${username} ya existe`)
         return done(null, false, { message: 'User already exists' })
     }
     
-    const {/*  name, */ email } = req.body
+    const {email } = req.body
     
     let newUser = {
-        // id: Users.length + 1,
         username,
         password: createHash(password),
-        // password,
-        // name,
         email
     }
 
