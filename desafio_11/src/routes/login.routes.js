@@ -1,20 +1,11 @@
 const express = require("express");
-const authMiddleware = require('../middlewares/auth.middleware');
+const checkAuth = require('../middlewares/auth.middleware');
 
 const passport = require('passport')
 
-const checkAuth = (req, res, next) => {
-  if (req.isAuthenticated()) {
-      next()
-  } else {
-      res.redirect('/login')
-  }
-}
-
 const router = express.Router();
 
-router.get('/', /* authMiddleware, */ checkAuth, async (req, res) => {
-  // console.log(req.session.passport.user.username);
+router.get('/', checkAuth, async (req, res) => {
   console.log(`El usuario logueado es ${req.session.passport.user.username}`);
   res.render('index', {
     username: req.session.passport.user.username,
@@ -22,9 +13,6 @@ router.get('/', /* authMiddleware, */ checkAuth, async (req, res) => {
 })
 
 router.get('/login', async (req, res) => {
-  // console.log(`El usuario logueado es ${req.session.username}`);
-  // res.render('pages/login')              // Bloque anterior
-
   if (req.isAuthenticated()) {
     const { user } = req.user
     console.log('user logueado')
@@ -33,29 +21,13 @@ router.get('/login', async (req, res) => {
     console.log('user no logueado')
     res.render('login')
   }
-
 })
-
-// router.post("/login", async (req, res) => {  // metodo debe ser post
-//   try {
-//     const { username } = req.body;
-//     req.session.username = username
-//     console.log(req.session.username);
-//     res.redirect("/")
-//   } catch (err) {                        
-//     res.status(500).json({
-//       success: false,
-//       message: err.message,
-//     });
-//   }
-// });
 
 router.post('/login', passport.authenticate('login', {
   successRedirect: '/',
   failureRedirect: '/loginError',
 }), (req, res) => {
   const { username, password } = req.body
-  // const {user} = req.user
   res.render('index')
 })
 
@@ -68,7 +40,6 @@ router.get("/logout", async (req, res) => {  // metodo debe ser delete
       }
     })
     return res.json({ name: username, status: "destoyed" })
-    // return res.redirect('/login')
   } catch (err) {
     res.status(500).json({
       success: false,
@@ -89,7 +60,7 @@ router.get("/loginError", async (req, res) => {
   res.render('loginError')
 })
 
-router.post('/signup',passport.authenticate('signup',{failureRedirect:'/signupError'}),(req,res)=>{
+router.post('/signup', passport.authenticate('signup', { failureRedirect: '/signupError' }), (req, res) => {
   res.redirect('/');
 });
 
