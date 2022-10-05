@@ -17,18 +17,18 @@
         <h2>Registro de Usuario</h2>
         <form action="/signup" method="post" class="form">
             <label for="username">Ingrese su nombre</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" required>
 
             <label for="password">Ingrese su clave</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
 
             <!-- <label for="email">Ingrese su email</label> -->
             <!-- <input type="email" name="email" id="email"> -->
 
-            <input type="submit" class="submit">
+            <input type="submit" class="submit btn btn-primary" value="Registrar">
         </form>
 
-        <a href="/login">Login</a>
+        <a class="btn btn-info" href="/login" role="button">Ir a Login</a>
 
     </div>
 

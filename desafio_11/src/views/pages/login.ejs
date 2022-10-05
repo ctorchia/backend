@@ -17,15 +17,16 @@
         <h2>Login de Usuario</h2>
         <form action="/login" method="post" class="form">
             <label for="username">Ingrese su nombre</label>
-            <input type="text" name="username" id="username">
+            <input type="text" name="username" id="username" required>
 
             <label for="password">Ingrese su clave</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" required>
 
-            <input type="submit" class="submit">
+            <input type="submit" class="submit btn btn-primary" value="Login">
         </form>
 
-        <a href="/signup">Registrarse</a>
+        <a class="btn btn-info" href="/signup" role="button">Ir a Registrar</a>
+
     </div>
 
 </body>
