@@ -52,7 +52,7 @@ router.get('/login', async (req, res) => {
 
 router.post('/login', passport.authenticate('login', {
   successRedirect: '/',
-  failureRedirect: '/login',
+  failureRedirect: '/loginError',
 }), (req, res) => {
   const { username, password } = req.body
   // const {user} = req.user
@@ -81,7 +81,15 @@ router.get("/signup", async (req, res) => {
   res.render('signup')
 })
 
-router.post('/signup',passport.authenticate('signup'),(req,res)=>{
+router.get("/signupError", async (req, res) => {
+  res.render('signupError')
+})
+
+router.get("/loginError", async (req, res) => {
+  res.render('loginError')
+})
+
+router.post('/signup',passport.authenticate('signup',{failureRedirect:'/signupError'}),(req,res)=>{
   res.redirect('/');
 });
 

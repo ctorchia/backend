@@ -113,7 +113,7 @@ passport.use('signup', new LocalStrategy({
 
     await users.save(newUser)  // Grabar usuario en BD
 
-    return done(null, newUser.id)
+    return done(null, req.body)
 
 }))
 // ----------------------------------------------------
