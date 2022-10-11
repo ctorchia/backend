@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {arguments} = require('../config');
-
+const {fork} = require('child_process');
 
 router.get("/info", (req, res) => {
 
@@ -19,8 +19,9 @@ router.get("/info", (req, res) => {
 });
 
 router.get("/api/randoms",(req,res)=>{
-    let {quantity} = req.query;
-    const random = fork('../api/randoms.js',[quantity]);
+    let {cant} = req.query;
+    console.log(cant);
+    const random = fork('../desafio_12/src/api/randoms.js',[cant]);
     random.send('start');
     random.on('message',obj=>{
         res.json(obj);

@@ -15,11 +15,8 @@ function generateRandom () {
         }else{
             obj[nro] = 1;
         }
-        
     }
-
     return obj;
-
 }
 
 process.on("message", function (message) {
