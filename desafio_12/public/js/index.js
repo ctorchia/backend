@@ -1,10 +1,17 @@
-const socket = io('http://localhost:8080');
+
+// const { arguments } = require('../../src/config');
+// const PORT = arguments.port
+// console.log(arguments);
+const PORT =8080
+
+const socket = io.connect(`http://localhost:${PORT}`);
+// const socket = io('http://localhost:8080');
 
 const logoutButton = document.getElementById('logoutButton')
 
 // --------------------- Login ----------------------------------//
 logoutButton.addEventListener('click', () => {
-    fetch('http://localhost:8080/logout')
+    fetch(`http://localhost:${PORT}/logout`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -130,7 +137,7 @@ const renderProductsMock = (productsMock) => {
 }
 
 getProductsFetch = () => {
-    fetch('http://localhost:8080/api/productos-test')
+    fetch(`http://localhost:${PORT}/api/productos-test`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
