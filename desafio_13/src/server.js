@@ -11,13 +11,16 @@ const miscellaneous = require('./routes/miscellaneous.routes.js')
 const express = require('express');
 const app = express();
 // const PORT = process.env.PORT || 8080
-const { arguments, config, mongoDbUrl} = require('./config')
+const { arguments, config, mongoDbUrl } = require('./config')
+const numCPUs = require('os').cpus().length
+
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.set('view engine', 'ejs')
 app.set('views', './src/views/pages')
 
+const cluster = require('cluster')
 const { Server: HttpServer } = require('http')
 const { Server: IOServer } = require('socket.io')
 const { log } = require("console")
@@ -54,9 +57,20 @@ io.on('connection', (socket) => {
 })
 
 const PORT = arguments.port
+const MODE = arguments.mode
 
-serverHttp.listen(PORT, (err) => {
-    if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
-    console.log(`Servidor corriendo en el puerto ${PORT}`)
-})
+if (MODE === 'CLUSTER' && cluster.isMaster) {
+    console.log(`Master ${process.pid} is running`)
+    for (let i = 0; i < numCPUs; i++) {
+        cluster.fork()
+    }
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`worker ${worker.process.pid} died`)
+    })
+} else {
+    serverHttp.listen(PORT, (err) => {
+        if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
+        console.log(`Servidor corriendo en el puerto ${PORT}`)
+    })
+}
 
