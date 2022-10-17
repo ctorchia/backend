@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {arguments} = require('../config');
 const {fork} = require('child_process');
+const numCPUs = require('os').cpus().length
 
 router.get("/info", (req, res) => {
 
@@ -12,7 +13,8 @@ router.get("/info", (req, res) => {
         processId : process.pid,
         nodeVersion : process.version,
         directoryProject : process.cwd(),
-        memory: JSON.stringify(process.memoryUsage())
+        memory: JSON.stringify(process.memoryUsage()),
+        numCPUs: numCPUs
     }
 
     res.render('info',{info});
