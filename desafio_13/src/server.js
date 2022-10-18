@@ -57,9 +57,10 @@ io.on('connection', (socket) => {
 })
 
 const PORT = arguments.port
-const MODE = arguments.mode
+const MODE = arguments.mode.toUpperCase()
 
 if (MODE === 'CLUSTER' && cluster.isMaster) {
+    console.log(`Puerto: ${PORT} - Modo: ${MODE}`);
     console.log(`Master ${process.pid} is running`)
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork()
@@ -70,7 +71,7 @@ if (MODE === 'CLUSTER' && cluster.isMaster) {
 } else {
     serverHttp.listen(PORT, (err) => {
         if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
-        console.log(`Servidor corriendo en el puerto ${PORT}`)
+        console.log(`Servidor corriendo en el puerto ${PORT} - PID WORKER ${process.pid}`)
     })
 }
 
