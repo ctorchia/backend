@@ -4,7 +4,9 @@ const {arguments} = require('../config');
 const {fork} = require('child_process');
 const numCPUs = require('os').cpus().length
 
-router.get("/info", (req, res) => {
+const compression = require('compression')
+
+router.get("/info", compression(), (req, res) => {
 
     info = {
         args : JSON.stringify(arguments),
