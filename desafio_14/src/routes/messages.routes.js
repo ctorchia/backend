@@ -2,6 +2,7 @@ const MessagesDaoMongoDb = require('../daos/messagesDaoMongo');
 const objMessages = new MessagesDaoMongoDb()
 const normalizar = require('../utils/normalizar');
 
+const logger = require('../logger/logger');
 
 messages = (socket,io) => {
 

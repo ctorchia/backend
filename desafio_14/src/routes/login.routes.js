@@ -1,6 +1,8 @@
 const express = require("express");
 const checkAuth = require('../middlewares/auth.middleware');
 
+const logger = require('../logger/logger');
+
 const passport = require('passport')
 
 const router = express.Router();
@@ -13,6 +15,9 @@ router.get('/', checkAuth, async (req, res) => {
 })
 
 router.get('/login', async (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   if (req.isAuthenticated()) {
     const { user } = req.user
     console.log('user logueado')
@@ -27,11 +32,17 @@ router.post('/login', passport.authenticate('login', {
   successRedirect: '/',
   failureRedirect: '/loginError',
 }), (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   const { username, password } = req.body
   res.render('index')
 })
 
-router.get("/logout", async (req, res) => {  // metodo debe ser delete
+router.get("/logout", async (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   let username = req.session.passport.user.username
   try {
     req.session.destroy(err => {
@@ -49,19 +60,39 @@ router.get("/logout", async (req, res) => {  // metodo debe ser delete
 });
 
 router.get("/signup", async (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   res.render('signup')
 })
 
 router.get("/signupError", async (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   res.render('signupError')
 })
 
 router.get("/loginError", async (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   res.render('loginError')
 })
 
 router.post('/signup', passport.authenticate('signup', { failureRedirect: '/signupError' }), (req, res) => {
+  const { url, method } = req
+  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+
   res.redirect('/');
 });
+
+router.get("*", async (req, res) => {
+  const { url, method } = req
+  logger.warn(`Se recibio una peticion ${method} a la ruta ${url}`)
+
+  // res.render('loginError')
+  res.send(`<h1>Ruta no existente</h1>`)
+})
 
 module.exports = router;
