@@ -33,11 +33,19 @@ router.get("/api/randoms", (req, res) => {
 
     let { cant } = req.query;
     console.log(cant);
-    const random = fork('../desafio_12/src/api/randoms.js', [cant]);
+    const random = fork('../desafio_14/src/api/randoms.js', [cant]);
     random.send('start');
     random.on('message', obj => {
         res.json(obj);
     })
 });
+
+router.get("*", async (req, res) => {
+    const { url, method } = req
+    logger.warn(`Se recibio una peticion ${method} a la ruta ${url}`)
+  
+    // res.render('loginError')
+    res.send(`<h1>Ruta no existente</h1>`)
+  })
 
 module.exports = router

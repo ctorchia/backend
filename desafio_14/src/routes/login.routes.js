@@ -89,12 +89,12 @@ router.post('/signup', passport.authenticate('signup', { failureRedirect: '/sign
   res.redirect('/');
 });
 
-router.get("*", async (req, res) => {
-  const { url, method } = req
-  logger.warn(`Se recibio una peticion ${method} a la ruta ${url}`)
+// router.get("*", async (req, res) => {
+//   const { url, method } = req
+//   logger.warn(`Se recibio una peticion ${method} a la ruta ${url}`)
 
-  // res.render('loginError')
-  res.send(`<h1>Ruta no existente</h1>`)
-})
+//   // res.render('loginError')
+//   res.send(`<h1>Ruta no existente</h1>`)
+// })
 
 module.exports = router;

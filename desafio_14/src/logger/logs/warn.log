@@ -22,3 +22,6 @@
 [2022-10-25T15:23:47.714] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
 [2022-10-25T15:24:13.381] [WARN] prod - Se recibio una peticion GET a la ruta /info
 [2022-10-25T15:24:13.503] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:39:23.898] [WARN] prod - Se recibio una peticion GET a la ruta /api/productos-test
+[2022-10-25T15:45:17.540] [WARN] prod - Se recibio una peticion GET a la ruta /infono
+[2022-10-25T15:45:52.661] [ERROR] prod - Error al loguearse
