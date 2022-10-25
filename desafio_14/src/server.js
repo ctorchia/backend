@@ -1,7 +1,7 @@
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
 
-const logger = require('./logger/logger')
+// const logger = require('./logger/logger')
 
 const passport = require('./middlewares/passportLocal.middleware')
 

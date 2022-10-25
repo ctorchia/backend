@@ -1,6 +1,0 @@
-[2022-10-19T01:50:14.416] [INFO] prod - App listening on port 4000!
-[2022-10-19T01:51:41.077] [INFO] prod - App listening on port 4000!
-[2022-10-19T01:51:49.628] [INFO] prod - Se recibio una peticion GET a la ruta /suma
-[2022-10-19T01:51:54.224] [INFO] prod - Se sumaron 1 y 3 y el resultado es 4
-[2022-10-19T01:52:54.615] [ERROR] prod - Se ingreso un valor no numerico
-[2022-10-19T01:52:54.617] [INFO] prod - Se sumaron 1 y tres y el resultado es NaN
