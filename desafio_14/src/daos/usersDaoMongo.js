@@ -1,4 +1,5 @@
 const ContenedorMongoDb = require('../containers/ContenedorMongoDb')
+const logger = require('../logger/logger')
 const Users = require('../mongoDb/models/users.model') // 1
 
 class UsersDaoMongoDb extends ContenedorMongoDb {
@@ -16,7 +17,8 @@ class UsersDaoMongoDb extends ContenedorMongoDb {
                 console.log(objeto)
                 return objeto[0]
             } else {
-                console.log('El item no existe');
+                // console.log('El item no existe');
+                logger.error('El item no existe') 
                 return null
             }
         } catch (error) {

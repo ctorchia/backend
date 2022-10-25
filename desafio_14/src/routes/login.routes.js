@@ -69,6 +69,7 @@ router.get("/signup", async (req, res) => {
 router.get("/signupError", async (req, res) => {
   const { url, method } = req
   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+  logger.error("Error al registrarse")
 
   res.render('signupError')
 })
@@ -76,6 +77,7 @@ router.get("/signupError", async (req, res) => {
 router.get("/loginError", async (req, res) => {
   const { url, method } = req
   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+  logger.error("Error al loguearse")
 
   res.render('loginError')
 })
