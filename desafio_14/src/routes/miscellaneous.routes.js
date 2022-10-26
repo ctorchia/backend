@@ -24,6 +24,8 @@ router.get("/info", compression(), (req, res) => {
         numCPUs: numCPUs
     }
 
+    // console.log(info);
+
     res.render('info', { info });
 });
 
