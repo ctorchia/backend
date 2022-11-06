@@ -11,6 +11,7 @@ router.get('/', checkAuth, async (req, res) => {
   console.log(`El usuario logueado es ${req.session.passport.user.username}`);
   res.render('index', {
     username: req.session.passport.user.username,
+    age: req.session.passport.user.age,
   })
 })
 
