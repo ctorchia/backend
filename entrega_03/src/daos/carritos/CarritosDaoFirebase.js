@@ -1,4 +1,4 @@
-const ContenedorFirebase = require('../../contenedores/ContenedorFirebase')
+const ContenedorFirebase = require('../../containers/ContenedorFirebase')
 let coll = 'carritos'
 
 class CarritosDaoFirebase extends ContenedorFirebase {

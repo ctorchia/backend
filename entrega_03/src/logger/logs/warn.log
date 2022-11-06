@@ -1,0 +1,27 @@
+[2022-10-25T15:08:02.457] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms?cant=1000000000
+[2022-10-25T15:08:02.653] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:08:25.675] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:08:26.537] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:10:28.606] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:10:28.773] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:10:43.242] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:10:52.000] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:10:52.132] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:11:45.333] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms
+[2022-10-25T15:11:45.468] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:12:04.576] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms
+[2022-10-25T15:12:04.734] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:14:25.077] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms
+[2022-10-25T15:14:25.205] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:14:30.118] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:14:35.835] [WARN] prod - Se recibio una peticion GET a la ruta /api/productos-test
+[2022-10-25T15:15:06.659] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:22:16.331] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:23:01.669] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:23:46.724] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:23:47.714] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:24:13.381] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:24:13.503] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:39:23.898] [WARN] prod - Se recibio una peticion GET a la ruta /api/productos-test
+[2022-10-25T15:45:17.540] [WARN] prod - Se recibio una peticion GET a la ruta /infono
+[2022-10-25T15:45:52.661] [ERROR] prod - Error al loguearse

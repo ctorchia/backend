@@ -1,4 +1,4 @@
-const ContenedorArchivo = require('../../contenedores/ContenedorArchivo.js')
+const ContenedorArchivo = require('../../containers/ContenedorArchivo.js.js')
 const ruta = './database/carritos.json'
 const fs = require('fs');
 
