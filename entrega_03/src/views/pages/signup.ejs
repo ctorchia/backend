@@ -16,16 +16,33 @@
     <div class="container col-8 align-self-center border mt-3 bg-light p-3">
         <h2>Registro de Usuario</h2>
         <form action="/signup" method="post" class="form">
-            <label for="username">Ingrese su nombre</label>
-            <input type="text" name="username" id="username" required>
+            <div>
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" name="username" id="username" required>
 
-            <label for="password">Ingrese su clave</label>
-            <input type="password" name="password" id="password" required>
+                <label for="password">Clave</label>
+                <input type="password" name="password" id="password" required>
 
-            <!-- <label for="email">Ingrese su email</label> -->
-            <!-- <input type="email" name="email" id="email"> -->
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
 
-            <input type="submit" class="submit btn btn-primary" value="Registrar">
+                <label for="completeName">Nombre</label>
+                <input type="text" name="completeName" id="completeName" required>
+
+                <label for="address">Direccion</label>
+                <input type="text" name="address" id="address" required>
+
+                <label for="age">Edad</label>
+                <input type="text" name="age" id="age" required>
+
+                <label for="phone">Telefono</label>
+                <input type="text" name="phone" id="phone" required>
+
+                <label for="photo">Foto</label>
+                <input type="text" name="photo" id="photo" required>
+
+                <input type="submit" class="submit btn btn-primary" value="Registrar">
+            </div>
         </form>
 
         <a class="btn btn-info" href="/login" role="button">Ir a Login</a>

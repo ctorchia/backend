@@ -82,11 +82,11 @@ app.use('', routerLogin)
 // app.use(products)
 // app.use(miscellaneous)
 
-io.on('connection', (socket) => {
-    // console.log('nueva conexion')
-    logger.info('nueva conexion')
-    messages(socket, io)
-})
+// io.on('connection', (socket) => {
+//     // console.log('nueva conexion')
+//     logger.info('nueva conexion')
+//     messages(socket, io)
+// })
 
 const PORT = arguments.port
 const MODE = arguments.mode.toUpperCase()

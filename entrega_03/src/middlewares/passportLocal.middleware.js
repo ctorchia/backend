@@ -55,12 +55,17 @@ passport.use('signup', new LocalStrategy({
         return done(null, false, { message: 'User already exists' })
     }
     
-    const {email } = req.body
+    const {email, completeName, address, age, phone, photo} = req.body
     
     let newUser = {
         username,
         password: createHash(password),
-        email
+        email,
+        completeName,
+        address,
+        age,
+        phone,
+        photo
     }
 
     await users.save(newUser)  // Grabar usuario en BD

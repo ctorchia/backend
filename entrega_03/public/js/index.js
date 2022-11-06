@@ -1,11 +1,7 @@
 
-// const { arguments } = require('../../src/config');
-// const PORT = arguments.port
-// console.log(arguments);
 const PORT =8080
 
-const socket = io.connect(`http://localhost:${PORT}`);
-// const socket = io('http://localhost:8080');
+// const socket = io.connect(`http://localhost:${PORT}`);
 
 const logoutButton = document.getElementById('logoutButton')
 
