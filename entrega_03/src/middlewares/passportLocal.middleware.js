@@ -5,6 +5,9 @@ const bcrypt = require('bcrypt')
 const UsersDaoMongoDb = require('../daos/usersDaoMongo')
 const users = new UsersDaoMongoDb()
 
+const dotenv = require('dotenv').config() // 1
+const mailer = require('../mailer/mailer')
+
 // ---------------------- Utils -----------------------
 const isValidPassword = (user, password) => {
     return bcrypt.compareSync(password, user.password)
@@ -18,12 +21,12 @@ const createHash = (password) => {
 passport.serializeUser(function (user, done) {
     console.log("serialize");
     done(null, user);
-  });
-  
-  passport.deserializeUser(function (user, done) {
+});
+
+passport.deserializeUser(function (user, done) {
     console.log("deserialize");
     done(null, user);
-  });
+});
 
 // ------------- Passport Middlewares -----------------
 passport.use('login', new LocalStrategy(
@@ -49,14 +52,14 @@ passport.use('signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
     let user = await users.getByUsername(username)
-    
+
     if (user) {
         console.log(`El usuario ${username} ya existe`)
         return done(null, false, { message: 'User already exists' })
     }
-    
-    const {email, completeName, address, age, phone, photo} = req.body
-    
+
+    const { email, completeName, address, age, phone, photo } = req.body
+
     let newUser = {
         username,
         password: createHash(password),
@@ -67,6 +70,25 @@ passport.use('signup', new LocalStrategy({
         phone,
         photo
     }
+
+    // Enviar correo de Registro al Admin
+    const signupMessage = `Datos del Usuario Registrado: <br><br> 
+    Usuario: ${username} <br>
+    Email: ${email} <br>
+    Nombre Completo: ${completeName} <br>
+    Direccion: ${address} <br>
+    Edad: ${age} <br>
+    Telefono: ${phone}`
+
+    const mailOptions = {
+        from: 'MaraArtesanias',
+        to: process.env.MAIL_ADMIN,
+        subject: 'Nuevo Registro',
+        html: signupMessage
+        // html: '<h1 style="color: blue;">Contenido de prueba desde <span style="color: green;">Node.js con Nodemailer</span></h1>'
+    }
+
+    mailer(mailOptions)
 
     await users.save(newUser)  // Grabar usuario en BD
 

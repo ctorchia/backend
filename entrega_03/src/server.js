@@ -110,6 +110,3 @@ if (MODE === 'CLUSTER' && cluster.isMaster) {
         logger.info(`Servidor corriendo en el puerto ${PORT} - PID WORKER ${process.pid}`)
     })
 }
-
-
-
