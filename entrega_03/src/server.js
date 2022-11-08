@@ -110,3 +110,27 @@ if (MODE === 'CLUSTER' && cluster.isMaster) {
         logger.info(`Servidor corriendo en el puerto ${PORT} - PID WORKER ${process.pid}`)
     })
 }
+
+// #### Envio de SMS ### //
+const sms = require('./mailer/sms')
+
+const smsOptions = {
+    body: 'Probando SMS!!',
+    from: process.env.PHONE_SMS_FROM,
+    to: process.env.PHONE_SMS_TO
+ }
+
+// sms(smsOptions)
+
+// #### Envio de Whatsapp ### //
+
+const whatsapp = require('./mailer/whatsapp')
+
+const whatsappOptions = {
+    body: 'Probando WhatsApp!!',
+    mediaUrl: ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Twilio-logo-red.svg/2560px-Twilio-logo-red.svg.png'],
+    from: process.env.PHONE_WHATSAPP_FROM,
+    to: process.env.PHONE_WHATSAPP_TO
+ }
+
+// whatsapp(whatsappOptions)
