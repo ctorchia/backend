@@ -88,8 +88,11 @@ app.use('', routerLogin)
 //     messages(socket, io)
 // })
 
-const PORT = arguments.port
-const MODE = arguments.mode.toUpperCase()
+// const PORT = arguments.port
+// const MODE = arguments.mode.toUpperCase()
+
+const MODE = process.env.MODE || "FORK";
+const PORT = process.env.PORT || 8080;
 
 if (MODE === 'CLUSTER' && cluster.isMaster) {
     // console.log(`Puerto: ${PORT} - Modo: ${MODE}`)

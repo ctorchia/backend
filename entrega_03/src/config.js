@@ -20,16 +20,16 @@ let config = {
 console.log(config);
 
 // ------------- Arguments Info -------------------- //
-const args = process.argv.slice(2)
+// const args = process.argv.slice(2)
 
-const options = {
-    alias: { p:'port', m:'mode'},
-    default: { port: 8080, mode: 'FORK'}
-}
+// const options = {
+//     alias: { p:'port', m:'mode'},
+//     default: { port: 8080, mode: 'FORK'}
+// }
 
-let arguments = parseArgs(args, options)
+// let arguments = parseArgs(args, options)
 
-console.log(arguments);
+// console.log(arguments);
 
 // ------------ MongoDb ------------ //
 const mongoDbUrl = 'mongodb+srv://'+config.mongoUser+':'+config.mongoPass+'@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'

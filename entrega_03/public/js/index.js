@@ -3,9 +3,48 @@ const PORT =8080
 
 // const socket = io.connect(`http://localhost:${PORT}`);
 
-const logoutButton = document.getElementById('logoutButton')
+
+// ---------- Pedir productos al servidor -----------------------//
+getProductsCart = () => {
+    fetch(`http://localhost:${PORT}/api/carrito/2/productos`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            renderCart(data)
+        });
+}
+
+getProductsCart();
+
+// --------- Renderizar productos del carrito --------------------//
+const renderCart = (productos) => {
+    let listado = document.querySelector('#listado');
+    let html = productos.map((prod => {
+        return `<tr>
+                    <td  class="text-center">
+                        ${prod.name}
+                    </td>
+                    <td  class="text-center">
+                        $ ${prod.price} 
+                    </td>
+                    <td class="text-center">
+                        <img src=${prod.thumbnail} width="50" height="50">
+                    </td>
+                </tr>`
+    }))
+    listado.innerHTML = html.join(' ');
+}
+
+// -------------- Enviar pedido a Server -------------- //
+const sendOrder = document.getElementById('sendOrder')
+
+
+
 
 // --------------------- Login ----------------------------------//
+
+const logoutButton = document.getElementById('logoutButton')
+
 logoutButton.addEventListener('click', () => {
     fetch(`http://localhost:${PORT}/logout`)
         .then(res => res.json())
@@ -142,6 +181,18 @@ getProductsFetch = () => {
 }
 
 getProductsFetch();
+
+
+getProductsCart = () => {
+    fetch(`http://localhost:${PORT}/api/carrito/2/productos`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // renderProductsMock(data)
+        });
+}
+
+getProductsCart();
 
 
 

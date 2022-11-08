@@ -1,6 +1,8 @@
 const express = require("express");
 const checkAuth = require('../middlewares/auth.middleware');
 
+
+
 const logger = require('../logger/logger');
 
 const passport = require('passport')
@@ -9,9 +11,12 @@ const router = express.Router();
 
 router.get('/', checkAuth, async (req, res) => {
   console.log(`El usuario logueado es ${req.session.passport.user.username}`);
+  
   res.render('index', {
     username: req.session.passport.user.username,
     age: req.session.passport.user.age,
+    email: req.session.passport.user.email,
+    completeName: req.session.passport.user.completeName,
   })
 })
 
@@ -89,6 +94,8 @@ router.post('/signup', passport.authenticate('signup', { failureRedirect: '/sign
 
   res.redirect('/');
 });
+
+
 
 // router.get("*", async (req, res) => {
 //   const { url, method } = req
