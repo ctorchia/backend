@@ -16,35 +16,43 @@
     <div class="container col-8 align-self-center border mt-3 bg-light p-3">
         <h2>Registro de Usuario</h2>
         <form action="/signup" method="post" class="form">
-            <div>
+            <div class="form-group col-md-6">
                 <label for="username">Nombre de usuario:</label>
-                <input type="text" name="username" id="username" required>
-
-                <label for="password">Clave</label>
-                <input type="password" name="password" id="password" required>
-
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
-
-                <label for="completeName">Nombre</label>
-                <input type="text" name="completeName" id="completeName" required>
-
-                <label for="address">Direccion</label>
-                <input type="text" name="address" id="address" required>
-
-                <label for="age">Edad</label>
-                <input type="text" name="age" id="age" required>
-
-                <label for="phone">Telefono</label>
-                <input type="text" name="phone" id="phone" required>
-
-                <label for="photo">Foto</label>
-                <input type="text" name="photo" id="photo" required>
-
-                <input type="submit" class="submit btn btn-primary" value="Registrar">
+                <input type="text" class="form-control" name="username" id="username" required>
             </div>
-        </form>
+            <div class="form-group col-md-6">
+                <label for="password">Clave:</label>
+                <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" name="email" id="email" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="completeName">Nombre Completo:</label>
+                <input type="text" class="form-control" name="completeName" id="completeName" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="address">Direccion:</label>
+                <input type="text" class="form-control" name="address" id="address" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="age">Edad:</label>
+                <input type="text" class="form-control" name="age" id="age" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="phone">Telefono:</label>
+                <input type="text" class="form-control" name="phone" id="phone" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="photo">Foto:</label>
+                <input type="text" class="form-control" name="photo" id="photo" required>
+            </div>
+            <br>
+            <input type="submit" class="submit btn btn-primary" value="Registrar">
 
+        </form>
+        <br>
         <a class="btn btn-info" href="/login" role="button">Ir a Login</a>
 
     </div>
