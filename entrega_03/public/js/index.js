@@ -39,9 +39,6 @@ const renderCart = (productos) => {
 // -------------- Enviar pedido a Server -------------- //
 let sendOrder = document.getElementById('sendOrder')
 let cartBody = document.querySelector('#cartBody');
-let username = document.getElementById('username')
-let email = document.getElementById('email')
-
 
 sendOrder.addEventListener('click', async () => {
     // console.log('click Carrito');
@@ -53,6 +50,7 @@ sendOrder.addEventListener('click', async () => {
         body: JSON.stringify({
             username: "pepe",
             email: "pepe@gmail.com",
+            phone: "+5491162660189",
             idCart: "2",
         }),
     };

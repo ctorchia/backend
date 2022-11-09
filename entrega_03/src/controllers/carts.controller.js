@@ -1,6 +1,8 @@
 const { response } = require('express')
 const { carritosDao } = require("../daos/index");
 const {mailerSendOrder} = require('../mailer/mailer')
+const {whatsappSendOrder} = require('../mailer/whatsapp')
+const {smsSendOrder} = require('../mailer/sms')
 const carrito = carritosDao
 
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
@@ -46,14 +48,15 @@ const deleteProductFromCart = async (req, res) => {
 //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 
 const postSendOrder = async (req, res) => {
-    const { idCart, username, email } = req.body
+    const { idCart, username, email, phone } = req.body
     console.log(req.body);
     const carritoById = await carrito.getById(parseInt(idCart))
     listaProductos = carritoById.products
 
     // Enviar correo por envio de orden
     mailerSendOrder(listaProductos, username, email);
-
+    whatsappSendOrder(username, email);
+    smsSendOrder(phone)
 
     res.json({ mensaje: "Compra confirmada", productos: listaProductos })
 }

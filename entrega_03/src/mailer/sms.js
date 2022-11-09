@@ -16,4 +16,20 @@ const sms = async (mailOptions) => {
    }
 }
 
-module.exports = sms
+function smsSendOrder(phone) {
+   
+   try {
+      const smsOptions = {
+         body: 'Orden en proceso!',
+         from: process.env.PHONE_SMS_FROM,
+         to: phone
+      }
+      sms(smsOptions)
+ 
+   } catch (error) {
+    logger.log('error', `Enviar WSP:  ${error}`);
+   }
+ }
+
+
+module.exports = {sms, smsSendOrder }

@@ -16,4 +16,21 @@ const whatsapp = async (mailOptions) => {
    }
 }
 
-module.exports = whatsapp
+function whatsappSendOrder(username, email) {
+   
+   try {
+      const whatsappSendOrderOptions = {
+         body: `Nueva Orden de Compra de ${username}, su email es: ${email}`,
+         // mediaUrl: ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Twilio-logo-red.svg/2560px-Twilio-logo-red.svg.png'],
+         from: process.env.PHONE_WHATSAPP_FROM,
+         to: process.env.PHONE_WHATSAPP_TO
+      }
+     
+     whatsapp(whatsappSendOrderOptions)
+ 
+   } catch (error) {
+    logger.log('error', `Enviar WSP:  ${error}`);
+   }
+ }
+
+module.exports = {whatsapp, whatsappSendOrder}
