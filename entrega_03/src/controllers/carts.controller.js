@@ -42,6 +42,17 @@ const deleteProductFromCart = async (req, res) => {
     await carrito.deleteProductById(idCart, idProduct)
 }
 
+//********************** POST: '/sendOrder' (Confirmar Compra) **********************************
+
+const postSendOrder = async (req, res) => {
+    const { idCart } = req.body
+    console.log(req.body);
+    const carritoById = await carrito.getById(parseInt(idCart))
+    listaProductos = carritoById.products
+    
+    res.json({mensaje: "Compra confirmada", productos: listaProductos})
+}
+
 //********************** '*' Rest of the routes **********************************
 
 const routeNotAvailable = async (req, res) => {
@@ -57,5 +68,6 @@ module.exports = {
     postProductToCart,
     deleteCartById,
     deleteProductFromCart,
+    postSendOrder,
     routeNotAvailable
 }
