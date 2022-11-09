@@ -73,12 +73,12 @@ passport.use('signup', new LocalStrategy({
 
     // Enviar correo de Registro al Admin
     const signupMessage = `Datos del Usuario Registrado: <br><br> 
-    Usuario: ${username} <br>
-    Email: ${email} <br>
-    Nombre Completo: ${completeName} <br>
-    Direccion: ${address} <br>
-    Edad: ${age} <br>
-    Telefono: ${phone}`
+                            Usuario: ${username} <br>
+                            Email: ${email} <br>
+                            Nombre Completo: ${completeName} <br>
+                            Direccion: ${address} <br>
+                            Edad: ${age} <br>
+                            Telefono: ${phone}`
 
     const mailOptions = {
         from: 'MaraArtesanias',

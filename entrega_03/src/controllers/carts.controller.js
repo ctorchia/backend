@@ -1,6 +1,7 @@
 const { response } = require('express')
-const {carritosDao} = require("../daos/index"); 
-const carrito = carritosDao    
+const { carritosDao } = require("../daos/index");
+const {mailerSendOrder} = require('../mailer/mailer')
+const carrito = carritosDao
 
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
 
@@ -45,12 +46,16 @@ const deleteProductFromCart = async (req, res) => {
 //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 
 const postSendOrder = async (req, res) => {
-    const { idCart } = req.body
+    const { idCart, username, email } = req.body
     console.log(req.body);
     const carritoById = await carrito.getById(parseInt(idCart))
     listaProductos = carritoById.products
-    
-    res.json({mensaje: "Compra confirmada", productos: listaProductos})
+
+    // Enviar correo por envio de orden
+    mailerSendOrder(listaProductos, username, email);
+
+
+    res.json({ mensaje: "Compra confirmada", productos: listaProductos })
 }
 
 //********************** '*' Rest of the routes **********************************
