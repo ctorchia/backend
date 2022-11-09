@@ -21,7 +21,7 @@ class CarritosDaoArchivo extends ContenedorArchivo {
                 carritoById.products.push(productToAdd)
                 await this.updateById(parseInt(idCart), carritoById)
                 let idProduct = carritoById.products[carritoById.products.length - 1].id
-                console.log(`El producto agregado tiene el ID: ${idProduct}`);
+                logger.info(`El producto agregado tiene el ID: ${idProduct}`);
                 return idProduct;
 
             } else {
@@ -30,13 +30,13 @@ class CarritosDaoArchivo extends ContenedorArchivo {
                 carritoById.products.push(productToAdd)
                 await this.updateById(parseInt(idCart), carritoById)
 
-                console.log(`El producto agregado tiene el ID: 1`);
+                logger.info(`El producto agregado tiene el ID: 1`);
                 return 1;
 
             }
 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -51,18 +51,18 @@ class CarritosDaoArchivo extends ContenedorArchivo {
             let dataArchParse = JSON.parse(dataArch)
             let carrito = dataArchParse.find(carrito => carrito.id === idCart)
             let product = carrito.products.find(product => product.id === idProduct)
-            console.log(product);
+            logger.info(product);
             if (product) {
                 let productosFiltrados = carrito.products.filter(product => product.id !== idProduct)
                 carrito.products = productosFiltrados
                 this.updateById(idCart, carrito)
-                console.log('Producto Eliminado')
+                logger.info('Producto Eliminado')
             } else {
-                console.log('No se encontró el Producto')
+                logger.info('No se encontró el Producto')
             }
 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 

@@ -19,12 +19,12 @@ const createHash = (password) => {
 
 // ----------------- Serializers ----------------------
 passport.serializeUser(function (user, done) {
-    console.log("serialize");
+    logger.info("serialize");
     done(null, user);
 });
 
 passport.deserializeUser(function (user, done) {
-    console.log("deserialize");
+    logger.info("deserialize");
     done(null, user);
 });
 
@@ -32,15 +32,15 @@ passport.deserializeUser(function (user, done) {
 passport.use('login', new LocalStrategy(
     async (username, password, done) => {
         let user = await users.getByUsername(username)
-        console.log(user);
+        logger.info(user);
 
         if (!user) {
-            console.log(`No existe el usuario ${username}`)
+            logger.info(`No existe el usuario ${username}`)
             return done(null, false, { message: 'User not found' })
         }
 
         if (!isValidPassword(user, password)) {
-            console.log('Password incorrecto')
+            logger.info('Password incorrecto')
             return done(null, false, { message: 'Password incorrect' })
         }
 
@@ -54,7 +54,7 @@ passport.use('signup', new LocalStrategy({
     let user = await users.getByUsername(username)
 
     if (user) {
-        console.log(`El usuario ${username} ya existe`)
+        logger.info(`El usuario ${username} ya existe`)
         return done(null, false, { message: 'User already exists' })
     }
 

@@ -14,15 +14,14 @@ class UsersDaoMongoDb extends ContenedorMongoDb {
             let objeto = await this.model.find({ username: username })
 
             if (objeto) {
-                console.log(objeto)
+                logger.info(objeto)
                 return objeto[0]
             } else {
-                // console.log('El item no existe');
                 logger.error('El item no existe') 
                 return null
             }
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 

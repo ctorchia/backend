@@ -24,8 +24,6 @@ router.get("/info", compression(), (req, res) => {
         numCPUs: numCPUs
     }
 
-    // console.log(info);
-
     res.render('info', { info });
 });
 
@@ -34,7 +32,6 @@ router.get("/api/randoms", (req, res) => {
     logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
 
     let { cant } = req.query;
-    console.log(cant);
     const random = fork('../desafio_14/src/api/randoms.js', [cant]);
     random.send('start');
     random.on('message', obj => {

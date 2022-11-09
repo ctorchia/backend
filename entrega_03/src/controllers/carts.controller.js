@@ -17,7 +17,6 @@ const getProductsFromCart = async (req, res) => {
 //********************** POST: '/' (Crea un carrito y devuelve su ID) **********************************
 
 const postCart = async (req, res) => {
-    // console.log(req.body);
     const idCarrito = await carrito.save(req.body)
     res.json(idCarrito)
 }
@@ -49,7 +48,6 @@ const deleteProductFromCart = async (req, res) => {
 
 const postSendOrder = async (req, res) => {
     const { idCart, username, email, phone } = req.body
-    console.log(req.body);
     const carritoById = await carrito.getById(parseInt(idCart))
     listaProductos = carritoById.products
 

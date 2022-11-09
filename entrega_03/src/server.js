@@ -1,26 +1,7 @@
-// const express = require('express')   
 const routerProductos = require('./routes/products.routes')
 const routerCarrito = require('./routes/carts.routes')
 
 const dotenv = require('dotenv').config() // 1
-
-// const app = express()
-
-// const PORT = 8080
-// const server = app.listen(PORT, () => {
-//     console.log(`Escuchando en el puerto: ${server.address().port}`);
-// })
-
-// app.use(express.json())
-// app.use(express.static('public'))
-// app.use(express.urlencoded({ extended: true }))
-// app.use('/api/productos', routerProductos)
-// app.use('/api/carrito', routerCarrito)
-// server.on('error', (err) => console.log(err))
-
-// ##########################################################  //
-// Agregado desde proyecto de Dasafios
-// ##########################################################  //
 
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
@@ -61,7 +42,6 @@ app.use(session({
         mongoUrl: mongoDbUrl,
         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
     }),
-    // secret: 'secreto',
     secret: config.sessionSecret,
     resave: true,
     saveUninitialized: true,
@@ -83,7 +63,6 @@ app.use('', routerLogin)
 // app.use(miscellaneous)
 
 // io.on('connection', (socket) => {
-//     // console.log('nueva conexion')
 //     logger.info('nueva conexion')
 //     messages(socket, io)
 // })
@@ -95,46 +74,17 @@ const MODE = process.env.MODE || "FORK";
 const PORT = process.env.PORT || 8080;
 
 if (MODE === 'CLUSTER' && cluster.isMaster) {
-    // console.log(`Puerto: ${PORT} - Modo: ${MODE}`)
     logger.info(`Puerto: ${PORT} - Modo: ${MODE}`)
-    // console.log(`Master ${process.pid} is running`)
     logger.info(`Master ${process.pid} is running`)
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork()
     }
     cluster.on('exit', (worker, code, signal) => {
-        // console.log(`worker ${worker.process.pid} died`)
         logger.info(`worker ${worker.process.pid} died`)
     })
 } else {
     serverHttp.listen(PORT, (err) => {
-        // if (err) throw new Error(`No se pudo iniciar el servidor: ${err}`)
         if (err) logger.error('Error al iniciar el servidor')
         logger.info(`Servidor corriendo en el puerto ${PORT} - PID WORKER ${process.pid}`)
     })
 }
-
-// ###################### Envio de SMS ######################################### //
-// const sms = require('./mailer/sms')
-
-// const smsOptions = {
-//     body: 'Probando SMS!!',
-//     from: process.env.PHONE_SMS_FROM,
-//     to: process.env.PHONE_SMS_TO
-//  }
-
-// sms(smsOptions)
-
-
-// ###################### Envio de Whatsapp ##################################### //
-
-// const {whatsapp} = require('./mailer/whatsapp')
-
-// const whatsappOptions = {
-//     body: 'Probando WhatsApp!!',
-//     mediaUrl: ['https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Twilio-logo-red.svg/2560px-Twilio-logo-red.svg.png'],
-//     from: process.env.PHONE_WHATSAPP_FROM,
-//     to: process.env.PHONE_WHATSAPP_TO
-//  }
-
-// whatsapp(whatsappOptions)

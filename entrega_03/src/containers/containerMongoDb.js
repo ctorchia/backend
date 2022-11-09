@@ -13,9 +13,9 @@ class ContenedorMongoDb {
         try {
             let product = new this.model(obj)
             await product.save()
-            console.log('Objeto Agregado');
+            logger.info('Objeto Agregado');
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -26,14 +26,14 @@ class ContenedorMongoDb {
             let objeto = await this.model.find({ id: id })
 
             if (objeto) {
-                console.log(objeto)
+                logger.info(objeto)
                 return objeto[0]
             } else {
-                console.log('El item no existe');
+                logger.info('El item no existe');
                 return null
             }
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -49,14 +49,13 @@ class ContenedorMongoDb {
             });
 
             if (objetos) {
-                // console.log(objetos);
                 return objetos
             } else {
-                console.log('No hay Productos')
+                logger.info('No hay Productos')
             }
 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -74,7 +73,7 @@ class ContenedorMongoDb {
                 return { mensaje: 'Objeto no encontrado' }
             }
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -84,13 +83,13 @@ class ContenedorMongoDb {
         try {
             if (this.getById(id)) {
                 await this.model.deleteOne({ id: id })
-                console.log('Objeto Eliminado')
+                logger.info('Objeto Eliminado')
             } else {
-                console.log('No se encontró el objeto')
+                logger.info('No se encontró el objeto')
             }
 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -99,7 +98,7 @@ class ContenedorMongoDb {
     async deleteAll() {
         await this.model.deleteMany()
         // await this.model.deleteAll()
-        console.log('Todos los objetos se han eliminado')
+        logger.info('Todos los objetos se han eliminado')
     }
 
 }

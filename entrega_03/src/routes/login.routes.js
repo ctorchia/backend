@@ -10,7 +10,7 @@ const passport = require('passport')
 const router = express.Router();
 
 router.get('/', checkAuth, async (req, res) => {
-  console.log(`El usuario logueado es ${req.session.passport.user.username}`);
+  logger.info(`El usuario logueado es ${req.session.passport.user.username}`);
   
   res.render('index', {
     username: req.session.passport.user.username,
@@ -26,10 +26,10 @@ router.get('/login', async (req, res) => {
 
   if (req.isAuthenticated()) {
     const { user } = req.user
-    console.log('user logueado')
+    logger.info('user logueado')
     res.render('index')
   } else {
-    console.log('user no logueado')
+    logger.info('user no logueado')
     res.render('login')
   }
 })

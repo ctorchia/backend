@@ -17,7 +17,6 @@ let config = {
     sessionSecret : process.env.SESSION_SECRET,
 }
 
-console.log(config);
 
 // ------------- Arguments Info -------------------- //
 // const args = process.argv.slice(2)
@@ -29,13 +28,9 @@ console.log(config);
 
 // let arguments = parseArgs(args, options)
 
-// console.log(arguments);
 
 // ------------ MongoDb ------------ //
 const mongoDbUrl = 'mongodb+srv://'+config.mongoUser+':'+config.mongoPass+'@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'
-
-console.log('MongoDb Url: ', mongoDbUrl);
-
 
 module.exports = {
     mongoDbUrl,

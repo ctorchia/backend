@@ -10,9 +10,9 @@ const client = twilio(accountSid, authToken)
 const whatsapp = async (mailOptions) => {
    try {
       const message = await client.messages.create(mailOptions)
-      console.log(message)
+      logger.info(message)
    } catch (error) {
-      console.log(error)
+      logger.error(error)
    }
 }
 

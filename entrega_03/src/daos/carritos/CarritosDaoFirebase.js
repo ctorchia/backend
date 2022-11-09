@@ -12,7 +12,7 @@ class CarritosDaoFirebase extends ContenedorFirebase {
         try {
 
             let carritoById = await this.getById(idCart)
-            console.log(carritoById);
+            logger.info(carritoById);
             let timestamp = Date.now()
             if (carritoById) {
                 carritoById.products.push(product)
@@ -25,7 +25,7 @@ class CarritosDaoFirebase extends ContenedorFirebase {
             }
 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -39,13 +39,13 @@ class CarritosDaoFirebase extends ContenedorFirebase {
                 let productosFiltrados = carritoById.products.filter(product => product.id !== idProduct)
                 carritoById.products = productosFiltrados
                 await this.updateById(idCart, carritoById)
-                console.log('Producto Eliminado 2')
+                logger.info('Producto Eliminado 2')
             } else {
-                console.log('No se encontró el Producto')
+                logger.info('No se encontró el Producto')
             }
 
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 

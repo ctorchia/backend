@@ -12,7 +12,7 @@ class HandlerDB {
             await this.knex(this.tableName).insert(obj)  // Le podemos pasar un obj o un array
             return { message: 'Producto agregado' }
         } catch (error) {
-            console.log(error);
+            logger.info(error);
         }
     }
 
@@ -23,7 +23,7 @@ class HandlerDB {
             let item = await this.knex.from(this.tableName).select('*').where({ id: id })
             return item[0]
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -34,7 +34,7 @@ class HandlerDB {
             let items = await this.knex.from(this.tableName).select('*')
             return items
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -42,11 +42,11 @@ class HandlerDB {
 
     async updateById(id, product) {
         try {
-            console.log(product); 
+            logger.info(product); 
             await this.knex.from(this.tableName).where({id:id}).update({...product})
             return {message: 'Producto actualizado'}
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
@@ -57,7 +57,7 @@ class HandlerDB {
             await this.knex.from(this.tableName).where({ id: id }).del()
             return { message: 'Item eliminado' }
         } catch (error) {
-            console.log(error);
+            logger.error(error);
         }
     }
 
