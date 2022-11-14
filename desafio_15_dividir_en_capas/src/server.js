@@ -8,7 +8,7 @@ const passport = require('./middlewares/passportLocal.middleware')
 const routerLogin = require('./routes/login.routes')
 const products = require('./routes/products.routes.js')
 const messages = require('./routes/messages.routes.js')
-const miscellaneous = require('./routes/miscellaneous.routes.js')
+const routerMiscellaneous = require('./routes/miscellaneous.routes.js')
 
 const express = require('express');
 const app = express();
@@ -51,7 +51,7 @@ app.use(passport.session())
 
 app.use(routerLogin);
 app.use(products)
-app.use(miscellaneous)
+app.use(routerMiscellaneous)
 
 io.on('connection', (socket) => {
     // console.log('nueva conexion')
