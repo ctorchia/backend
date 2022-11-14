@@ -6,7 +6,7 @@ const session = require('express-session')
 const passport = require('./middlewares/passportLocal.middleware')
 
 const routerLogin = require('./routes/login.routes')
-const products = require('./routes/products.routes.js')
+const routerProductsMock = require('./routes/products.routes.js')
 const messages = require('./routes/messages.routes.js')
 const routerMiscellaneous = require('./routes/miscellaneous.routes.js')
 
@@ -50,7 +50,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(routerLogin);
-app.use(products)
+app.use(routerProductsMock)
 app.use(routerMiscellaneous)
 
 io.on('connection', (socket) => {

@@ -1,18 +1,10 @@
 const express = require("express");
-const router = express.Router();
+const routerProductsMock = express.Router();
 
-const logger = require('../logger/logger');
-
-const ApiProductsMock = require('../api/productsMock');
-const apiProduct = new ApiProductsMock();
+const { getProductsMock} = require('../controllers/products.controller')
 
 // ------------------- Mock DATA ------------------- //
-router.get('/api/productos-test', async (req, res) => {
-    const { url, method } = req
-    logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
-
-    res.json(await apiProduct.popular(5))
-})
+routerProductsMock.get('/api/productos-test', getProductsMock)
 // -------------------------------------------------- //
 
-module.exports = router;
+module.exports = routerProductsMock;
