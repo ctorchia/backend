@@ -4,13 +4,13 @@ let usersDao
 let messagesDao
 
 switch (process.env.TECH) {
-    // case 'file':
-    //     const ProductosDaoArchivo = require('./productos/ProductosDaoArchivo')
-    //     const CarritosDaoArchivo = require('./carritos/CarritosDaoArchivo')
+    case 'file':
+        const usersDaoFile = require('./daos/users/usersDaoFile')
+        const messagesDaoFile = require('./daos/messages/messagesDaoFile')
 
-    //     productosDao = new ProductosDaoArchivo()
-    //     carritosDao = new CarritosDaoArchivo()
-    //     break
+        usersDao = new usersDaoFile()
+        messagesDao = new messagesDaoFile()
+        break
     case 'mongoDb':
         const usersDaoMongoDb = require('./users/usersDaoMongo')
         const messagesDaoMongoDb = require('./messages/messagesDaoMongo')
@@ -18,13 +18,6 @@ switch (process.env.TECH) {
         usersDao = new usersDaoMongoDb()
         messagesDao = new messagesDaoMongoDb()
         break
-    // case 'firebase':
-    //     const ProductosDaoFirebase = require('./productos/ProductosDaoFirebase')
-    //     const CarritosDaoFirebase = require('./carritos/CarritosDaoFirebase')
-
-    //     productosDao = new ProductosDaoFirebase()
-    //     carritosDao = new CarritosDaoFirebase()
-    //     break
 }
 
 module.exports = {usersDao, messagesDao}
