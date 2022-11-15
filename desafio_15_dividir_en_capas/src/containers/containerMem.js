@@ -4,20 +4,7 @@ class ContenedorMemoria {
         this.elementos = []
     }
 
-    listar(id) {
-        const elem = this.elementos.find(elem => elem.id == id)
-        if (!elem) {
-            throw new Error(`Error al listar: elemento no encontrado`)
-        } else {
-            return elem
-        }
-    }
-
-    listarAll() {
-        return [...this.elementos]
-    }
-
-    guardar(elem) {
+    save(elem) {
 
         let newId
         if (this.elementos.length == 0) {
@@ -31,7 +18,21 @@ class ContenedorMemoria {
         return newElem
     }
 
-    actualizar(elem) {
+    getById(id) {
+        const elem = this.elementos.find(elem => elem.id == id)
+        if (!elem) {
+            throw new Error(`Error al listar: elemento no encontrado`)
+        } else {
+            return elem
+        }
+    }
+
+    getAll() {
+        return [...this.elementos]
+    }
+
+
+    updateById(elem) {
         elem.id = Number(elem.id)
         const index = this.elementos.findIndex(p => p.id == elem.id)
         if (index == -1) {
@@ -42,7 +43,7 @@ class ContenedorMemoria {
         }
     }
 
-    borrar(id) {
+    deleteById(id) {
         const index = this.elementos.findIndex(elem => elem.id == id)
         if (index == -1) {
             throw new Error(`Error al borrar: elemento no encontrado`)
@@ -51,7 +52,7 @@ class ContenedorMemoria {
         }
     }
 
-    borrarAll() {
+    deleteAll() {
         this.elementos = []
     }
 }
