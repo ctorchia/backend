@@ -43,3 +43,5 @@
 [2022-11-14T20:39:05.887] [WARN] prod - Se recibio una peticion GET a la ruta /infos
 [2022-11-14T20:39:06.000] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
 [2022-11-14T20:40:10.754] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-11-14T20:48:29.603] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-11-14T20:48:34.447] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico

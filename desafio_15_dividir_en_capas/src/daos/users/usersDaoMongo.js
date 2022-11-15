@@ -1,4 +1,4 @@
-const ContenedorMongoDb = require('../../containers/ContenedorMongoDb')
+const ContenedorMongoDb = require('../../containers/containerMongoDb')
 const logger = require('../../logger/logger')
 const Users = require('../../mongoDb/models/users.model') // 1
 
