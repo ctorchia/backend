@@ -1,5 +1,9 @@
-const MessagesDaoMongoDb = require('../daos/messages/messagesDaoMongo');
-const objMessages = new MessagesDaoMongoDb()
+// const MessagesDaoMongoDb = require('../daos/messages/messagesDaoMongo');
+// const objMessages = new MessagesDaoMongoDb()
+
+const {objMessages} = require('../repository/index');
+
+
 const normalizar = require('../utils/normalizar');
 
 const logger = require('../logger/logger');

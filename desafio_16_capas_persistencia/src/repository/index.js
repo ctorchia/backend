@@ -3,6 +3,6 @@ const UserRepository = require('./userRepository');
 const MessageRepository = require('./messageRepository');
 
 const users = new UserRepository(usersDao );
-const messages = new MessageRepository(messagesDao);
+const objMessages = new MessageRepository(messagesDao);
 
-module.exports = {users,messages};
+module.exports = {users,objMessages};
