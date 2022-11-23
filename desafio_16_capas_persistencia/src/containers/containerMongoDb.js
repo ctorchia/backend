@@ -1,10 +1,27 @@
-const connectDB = require('../mongoDb/connection')  // 1
-connectDB() // 1
+const mongoose = require('mongoose')  // 2
+const { mongoDbUrl } = require('../config')  // 2
+
+let instance = null;
 
 class ContenedorMongoDb {
 
-    constructor(model){
+    constructor(model) {
         this.model = model
+        this.getInstance();  // 2
+    }
+
+    async getInstance() {
+        if (instance) {
+            console.log('MongoDB is already connected');
+            return instance;
+        }
+        const url = mongoDbUrl
+        instance = await mongoose.connect(url, {           // 2
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        })
+        console.log('Database connected');
+        return instance;
     }
 
     // save(Object) : Number
@@ -41,11 +58,11 @@ class ContenedorMongoDb {
 
     async getAll() {
         try {
-            let objetosC = await this.model.find({},{"__v":0})
+            let objetosC = await this.model.find({}, { "__v": 0 })
             // let objetos = await this.model.find()
-            
+
             let objetos = objetosC.map(element => {
-               return {...element._doc, id: element._id.toString()}
+                return { ...element._doc, id: element._id.toString() }
             });
 
             if (objetos) {
