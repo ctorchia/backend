@@ -1,27 +1,37 @@
 const mongoose = require('mongoose')  // 2
 const { mongoDbUrl } = require('../config')  // 2
 
-let instance = null;
+// let instance = null;
 
 class ContenedorMongoDb {
 
     constructor(model) {
         this.model = model
-        this.getInstance();  // 2
+        // this.getInstance();  // 2
+        this.initConnection()  // 3
     }
 
-    async getInstance() {
-        if (instance) {
-            console.log('MongoDB is already connected');
-            return instance;
-        }
+    // async getInstance() {
+    //     if (instance) {
+    //         console.log('MongoDB is already connected');
+    //         return instance;
+    //     }
+    //     const url = mongoDbUrl
+    //     instance = await mongoose.connect(url, {           // 2
+    //         useNewUrlParser: true,
+    //         useUnifiedTopology: true
+    //     })
+    //     console.log('Database connected');
+    //     return instance;
+    // }
+
+    async initConnection() {
         const url = mongoDbUrl
-        instance = await mongoose.connect(url, {           // 2
+        await mongoose.connect(url, {           // 3
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
         console.log('Database connected');
-        return instance;
     }
 
     // save(Object) : Number
