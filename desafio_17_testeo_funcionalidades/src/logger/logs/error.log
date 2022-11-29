@@ -1,0 +1,190 @@
+[2022-10-25T15:45:52.661] [ERROR] prod - Error al loguearse
+[2022-11-06T14:59:21.651] [ERROR] prod - Error al loguearse
+[2022-11-08T14:27:57.291] [ERROR] prod - Error al loguearse
+[2022-11-29T12:10:11.611] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T12:11:29.713] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T12:12:52.272] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T12:13:27.310] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T12:51:57.476] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T13:58:42.449] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T14:00:16.896] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T14:05:29.980] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T14:10:00.209] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: null }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: null },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T14:39:22.274] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: 4 }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: 4 },
+  [Symbol(errorLabels)]: Set(0) {}
+}
+[2022-11-29T14:44:58.201] [ERROR] prod - MongoServerError: E11000 duplicate key error collection: test.products index: id_1 dup key: { id: 4 }
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\operations\insert.js:53:33
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection_pool.js:299:25
+    at C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:212:17
+    at handleOperationResult (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\sdam\server.js:284:20)
+    at Connection.onMessage (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:219:9)
+    at MessageStream.<anonymous> (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\connection.js:60:60)
+    at MessageStream.emit (node:events:527:28)
+    at processIncomingData (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:132:20)
+    at MessageStream._write (C:\Users\ctorchia\Desktop\CoderHouse\Workspace\backend\desafio_17_testeo_funcionalidades\node_modules\mongodb\lib\cmap\message_stream.js:33:9)
+    at writeOrBuffer (node:internal/streams/writable:389:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { id: 1 },
+  keyValue: { id: 4 },
+  [Symbol(errorLabels)]: Set(0) {}
+}
