@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha src/testing/test.api.js",
     "start": "nodemon src/server.js",
     "test-axios": "nodemon src/testing/test.axios.js"
   },
@@ -16,6 +16,7 @@
     "autocannon": "^7.10.0",
     "axios": "^1.2.0",
     "bcrypt": "^5.0.1",
+    "chai": "^4.3.7",
     "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.2",
@@ -27,6 +28,7 @@
     "knex": "^2.2.0",
     "log4js": "^6.7.0",
     "minimist": "^1.2.7",
+    "mocha": "^10.1.0",
     "mongoose": "^6.6.0",
     "mysql": "^2.18.1",
     "nodemailer": "^6.8.0",
@@ -35,6 +37,7 @@
     "passport-local": "^1.0.0",
     "socket.io": "^4.5.1",
     "sqlite3": "^5.0.11",
+    "supertest": "^6.3.1",
     "twilio": "^3.83.1"
   }
 }

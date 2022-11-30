@@ -26,6 +26,7 @@ const getProductById = async (req, res) => {
 const postProduct = async (req, res) => {
     if (administrador) {
         const idProduct = await producto.save(req.body)
+        res.json(idProduct)
     }
     else {
         res.json({
@@ -57,6 +58,7 @@ const deleteProductById = async (req, res) => {
     if (administrador) {
         const { id } = req.params
         await producto.deleteById(parseInt(id))
+        res.json({ deleted : true })
     }
     else {
         res.json({
