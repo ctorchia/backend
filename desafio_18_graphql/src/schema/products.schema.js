@@ -17,13 +17,13 @@ input ProductInput {
     stock: Int,
 }
 type Query {
-    getProducts(key: String, value: String): [Product],
-    getProduct(id:String): Product,
+    getProducts: [Product],
+    getProductById(id:String): Product,
 }
 type Mutation {
-    postProducts(data: ProductInput): Product
-    putProducts(id:String, datos: ProductInput): Product
-    deleteProducts(id:String): Product
+    postProduct(data: ProductInput): Product
+    putProduct(id:String, datos: ProductInput): Product
+    deleteProductById(id:String): Product
   }
 `);
 
