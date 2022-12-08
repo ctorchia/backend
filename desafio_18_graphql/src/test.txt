@@ -1,0 +1,59 @@
+GET Products
+
+query{
+  getProducts{
+    name
+    price
+  }
+}
+
+GET Products by ID
+
+query{
+  getProductById(id:"3"){
+    name
+    price
+    stock
+  }
+}
+
+
+POST
+
+mutation{
+  postProduct(
+    data: {
+    id: 4,
+    name: "Monitor",
+    price: "3456",
+    code: "1111",
+    thumbnail: "https://cdn4.iconfinder.com/data/icons/basic-ui-2-line/32/monitor-personal-computer-pc-desktop-256.png",
+    stock: 12
+  }){
+    name
+  }
+}
+
+PUT
+
+mutation{
+  putProduct(id:"4", 
+    data: {
+    id: 4,
+    name: "Monitor 6",
+    price: "3456",
+    code: "1111",
+    thumbnail: "https://cdn4.iconfinder.com/data/icons/basic-ui-2-line/32/monitor-personal-computer-pc-desktop-256.png",
+    stock: 12
+  }){
+    name
+  }
+}
+
+DELETE
+
+mutation{
+  deleteProductById(id:"4"){
+    id
+  }
+}
