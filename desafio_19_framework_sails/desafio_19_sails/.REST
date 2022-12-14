@@ -1,0 +1,71 @@
+############################# PARA PRODUCTOS ##################################
+
+GET http://localhost:8080/api/productos HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:8080/api/productos/1 HTTP/1.1
+content-type: application/json
+
+###
+POST http://localhost:1337/products HTTP/1.1
+content-type: application/json
+
+{
+    "id": "3",
+    "name": "Calculadora 3",
+    "description": "",
+    "code": 30000,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "price": 555,
+    "stock": 50
+}
+    
+###
+PUT http://localhost:1337/products/2 HTTP/1.1
+content-type: application/json
+
+{
+    "price": 2222,
+    "stock": 100
+}
+
+###
+DELETE http://localhost:8080/api/productos/4 HTTP/1.1
+content-type: application/json
+
+################### PARA CARRITO ############################################
+
+POST http://localhost:8080/api/carrito/ HTTP/1.1
+content-type: application/json
+
+{
+    "id": "1",
+    "products":[]
+}
+
+###
+DELETE http://localhost:8080/api/carrito/1 HTTP/1.1
+content-type: application/json
+
+###
+GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
+content-type: application/json
+
+###
+POST http://localhost:8080/api/carrito/2/productos HTTP/1.1
+content-type: application/json
+
+{
+    "id": "2",
+    "name": "Teclado 2",
+    "description": "",
+    "code": 10109,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "price": 200,
+    "stock": 15
+}
+
+###
+DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1
+content-type: application/json
