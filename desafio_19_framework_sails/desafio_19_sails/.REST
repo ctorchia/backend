@@ -12,26 +12,52 @@ POST http://localhost:1337/products HTTP/1.1
 content-type: application/json
 
 {
-    "id": "3",
-    "name": "Calculadora 3",
+    "name": "Goma",
     "description": "",
-    "code": 30000,
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-    "price": 555,
-    "stock": 50
+    "code": 10109,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
+    "price": 100,
+    "stock": 15
 }
-    
+
+    # "id": "1",
+
 ###
-PUT http://localhost:1337/products/2 HTTP/1.1
+POST http://localhost:1337/products HTTP/1.1
 content-type: application/json
 
 {
-    "price": 2222,
-    "stock": 100
+    "name": "Teclado",
+    "description": "",
+    "code": 10109,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "price": 200,
+    "stock": 15
 }
 
 ###
-DELETE http://localhost:8080/api/productos/4 HTTP/1.1
+POST http://localhost:1337/products HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Mouse",
+    "description": "",
+    "code": 10542,
+    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
+    "price": 300,
+    "stock": 15
+}
+
+###
+PUT http://localhost:1337/products/639b5de604cb0150e05f3aa2 HTTP/1.1
+content-type: application/json
+
+{
+    "price": 2222
+}
+
+###
+DELETE http://localhost:1337/products/639b5dea04cb0150e05f3aa3 HTTP/1.1
 content-type: application/json
 
 ################### PARA CARRITO ############################################
