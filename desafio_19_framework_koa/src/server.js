@@ -1,5 +1,5 @@
-const routerProductos = require('./routes/products.routes')
-const routerCarrito = require('./routes/carts.routes')
+// const routerProductos = require('./routes/products.routes')
+// const routerCarrito = require('./routes/carts.routes')
 
 const dotenv = require('dotenv').config() // 1
 
@@ -15,15 +15,19 @@ const miscellaneous = require('./routes/miscellaneous.routes.js')
 // const app = express();
 
 // *********************  KOA ************************* //
+const routerProductos = require('./routes/koa.products.routes')
+
 const Koa = require('koa')
 const {koaBody} = require('koa-body')
 
 const app = new Koa()
 app.use(koaBody())
 
-app.use(async ctx => {
-    ctx.body = 'Hello Koa'
-})
+// app.use(async ctx => {
+//     ctx.body = 'Hello Koa'
+// })
+
+app.use(routerProductos.routes())
 
 app.listen(3000)
 // ***************************************************** //
