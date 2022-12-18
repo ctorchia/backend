@@ -14,9 +14,9 @@ routerProductos.get('/', getProducts)
 
 routerProductos.get('/:id', getProductById)
 
-// //************************ POST (Recibe y Agrega un producto) **********************************
+//************************ POST (Recibe y Agrega un producto) **********************************
 
-// routerProductos.post('/', postProduct)
+routerProductos.post('/', postProduct)
 
 // //************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
 

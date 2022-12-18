@@ -23,16 +23,16 @@ const getProductById = async (ctx) => {
 
 //************************ POST (Recibe y Agrega un producto) **********************************
 
-const postProduct = async (req, res) => {
+const postProduct = async (ctx) => {
     if (administrador) {
-        const idProduct = await producto.save(req.body)
-        res.json(idProduct)
+        const idProduct = await producto.save(ctx.request.body)
+        ctx.body = idProduct
     }
     else {
-        res.json({
+        ctx.body = {
             error: -1,
             description: "Ruta api/productos, Método POST, No autorizado"
-        })
+        }
     }
 }
 

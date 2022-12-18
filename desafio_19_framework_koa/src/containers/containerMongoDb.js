@@ -26,7 +26,7 @@ class ContenedorMongoDb {
             // let objeto = await this.model.find({ id: id })
             let objeto = await this.model.findOne({_id:id})
 
-            console.log(objeto);
+            // console.log(objeto);
 
             if (objeto) {
                 logger.info(objeto)
