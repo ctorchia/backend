@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const CartsSchema = new mongoose.Schema({ 
     id: {
-        type: Number,
+        type: String,
         required: true,
         trim: true,
         unique: true

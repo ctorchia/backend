@@ -14,6 +14,7 @@ class ContenedorMongoDb {
             let product = new this.model(obj)
             await product.save()
             logger.info('Objeto Agregado');
+            return product._id
         } catch (error) {
             logger.error(error);
         }

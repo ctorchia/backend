@@ -1,21 +1,19 @@
 // const routerProductos = require('./routes/products.routes')
 // const routerCarrito = require('./routes/carts.routes')
+// const routerLogin = require('./routes/login.routes')
+// const miscellaneous = require('./routes/miscellaneous.routes.js')
 
 const dotenv = require('dotenv').config() // 1
-
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
-
 const passport = require('./middlewares/passportLocal.middleware')
-
-const routerLogin = require('./routes/login.routes')
-const miscellaneous = require('./routes/miscellaneous.routes.js')
 
 // const express = require('express');
 // const app = express();
 
 // *********************  KOA ************************* //
 const routerProductos = require('./routes/koa.products.routes')
+const routerCarrito = require('./routes/koa.carts.routes')
 
 const Koa = require('koa')
 const {koaBody} = require('koa-body')
@@ -28,8 +26,17 @@ app.use(koaBody())
 // })
 
 app.use(routerProductos.routes())
+app.use(routerCarrito.routes())
 
-app.listen(3000)
+const PORT = 3000
+const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`)
+})
+
+server.on('error', error => {
+    console.log('Server error', error)
+})
+
 // ***************************************************** //
 
 const { arguments, config, mongoDbUrl } = require('./config')
