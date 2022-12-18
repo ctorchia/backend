@@ -38,44 +38,41 @@ const postProduct = async (ctx) => {
 
 //************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
 
-const putProduct = async (req, res) => {
+const putProduct = async (ctx) => {
     if (administrador) {
-        const { id } = req.params
-        const respuesta = await producto.updateById(parseInt(id), req.body)
-        res.json(respuesta)
+        const respuesta = await producto.updateById(ctx.request.params.id, ctx.request.body)
+        ctx.body = respuesta
     }
     else {
-        res.json({
+        ctx.body= {
             error: -1,
             description: "Ruta api/productos/id, Método PUT, No autorizado"
-        })
+        }
     }
 }
 
 //************************ DELETE (Elimina un producto según su ID) ***********************
 
-const deleteProductById = async (req, res) => {
+const deleteProductById = async (ctx) => {
     if (administrador) {
-        const { id } = req.params
-        await producto.deleteById(parseInt(id))
-        res.json({ deleted : true })
+        const data =  await producto.deleteById(ctx.request.params.id)
     }
     else {
-        res.json({
+        ctx.body ={
             error: -1,
             description: "Ruta api/productos/id, Método DELETE, No autorizado"
-        })
+        }
     }
 }
 
 //********************** '*' Rest of the routes **********************************
 
-const routeNotAvailable = async (req, res) => {
-    res.json({
-        error: -2,
-        description: "Ruta no implementada"
-    })
-}
+// const routeNotAvailable = async (req, res) => {
+//     res.json({
+//         error: -2,
+//         description: "Ruta no implementada"
+//     })
+// }
 
 module.exports = {
     getProducts,
@@ -83,5 +80,5 @@ module.exports = {
     postProduct,
     putProduct,
     deleteProductById,
-    routeNotAvailable
+    // routeNotAvailable
 }

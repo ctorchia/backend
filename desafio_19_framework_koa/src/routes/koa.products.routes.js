@@ -18,13 +18,13 @@ routerProductos.get('/:id', getProductById)
 
 routerProductos.post('/', postProduct)
 
-// //************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
+//************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
 
-// routerProductos.put('/:id', putProduct)
+routerProductos.put('/:id', putProduct)
 
-// //************************ DELETE (Elimina un producto según su ID) ***********************
+//************************ DELETE (Elimina un producto según su ID) ***********************
 
-// routerProductos.delete('/:id', deleteProductById)
+routerProductos.delete('/:id', deleteProductById)
 
 // //********************** '*' Rest of the routes **********************************
 

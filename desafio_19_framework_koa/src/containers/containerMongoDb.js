@@ -70,7 +70,7 @@ class ContenedorMongoDb {
             let timestamp = Date.now()
             if (this.getById(id)) {
                 product.timestamp = timestamp
-                await this.model.updateOne({ id: id }, { $set: product })
+                await this.model.updateOne({ _id: id }, { $set: product })
                 return { mensaje: 'Objeto actualizado' }
             } else {
                 return { mensaje: 'Objeto no encontrado' }
@@ -85,7 +85,7 @@ class ContenedorMongoDb {
     async deleteById(id) {
         try {
             if (this.getById(id)) {
-                await this.model.deleteOne({ id: id })
+                await this.model.deleteOne({ _id: id })
                 logger.info('Objeto Eliminado')
             } else {
                 logger.info('No se encontró el objeto')

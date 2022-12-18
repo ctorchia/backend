@@ -81,11 +81,10 @@ GET http://localhost:8080/api/productos/1 HTTP/1.1
 content-type: application/json
 
 ###
-POST http://localhost:8080/api/productos/ HTTP/1.1
+POST http://localhost:3000/api/productos/ HTTP/1.1
 content-type: application/json
 
 {
-    "id": "4",
     "name": "Calculadora",
     "description": "",
     "code": 10542,
@@ -93,23 +92,28 @@ content-type: application/json
     "price": 555,
     "stock": 50
 }
+
+
+    # "id": "4",
     
 ###
-PUT http://localhost:8080/api/productos/2 HTTP/1.1
+PUT http://localhost:3000/api/productos/639e85d24e571109b3bc0d10 HTTP/1.1
 content-type: application/json
 
 {
-    "id": "2",
-    "name": "Goma",
+    "name": "Calculadora nueva",
     "description": "",
-    "code": 10109,
+    "code": 1000,
     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
     "price": 1000,
     "stock": 15
 }
 
+
+    # "id": "2",
+
 ###
-DELETE http://localhost:8080/api/productos/4 HTTP/1.1
+DELETE http://localhost:3000/api/productos/639e85d24e571109b3bc0d10 HTTP/1.1
 content-type: application/json
 
 ################### PARA CARRITO ############################################
