@@ -12,13 +12,13 @@ const getProducts = async (ctx) => {
 
 //********************** GET (Devuelve un producto según ID) **********************************
 
-const getProductById = async (req, res) => {
-    const { id } = req.params
-    const productoById = await producto.getById(parseInt(id))
+const getProductById = async (ctx) => {
+    const productoById = await producto.getById(ctx.request.params.id)
+    console.log(productoById);
     productoById ?
-        res.json(productoById)
+        ctx.body = productoById    
         :
-        res.json({ error: 'Producto no encontrado' })
+        ctx.body = "No existe el producto"
 }
 
 //************************ POST (Recibe y Agrega un producto) **********************************

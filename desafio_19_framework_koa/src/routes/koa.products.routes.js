@@ -10,9 +10,9 @@ const {getProducts,getProductById,postProduct,putProduct,deleteProductById,route
 
 routerProductos.get('/', getProducts)
 
-// //********************** GET (Devuelve un producto según ID) **********************************
+//********************** GET (Devuelve un producto según ID) **********************************
 
-// routerProductos.get('/:id', getProductById)
+routerProductos.get('/:id', getProductById)
 
 // //************************ POST (Recibe y Agrega un producto) **********************************
 
