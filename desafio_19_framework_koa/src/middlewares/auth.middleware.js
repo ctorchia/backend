@@ -1,8 +1,8 @@
-const checkAuth = (req, res, next) => {
-  if (req.isAuthenticated()) {
+const checkAuth = (ctx, next) => {
+  if (ctx.isAuthenticated()) {
     next()
   } else {
-    res.redirect('/login')
+    ctx.redirect('/login')
   }
 }
 

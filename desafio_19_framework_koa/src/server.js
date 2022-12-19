@@ -12,17 +12,29 @@ const passport = require('./middlewares/passportLocal.middleware')
 // const app = express();
 
 // *********************  KOA ************************* //
-const routerProductos = require('./routes/koa.products.routes')
-const routerCarrito = require('./routes/koa.carts.routes')
 
 const Koa = require('koa')
 const {koaBody} = require('koa-body')
+const serve = require('koa-static');
+var views = require('koa-views');
+
+const routerProductos = require('./routes/koa.products.routes')
+const routerCarrito = require('./routes/koa.carts.routes')
+const routerLogin = require('./routes/koa.login.routes')
 
 const app = new Koa()
+
+
+app.use(serve('./public'));
+const render = views('./src/views/pages', { extension: 'ejs' });
+app.use(render);
+
+
 app.use(koaBody())
 
 app.use(routerProductos.routes())
 app.use(routerCarrito.routes())
+app.use(routerLogin.routes())
 
 const PORT = 3000
 const server = app.listen(PORT, () => {
@@ -36,7 +48,7 @@ server.on('error', error => {
 // ***************************************************** //
 
 const { arguments, config, mongoDbUrl } = require('./config')
-const numCPUs = require('os').cpus().length
+// const numCPUs = require('os').cpus().length
 
 // app.use(express.urlencoded({ extended: true }))
 // app.use(express.json())
