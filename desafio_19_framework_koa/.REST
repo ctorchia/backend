@@ -129,7 +129,7 @@ content-type: application/json
 # ver agregar carrito sin indicar ID
 
 ###
-DELETE http://localhost:8080/api/carrito/1 HTTP/1.1
+DELETE http://localhost:3000/api/carrito/639fc3f9dd9b985b183694aa HTTP/1.1
 content-type: application/json
 
 ###
@@ -141,6 +141,7 @@ POST http://localhost:3000/api/carrito/639f9bc5ab39bd1bc2dd1095/productos HTTP/1
 content-type: application/json
 
 {
+    "id": "2",
     "name": "Teclado 2",
     "description": "",
     "code": 10109,
@@ -149,8 +150,7 @@ content-type: application/json
     "stock": 15
 }
 
-    # "id": "2",
 
 ###
-DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1
+DELETE http://localhost:3000/api/carrito/6323641f1a6e8f629b4c8d1e/productos/3 HTTP/1.1
 content-type: application/json

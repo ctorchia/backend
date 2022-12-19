@@ -27,34 +27,32 @@ const postProductToCart = async (ctx) => {
     ctx.body = carritoById
 }
 
-// //********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
+//********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
 
-// const deleteCartById = async (req, res) => {
-//     const { id } = req.params
-//     await carrito.deleteById(parseInt(id))
-// }
+const deleteCartById = async (ctx) => {
+    await carrito.deleteById(ctx.request.params.id)
+}
 
-// //********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
+//********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
 
-// const deleteProductFromCart = async (req, res) => {
-//     const { idCart, idProduct } = req.params
-//     await carrito.deleteProductById(idCart, idProduct)
-// }
+const deleteProductFromCart = async (ctx) => {
+    await carrito.deleteProductById(ctx.request.params.idCart, ctx.request.params.idProduct)
+}
 
-// //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
+//********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 
-// const postSendOrder = async (req, res) => {
-//     const { idCart, username, email, phone } = req.body
-//     const carritoById = await carrito.getById(parseInt(idCart))
-//     listaProductos = carritoById.products
+const postSendOrder = async (ctx) => {
+    const { idCart, username, email, phone } = ctx.request.body
+    const carritoById = await carrito.getById(parseInt(idCart))
+    listaProductos = carritoById.products
 
-//     // Enviar correo por envio de orden
-//     mailerSendOrder(listaProductos, username, email);
-//     whatsappSendOrder(username, email);
-//     smsSendOrder(phone)
+    // Enviar correo por envio de orden
+    mailerSendOrder(listaProductos, username, email);
+    whatsappSendOrder(username, email);
+    smsSendOrder(phone)
 
-//     res.json({ mensaje: "Compra confirmada", productos: listaProductos })
-// }
+    ctx.body = { mensaje: "Compra confirmada", productos: listaProductos }
+}
 
 // //********************** '*' Rest of the routes **********************************
 
@@ -69,8 +67,8 @@ module.exports = {
     getProductsFromCart,
     postCart,
     postProductToCart,
-    // deleteCartById,
-    // deleteProductFromCart,
-    // postSendOrder,
+    deleteCartById,
+    deleteProductFromCart,
+    postSendOrder,
     // routeNotAvailable
 }
