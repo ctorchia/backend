@@ -122,10 +122,11 @@ POST http://localhost:3000/api/carrito/ HTTP/1.1
 content-type: application/json
 
 {
-    "id": "3",
+    "id": "5",
     "products":[]
 }
 
+# ver agregar carrito sin indicar ID
 
 ###
 DELETE http://localhost:8080/api/carrito/1 HTTP/1.1
@@ -136,11 +137,10 @@ GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
 content-type: application/json
 
 ###
-POST http://localhost:8080/api/carrito/2/productos HTTP/1.1
+POST http://localhost:3000/api/carrito/639f9bc5ab39bd1bc2dd1095/productos HTTP/1.1
 content-type: application/json
 
 {
-    "id": "2",
     "name": "Teclado 2",
     "description": "",
     "code": 10109,
@@ -148,6 +148,8 @@ content-type: application/json
     "price": 200,
     "stock": 15
 }
+
+    # "id": "2",
 
 ###
 DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1

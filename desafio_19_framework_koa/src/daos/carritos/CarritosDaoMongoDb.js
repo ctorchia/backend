@@ -11,13 +11,13 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
     async addProductToCart(idCart, product) {
         try {
 
-            let carritoById = (await this.getById(parseInt(idCart)))
+            let carritoById = (await this.getById(idCart))
             let timestamp = Date.now()
             if (carritoById) {
                 carritoById.products.push(product)
 
                 await this.model.updateOne(
-                    { id: idCart },
+                    { _id: idCart },
                     { $set: { products: carritoById.products } }
                 )
                 return carritoById;

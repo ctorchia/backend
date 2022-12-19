@@ -14,9 +14,9 @@ routerCarrito.get('/:id/productos', getProductsFromCart)
 
 routerCarrito.post('/', postCart)
 
-// //********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
+//********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
 
-// routerCarrito.post('/:id/productos', postProductToCart)
+routerCarrito.post('/:id/productos', postProductToCart)
 
 // //********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
 

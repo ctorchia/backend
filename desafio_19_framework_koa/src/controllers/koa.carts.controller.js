@@ -20,14 +20,12 @@ const postCart = async (ctx) => {
     ctx.body = idCarrito
 }
 
-// //********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
+//********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
 
-// const postProductToCart = async (req, res) => {
-//     const { id } = req.params
-//     const productoParaAgregar = req.body
-//     carritoById = await carrito.addProductToCart(id, productoParaAgregar)
-//     res.json(carritoById)
-// }
+const postProductToCart = async (ctx) => {
+    carritoById = await carrito.addProductToCart(ctx.request.params.id, ctx.request.body)
+    ctx.body = carritoById
+}
 
 // //********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
 
@@ -70,7 +68,7 @@ const postCart = async (ctx) => {
 module.exports = {
     getProductsFromCart,
     postCart,
-    // postProductToCart,
+    postProductToCart,
     // deleteCartById,
     // deleteProductFromCart,
     // postSendOrder,
