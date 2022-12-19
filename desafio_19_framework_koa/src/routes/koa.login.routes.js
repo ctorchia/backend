@@ -11,7 +11,8 @@ const checkAuth = require('../middlewares/auth.middleware');
 
 const logger = require('../logger/logger');
 
-const passport = require('passport')
+// const passport = require('passport')
+const passport = require('../middlewares/koa.passportLocal.middleware')
 
 // const router = express.Router();
 
@@ -49,7 +50,8 @@ router.post('/login', passport.authenticate('login', {
 }), async(ctx) => {
   logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
-  // const { username, password } = req.body
+  const { username, password } = ctx.request.body
+  console.log(username,password)
   await ctx.render('index')
 })
 

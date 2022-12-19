@@ -73,20 +73,20 @@ server.on('error', error => {
 
 
 
-// app.use(session({
-//     store: MongoStore.create({
-//         // mongoUrl: 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
-//         mongoUrl: mongoDbUrl,
-//         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
-//     }),
-//     secret: config.sessionSecret,
-//     resave: true,
-//     saveUninitialized: true,
-//     rolling: true,
-//     cookie: {
-//         maxAge: 1000 * 60 * 10
-//     }
-// },app))
+app.use(session({
+    store: MongoStore.create({
+        // mongoUrl: 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
+        mongoUrl: mongoDbUrl,
+        mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
+    }),
+    secret: config.sessionSecret,
+    resave: true,
+    saveUninitialized: true,
+    rolling: true,
+    cookie: {
+        maxAge: 1000 * 60 * 10
+    }
+},app))
 
 app.use(passport.initialize())
 app.use(passport.session())
