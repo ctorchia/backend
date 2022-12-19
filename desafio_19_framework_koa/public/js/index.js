@@ -1,11 +1,11 @@
 
-const PORT = 8080
+const PORT = 3000
 
 // const socket = io.connect(`http://localhost:${PORT}`);
 
 // ---------- Pedir productos al servidor -----------------------//
 getProductsCart = () => {
-    fetch(`http://localhost:${PORT}/api/carrito/2/productos`)
+    fetch(`http://localhost:${PORT}/api/carrito/6323641f1a6e8f629b4c8d1e/productos`)
         .then(res => res.json())
         .then(data => {
             renderCart(data)

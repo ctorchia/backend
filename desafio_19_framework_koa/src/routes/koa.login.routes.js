@@ -27,18 +27,21 @@ router.get('/', async (ctx) => {
   })
 })
 
-router.get('/login', async (req, res) => {
-  const { url, method } = req
-  logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+router.get('/login', async (ctx) => {
+  // const { url, method } = req
+  // logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
 
-  if (req.isAuthenticated()) {
-    const { user } = req.user
-    logger.info('user logueado')
-    res.render('index')
-  } else {
-    logger.info('user no logueado')
-    res.render('login')
-  }
+    ctx.render('index')
+
+
+  // if (ctx.isAuthenticated()) {
+  //   // const { user } = req.user
+  //   logger.info('user logueado')
+  //   ctx.render('index')
+  // } else {
+  //   logger.info('user no logueado')
+  //   ctx.render('login')
+  // }
 })
 
 // router.post('/login', passport.authenticate('login', {

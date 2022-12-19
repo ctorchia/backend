@@ -6,7 +6,7 @@
 const dotenv = require('dotenv').config() // 1
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
-const passport = require('./middlewares/passportLocal.middleware')
+const passport = require('./middlewares/koa.passportLocal.middleware')
 
 // const express = require('express');
 // const app = express();
@@ -23,6 +23,10 @@ const routerCarrito = require('./routes/koa.carts.routes')
 const routerLogin = require('./routes/koa.login.routes')
 
 const app = new Koa()
+
+// const session = require('koa-session')
+// app.keys = ['secret']
+// app.use(session({}, app))
 
 
 app.use(serve('./public'));
@@ -56,12 +60,13 @@ const { arguments, config, mongoDbUrl } = require('./config')
 // app.set('view engine', 'ejs')
 // app.set('views', './src/views/pages')
 
-const cluster = require('cluster')
-const { Server: HttpServer } = require('http')
-const { Server: IOServer } = require('socket.io')
-const { log } = require("console")
-const serverHttp = new HttpServer(app)
-const io = new IOServer(serverHttp)
+// const cluster = require('cluster')
+// const { Server: HttpServer } = require('http')
+// const { Server: IOServer } = require('socket.io')
+// const { log } = require("console")
+// const serverHttp = new HttpServer(app)
+// const io = new IOServer(serverHttp)
+
 // app.use(express.static('public'))
 
 app.use(session({
