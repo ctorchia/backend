@@ -28,10 +28,9 @@ router.get('/', async (ctx) => {
 })
 
 router.get('/login', async (ctx) => {
-  // const { url, method } = req
-  // logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+  logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
-    ctx.render('index')
+    await ctx.render('login')
 
 
   // if (ctx.isAuthenticated()) {
@@ -44,20 +43,18 @@ router.get('/login', async (ctx) => {
   // }
 })
 
-// router.post('/login', passport.authenticate('login', {
-//   successRedirect: '/',
-//   failureRedirect: '/loginError',
-// }), (req, res) => {
-//   const { url, method } = req
-//   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+router.post('/login', passport.authenticate('login', {
+  successRedirect: '/',
+  failureRedirect: '/loginError',
+}), async(ctx) => {
+  logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
-//   const { username, password } = req.body
-//   res.render('index')
-// })
+  // const { username, password } = req.body
+  await ctx.render('index')
+})
 
-// router.get("/logout", async (req, res) => {
-//   const { url, method } = req
-//   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+// router.get("/logout", async (ctx) => {
+//   logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
 //   let username = req.session.passport.user.username
 //   try {
@@ -75,41 +72,36 @@ router.get('/login', async (ctx) => {
 //   }
 // });
 
-// router.get("/signup", async (req, res) => {
-//   const { url, method } = req
-//   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+router.get("/signup", async (ctx) => {
+  logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
-//   res.render('signup')
-// })
+  await ctx.render('signup')
+})
 
-// router.get("/signupError", async (req, res) => {
-//   const { url, method } = req
-//   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
-//   logger.error("Error al registrarse")
+router.get("/signupError", async (ctx) => {
+  logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
+  logger.error("Error al registrarse")
 
-//   res.render('signupError')
-// })
+  await ctx.render('signupError')
+})
 
-// router.get("/loginError", async (req, res) => {
-//   const { url, method } = req
-//   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
-//   logger.error("Error al loguearse")
+router.get("/loginError", async (ctx) => {
+  logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
+  logger.error("Error al loguearse")
 
-//   res.render('loginError')
-// })
+  await ctx.render('loginError')
+})
 
-// router.post('/signup', passport.authenticate('signup', { failureRedirect: '/signupError' }), (req, res) => {
-//   const { url, method } = req
-//   logger.info(`Se recibio una peticion ${method} a la ruta ${url}`)
+router.post('/signup', passport.authenticate('signup', { failureRedirect: '/signupError' }), (ctx) => {
+  logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
-//   res.redirect('/');
-// });
-
+  ctx.redirect('/');
+});
 
 
 // router.get("*", async (req, res) => {
-//   const { url, method } = req
-//   logger.warn(`Se recibio una peticion ${method} a la ruta ${url}`)
+//   const { ctx.request.url, ctx.request.method } = req
+//   logger.warn(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
 //   // res.render('loginError')
 //   res.send(`<h1>Ruta no existente</h1>`)

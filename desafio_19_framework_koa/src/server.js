@@ -5,7 +5,7 @@
 
 const dotenv = require('dotenv').config() // 1
 const MongoStore = require('connect-mongo')
-const session = require('express-session')
+// const session = require('express-session')
 const passport = require('./middlewares/koa.passportLocal.middleware')
 
 // const express = require('express');
@@ -13,18 +13,17 @@ const passport = require('./middlewares/koa.passportLocal.middleware')
 
 // *********************  KOA ************************* //
 
+const { arguments, config, mongoDbUrl } = require('./config')
+
+
 const Koa = require('koa')
 const {koaBody} = require('koa-body')
 const serve = require('koa-static');
 var views = require('koa-views');
 
-const routerProductos = require('./routes/koa.products.routes')
-const routerCarrito = require('./routes/koa.carts.routes')
-const routerLogin = require('./routes/koa.login.routes')
-
 const app = new Koa()
 
-// const session = require('koa-session')
+const session = require('koa-session')
 // app.keys = ['secret']
 // app.use(session({}, app))
 
@@ -35,6 +34,10 @@ app.use(render);
 
 
 app.use(koaBody())
+
+const routerProductos = require('./routes/koa.products.routes')
+const routerCarrito = require('./routes/koa.carts.routes')
+const routerLogin = require('./routes/koa.login.routes')
 
 app.use(routerProductos.routes())
 app.use(routerCarrito.routes())
@@ -51,7 +54,6 @@ server.on('error', error => {
 
 // ***************************************************** //
 
-const { arguments, config, mongoDbUrl } = require('./config')
 // const numCPUs = require('os').cpus().length
 
 // app.use(express.urlencoded({ extended: true }))
@@ -69,43 +71,22 @@ const { arguments, config, mongoDbUrl } = require('./config')
 
 // app.use(express.static('public'))
 
-app.use(session({
-    store: MongoStore.create({
-        // mongoUrl: 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
-        mongoUrl: mongoDbUrl,
-        mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
-    }),
-    secret: config.sessionSecret,
-    resave: true,
-    saveUninitialized: true,
-    rolling: true,
-    cookie: {
-        maxAge: 1000 * 60 * 10
-    }
-}))
+
+
+// app.use(session({
+//     store: MongoStore.create({
+//         // mongoUrl: 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
+//         mongoUrl: mongoDbUrl,
+//         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
+//     }),
+//     secret: config.sessionSecret,
+//     resave: true,
+//     saveUninitialized: true,
+//     rolling: true,
+//     cookie: {
+//         maxAge: 1000 * 60 * 10
+//     }
+// },app))
 
 app.use(passport.initialize())
 app.use(passport.session())
-
-// app.use('/api/productos', routerProductos)   // Server Original
-// app.use('/api/carrito', routerCarrito)       // Server Original
-// app.use('', routerLogin)
-
-// const MODE = process.env.MODE || "FORK";
-// const PORT = process.env.PORT || 8080;
-
-// if (MODE === 'CLUSTER' && cluster.isMaster) {
-//     logger.info(`Puerto: ${PORT} - Modo: ${MODE}`)
-//     logger.info(`Master ${process.pid} is running`)
-//     for (let i = 0; i < numCPUs; i++) {
-//         cluster.fork()
-//     }
-//     cluster.on('exit', (worker, code, signal) => {
-//         logger.info(`worker ${worker.process.pid} died`)
-//     })
-// } else {
-//     serverHttp.listen(PORT, (err) => {
-//         if (err) logger.error('Error al iniciar el servidor')
-//         logger.info(`Servidor corriendo en el puerto ${PORT} - PID WORKER ${process.pid}`)
-//     })
-// }
