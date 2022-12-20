@@ -32,13 +32,13 @@ passport.deserializeUser(function (user, done) {
 passport.use('login', new LocalStrategy(
     async (username, password, done) => {
         let user = await users.getByUsername(username)
-        logger.info(user);
-
+        // logger.info(user);
+        
         if (!user) {
             logger.info(`No existe el usuario ${username}`)
             return done(null, false, { message: 'User not found' })
         }
-
+        
         if (!isValidPassword(user, password)) {
             logger.info('Password incorrecto')
             return done(null, false, { message: 'Password incorrect' })

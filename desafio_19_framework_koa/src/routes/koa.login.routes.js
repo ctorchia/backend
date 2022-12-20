@@ -7,18 +7,20 @@ const router = new Router();
 //     prefix: '/'
 // });
 
+const passport = require('../middlewares/koa.passportLocal.middleware')
 const checkAuth = require('../middlewares/auth.middleware');
 
 const logger = require('../logger/logger');
 
 // const passport = require('passport')
-const passport = require('../middlewares/koa.passportLocal.middleware')
 
 // const router = express.Router();
 
 // router.get('/', checkAuth, async (ctx) => {
 router.get('/', async (ctx) => {
   logger.info(`El usuario logueado es ${ctx.req.user}`);
+
+  console.log("Pase por el get de")
   
   await ctx.render('index', {
     username: ctx.req.user,
@@ -32,7 +34,6 @@ router.get('/login', async (ctx) => {
   logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
 
     await ctx.render('login')
-
 
   // if (ctx.isAuthenticated()) {
   //   // const { user } = req.user
@@ -49,9 +50,9 @@ router.post('/login', passport.authenticate('login', {
   failureRedirect: '/loginError',
 }), async(ctx) => {
   logger.info(`Se recibio una peticion ${ctx.request.method} a la ruta ${ctx.request.url}`)
-
-  const { username, password } = ctx.request.body
-  console.log(username,password)
+  console.log("Pase por el post de login")
+  // const { username, password } = ctx.request.body
+  // console.log(username,password)
   await ctx.render('index')
 })
 

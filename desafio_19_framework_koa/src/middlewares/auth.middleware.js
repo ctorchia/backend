@@ -1,8 +1,9 @@
-const checkAuth = (ctx, next) => {
-  if (ctx.isAuthenticated()) {
+const checkAuth = (req, next) => {
+  console.log(req)
+  if (req.isAuthenticated()) {
     next()
   } else {
-    ctx.redirect('/login')
+    req.redirect('/login')
   }
 }
 

@@ -573,3 +573,5 @@
       at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\desafio_19_framework_koa\node_modules\mongoose\lib\query.js:5312:12),
   valueType: 'number'
 }
+[2022-12-19T23:28:22.992] [ERROR] prod - Error al loguearse
+[2022-12-20T00:17:44.627] [ERROR] prod - Error al loguearse

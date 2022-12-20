@@ -24,7 +24,7 @@ var views = require('koa-views');
 const app = new Koa()
 
 const session = require('koa-session')
-// app.keys = ['secret']
+// app.keys = ['wordSecret']
 // app.use(session({}, app))
 
 
@@ -62,15 +62,18 @@ server.on('error', error => {
 // app.set('view engine', 'ejs')
 // app.set('views', './src/views/pages')
 
-// const cluster = require('cluster')
-// const { Server: HttpServer } = require('http')
-// const { Server: IOServer } = require('socket.io')
-// const { log } = require("console")
-// const serverHttp = new HttpServer(app)
-// const io = new IOServer(serverHttp)
+const cluster = require('cluster')
+const { Server: HttpServer } = require('http')
+const { Server: IOServer } = require('socket.io')
+const { log } = require("console")
+const serverHttp = new HttpServer(app)
+const io = new IOServer(serverHttp)
 
 // app.use(express.static('public'))
 
+
+
+// app.use(session({},app))
 
 
 app.use(session({
