@@ -1,0 +1,60 @@
+[2022-10-25T15:08:02.457] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms?cant=1000000000
+[2022-10-25T15:08:02.653] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:08:25.675] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:08:26.537] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:10:28.606] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:10:28.773] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:10:43.242] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:10:52.000] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:10:52.132] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:11:45.333] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms
+[2022-10-25T15:11:45.468] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:12:04.576] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms
+[2022-10-25T15:12:04.734] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:14:25.077] [WARN] prod - Se recibio una peticion GET a la ruta /api/randoms
+[2022-10-25T15:14:25.205] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:14:30.118] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:14:35.835] [WARN] prod - Se recibio una peticion GET a la ruta /api/productos-test
+[2022-10-25T15:15:06.659] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:22:16.331] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:23:01.669] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:23:46.724] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:23:47.714] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:24:13.381] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2022-10-25T15:24:13.503] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2022-10-25T15:39:23.898] [WARN] prod - Se recibio una peticion GET a la ruta /api/productos-test
+[2022-10-25T15:45:17.540] [WARN] prod - Se recibio una peticion GET a la ruta /infono
+[2022-10-25T15:45:52.661] [ERROR] prod - Error al loguearse
+[2022-11-06T14:59:21.651] [ERROR] prod - Error al loguearse
+[2022-11-08T14:27:57.291] [ERROR] prod - Error al loguearse
+[2022-12-24T14:43:42.203] [ERROR] prod - CastError: Cast to Number failed for value "6323641f1a6e8f629b4c8d1e" (type string) at path "id" for model "Carts"
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\query.js:4884:21)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"6323641f1a6e8f629b4c8d1e"',
+  kind: 'Number',
+  value: '6323641f1a6e8f629b4c8d1e',
+  path: 'id',
+  reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!isNaN(val))
+  
+      at castNumber (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\cast\number.js:27:10)
+      at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\schema\number.js:376:12)
+      at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaNumber.castForQuery (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\schema\number.js:430:14)
+      at SchemaType.castForQueryWrapper (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\cast.js:347:32)
+      at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\query.js:5312:12)
+      at Query._castConditions (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\query.js:2198:10)
+      at model.Query.<anonymous> (C:\Users\CMT\Desktop\Workspace\backend\entrega_03\node_modules\mongoose\lib\query.js:2225:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '=='
+  },
+  valueType: 'string'
+}
