@@ -1,11 +1,3 @@
-// ------------ MongoDb ------------ //
-const MONGODB_CONNECTION = 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'
-
-// module.exports = {MONGODB_CONNECTION}
-
-// ##########################################################  //
-// Agregado desde proyecto de Dasafios
-// ##########################################################  //
 
 require('dotenv').config()
 const parseArgs = require('minimist')
@@ -16,7 +8,6 @@ let config = {
     mongoPass : process.env.MONGO_PASS,
     sessionSecret : process.env.SESSION_SECRET,
 }
-
 
 // ------------- Arguments Info -------------------- //
 // const args = process.argv.slice(2)
@@ -35,5 +26,5 @@ const mongoDbUrl = 'mongodb+srv://'+config.mongoUser+':'+config.mongoPass+'@clus
 module.exports = {
     mongoDbUrl,
     config,
-    arguments,
-    MONGODB_CONNECTION}
+    arguments
+}

@@ -1,24 +1,17 @@
 const routerProductos = require('./routes/products.routes')
 const routerCarrito = require('./routes/carts.routes')
+const routerLogin = require('./routes/login.routes')
 
 const dotenv = require('dotenv').config() // 1
 
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
-
-// const logger = require('./logger/logger')
-
 const passport = require('./middlewares/passportLocal.middleware')
 
-const routerLogin = require('./routes/login.routes')
-// const login = require('./routes/login.routes.js')
-// const products = require('./routes/products.routes.js')
-// const messages = require('./routes/messages.routes.js')
 const miscellaneous = require('./routes/miscellaneous.routes.js')
 
 const express = require('express');
 const app = express();
-// const PORT = process.env.PORT || 8080
 const { arguments, config, mongoDbUrl } = require('./config')
 const numCPUs = require('os').cpus().length
 
@@ -38,7 +31,6 @@ app.use(express.static('public'))
 
 app.use(session({
     store: MongoStore.create({
-        // mongoUrl: 'mongodb+srv://ctorchia:Mongo2468@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority',
         mongoUrl: mongoDbUrl,
         mongoOptions: { useNewUrlParser: true, useUnifiedTopology: true }
     }),
