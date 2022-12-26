@@ -49,9 +49,6 @@ app.use(passport.session())
 app.use('/api/productos', routerProductos)   // Server Original
 app.use('/api/carrito', routerCarrito)       // Server Original
 app.use('', routerLogin)
-
-// app.use(login);
-// app.use(products)
 // app.use(miscellaneous)
 
 // io.on('connection', (socket) => {
