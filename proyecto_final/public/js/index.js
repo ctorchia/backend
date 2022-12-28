@@ -1,7 +1,11 @@
 
 const PORT = 8080
 
-// const socket = io.connect(`http://localhost:${PORT}`);
+const socket = io.connect(`http://localhost:${PORT}`)            // Socket
+
+socket.on('message-server', (data) => {  
+    console.log(data)
+})
 
 // ---------- Pedir productos al servidor -----------------------//
 getProductsCart = () => {

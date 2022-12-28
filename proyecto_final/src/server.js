@@ -10,8 +10,8 @@ const passport = require('./middlewares/passportLocal.middleware')
 
 const miscellaneous = require('./routes/miscellaneous.routes.js')
 
-const express = require('express');
-const app = express();
+const express = require('express')                                  // Socket
+const app = express()                                               // Socket
 const { arguments, config, mongoDbUrl } = require('./config')
 const numCPUs = require('os').cpus().length
 
@@ -22,12 +22,12 @@ app.set('view engine', 'ejs')
 app.set('views', './src/views/pages')
 
 const cluster = require('cluster')
-const { Server: HttpServer } = require('http')
-const { Server: IOServer } = require('socket.io')
+const { Server: HttpServer } = require('http')                      // Socket
+const { Server: IOServer } = require('socket.io')                   // Socket
 const { log } = require("console")
-const serverHttp = new HttpServer(app)
-const io = new IOServer(serverHttp)
-app.use(express.static('public'))
+const serverHttp = new HttpServer(app)                              // Socket
+const io = new IOServer(serverHttp)                                 // Socket
+app.use(express.static('public'))                                   // Socket
 
 app.use(session({
     store: MongoStore.create({
@@ -51,10 +51,17 @@ app.use('/api/carrito', routerCarrito)       // Server Original
 app.use('', routerLogin)
 // app.use(miscellaneous)
 
-// io.on('connection', (socket) => {
-//     logger.info('nueva conexion')
-//     messages(socket, io)
-// })
+io.on('connection', (socket) => {                                // Socket
+    logger.info('new connection IO:', socket.id)
+
+    socket.emit('message-server', 'Welcome to the server CMT')
+
+    socket.on('disconnect', () => {
+        logger.info('User disconnected')
+    })
+
+    // messages(socket, io)
+})
 
 // const PORT = arguments.port
 // const MODE = arguments.mode.toUpperCase()
@@ -62,7 +69,7 @@ app.use('', routerLogin)
 const MODE = process.env.MODE || "FORK";
 const PORT = process.env.PORT || 8080;
 
-if (MODE === 'CLUSTER' && cluster.isMaster) {
+if (MODE === 'CLUSTER' && cluster.isMaster) {                       // Socket
     logger.info(`Puerto: ${PORT} - Modo: ${MODE}`)
     logger.info(`Master ${process.pid} is running`)
     for (let i = 0; i < numCPUs; i++) {
