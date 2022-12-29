@@ -1,6 +1,7 @@
 const routerProductos = require('./routes/products.routes')
 const routerCarrito = require('./routes/carts.routes')
 const routerLogin = require('./routes/login.routes')
+const routerMessages = require('./routes/messages.routes')
 
 const dotenv = require('dotenv').config() // 1
 
@@ -51,17 +52,22 @@ app.use('/api/carrito', routerCarrito)       // Server Original
 app.use('', routerLogin)
 // app.use(miscellaneous)
 
-io.on('connection', (socket) => {                                // Socket
+io.on('connection', (socket) => {                                   // Socket
     logger.info('new connection IO:', socket.id)
-
-    socket.emit('message-server', 'Welcome to the server CMT')
-
-    socket.on('disconnect', () => {
-        logger.info('User disconnected')
-    })
-
-    // messages(socket, io)
+    routerMessages(socket, io)
 })
+
+// io.on('connection', (socket) => {                                // Socket
+//     logger.info('new connection IO:', socket.id)
+
+//     socket.emit('message-server', 'Welcome to the server CMT')
+
+//     socket.on('disconnect', () => {
+//         logger.info('User disconnected')
+//     })
+
+//     // messages(socket, io)
+// })
 
 // const PORT = arguments.port
 // const MODE = arguments.mode.toUpperCase()
