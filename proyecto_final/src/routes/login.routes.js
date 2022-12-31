@@ -1,3 +1,7 @@
+const {messagesDao} = require("../daos/index");
+const mensaje = messagesDao
+//*************************************************/
+
 const express = require("express");
 const checkAuth = require('../middlewares/auth.middleware');
 
@@ -7,11 +11,22 @@ const passport = require('passport')
 
 const router = express.Router();
 
+// *************************************
 router.get('/chat', async (req, res) => {
   logger.info(`El usuario logueado es`);
   res.render('chat')
 
 })
+
+router.get('/chat/:email', async (req, res) => {
+  const { email } = req.params
+  const messages = await mensaje.getAllByEmail(email)
+  // console.log(messages);
+  res.json(messages)
+
+})
+// *************************************
+
 
 router.get('/', checkAuth, async (req, res) => {
   logger.info(`El usuario logueado es ${req.session.passport.user.username}`);

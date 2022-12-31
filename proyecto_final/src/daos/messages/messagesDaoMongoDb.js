@@ -6,7 +6,20 @@ class MessagesDaoMongoDb extends ContenedorMongoDb {
         super(Messages)
     }
 
-    // Otras funciones diferentes
+    // getByID(Number) : Object
+
+    async getAllByEmail(email) {
+        try {
+            const listaMensajes = await this.getAll()
+            console.log(email);
+            let mensajesFiltrados = listaMensajes.filter(mensaje => mensaje.author.id == email)
+            // console.log(mensajesFiltrados);
+            return mensajesFiltrados
+
+        } catch (error) {
+            logger.error(error);
+        }
+    }
 
 }
 

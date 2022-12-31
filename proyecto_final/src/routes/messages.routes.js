@@ -23,8 +23,6 @@ routerMessages = (socket, io) => {
     })
 
     socket.on('mensajeChat-nuevo', messageComplete => {
-        // console.log(messageComplete);
-        console.log('Posicion 1');
         objMessages.save(messageComplete).then(res => {
             objMessages.getAll().then(chats => {
                 // let chatNormalizado = normalizar({ id: 'mensajes', messages: chats });
