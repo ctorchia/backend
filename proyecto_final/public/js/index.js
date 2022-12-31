@@ -88,3 +88,73 @@ logoutButton.addEventListener('click', () => {
             }, 2000)
         })
 });
+
+
+
+// ----------------- Chat ------------------------------- //
+
+const renderChat = (chats) => {
+
+    // let denormalizedData = denormalizar(normalizedData);
+
+    let mensajesChat = document.querySelector('#mensajesChat');
+    let html = chats.messages.map((msj => {
+        return `<tr>
+                    <td class="text-primary fw-bold px-2">${msj.author.id}</td>
+                    <td class="text-danger px-2">[${msj.date}]:</td>
+                    <td class="text-success fst-italic px-2">${msj.text}</td> 
+                </tr>
+                `
+    }))
+    mensajesChat.innerHTML = html.join(' ');
+
+    // ---------- Ratio Compresion ----------------
+    // let SizeNormalized = JSON.stringify(normalizedData).length;
+    // let SizeDenormalized = JSON.stringify(denormalizedData).length;
+
+    // console.log(`Tamaño de Datos Normalizados:${SizeNormalized}`);
+    // console.log(`Tamaño de Datos Denormalizados:${SizeDenormalized}`)
+
+    // let ratioCompresion = ((100 * SizeNormalized) / SizeDenormalized).toFixed(2)
+    // console.log(`Ratio de Compresion: ${ratioCompresion}%`);
+
+    // let ratio = document.querySelector('#ratio')
+    // ratio.innerHTML = `Ratio de Compresion: ${ratioCompresion}%`
+}
+
+const addMessage = (evt) => {
+    const id = document.querySelector('#id').value;
+    const firstName = document.querySelector('#firstName').value;
+    const lastName = document.querySelector('#lastName').value;
+    const age = document.querySelector('#age').value;
+    const alias = document.querySelector('#alias').value;
+    const avatar = document.querySelector('#avatar').value;
+
+    const text = document.querySelector('#text').value;
+    const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
+
+    let messageComplete = {
+        author: {
+            id: id,
+            firstName: firstName,
+            lastName: lastName,
+            age: age,
+            alias: alias,
+            avatar: avatar
+        },
+        date: dateMessage,
+        text: text
+    };
+
+    document.querySelector('#text').value = ""
+
+    socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del mensaje
+        console.log(id);
+    });
+
+    return false;
+}
+
+socket.on('mensajeChat-server', (mensaje) => {
+    renderChat(mensaje)
+})

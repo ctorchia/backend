@@ -1,13 +1,16 @@
 const express = require("express");
 const checkAuth = require('../middlewares/auth.middleware');
 
-
-
 const logger = require('../logger/logger');
 
 const passport = require('passport')
 
 const router = express.Router();
+
+router.get('/chat', async (req, res) => {
+  logger.info(`El usuario logueado es`);
+  res.render('chat')
+})
 
 router.get('/', checkAuth, async (req, res) => {
   logger.info(`El usuario logueado es ${req.session.passport.user.username}`);
