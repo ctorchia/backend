@@ -54,6 +54,9 @@ app.use('', routerLogin)
 
 io.on('connection', (socket) => {                                   // Socket
     logger.info('new connection IO:', socket.id)
+
+    // socket.emit('mensajeChat-server', 'Welcome to the server CMT2')
+
     routerMessages(socket, io)
 })
 
