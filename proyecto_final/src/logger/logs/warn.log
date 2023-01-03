@@ -386,3 +386,69 @@
       at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
   valueType: 'number'
 }
+[2023-01-03T15:04:40.581] [ERROR] prod - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "Carts"
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4884:21)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaType.castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1636:15)
+      at SchemaType.castForQueryWrapper (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast.js:347:32)
+      at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
+  valueType: 'number'
+}
+[2023-01-03T15:15:07.602] [ERROR] prod - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "Carts"
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4884:21)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaType.castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1636:15)
+      at SchemaType.castForQueryWrapper (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast.js:347:32)
+      at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
+  valueType: 'number'
+}
+[2023-01-03T15:15:07.612] [ERROR] prod - CastError: Cast to ObjectId failed for value "63" (type number) at path "_id" for model "Carts"
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4884:21)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"63"',
+  kind: 'ObjectId',
+  value: 63,
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaType.castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1636:15)
+      at SchemaType.castForQueryWrapper (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast.js:347:32)
+      at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
+  valueType: 'number'
+}

@@ -97,7 +97,7 @@ POST http://localhost:8080/api/productos/ HTTP/1.1
 content-type: application/json
 
 {
-    "description": "Calculadora",
+    "description": "Calculadora Cientifica",
     "category": "libreria",
     "thumbnail": "https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png",
     "price": 500,
@@ -118,55 +118,72 @@ content-type: application/json
     
 
 ###
-PUT http://localhost:8080/api/productos/2 HTTP/1.1
+PUT http://localhost:8080/api/productos/63b447eafed450c9ffcd2f52 HTTP/1.1
 content-type: application/json
 
 {
-    "id": "2",
-    "name": "Goma",
-    "description": "",
-    "code": 10109,
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
-    "price": 1000,
-    "stock": 15
+    "description": "Calculadora Cientifica"
 }
 
+    # "category": "libreria",
+    # "thumbnail": "https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png",
+    # "price": 500,
+    # "stock": 50
+
+
 ###
-DELETE http://localhost:8080/api/productos/4 HTTP/1.1
+DELETE http://localhost:8080/api/productos/63b447eafed450c9ffcd2f52 HTTP/1.1
 content-type: application/json
+
+
+
 
 ################### PARA CARRITO ############################################
-
-POST http://localhost:8080/api/carrito/ HTTP/1.1
-content-type: application/json
-
-{
-    "id": "1",
-    "products":[]
-}
-
-###
-DELETE http://localhost:8080/api/carrito/1 HTTP/1.1
-content-type: application/json
-
 ###
 GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
 content-type: application/json
 
 ###
-POST http://localhost:8080/api/carrito/2/productos HTTP/1.1
+POST http://localhost:8080/api/carrito/ HTTP/1.1
 content-type: application/json
 
 {
-    "id": "2",
-    "name": "Teclado 2",
-    "description": "",
-    "code": 10109,
-    "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-    "price": 200,
-    "stock": 15
+    "email": "sofi@gmail.com",
+    "products":[],
+    "address": "Calle falsa 123"
 }
 
 ###
-DELETE http://localhost:8080/api/carrito/2/productos/1 HTTP/1.1
+DELETE http://localhost:8080/api/carrito/63b46c7b0eb8a6d3c2ea200a HTTP/1.1
+content-type: application/json
+
+
+###
+POST http://localhost:8080/api/carrito/63b470df5b43bddfdabb594d/productos HTTP/1.1
+content-type: application/json
+
+{
+    "_id": "63b4463ffed450c9ffcd2f4f",
+    "description": "Mouse",
+    "category": "informatica",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png",
+    "price": 1000,
+    "quantity": 1
+}
+
+###
+POST http://localhost:8080/api/carrito/63b470df5b43bddfdabb594d/productos HTTP/1.1
+content-type: application/json
+
+{
+    "_id": "63b466de5bd9c2611a4f1242",
+    "description": "Calculadora Cientifica",
+    "category": "libreria",
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png",
+    "price": 500,
+    "quantity": 2
+}
+
+###
+DELETE http://localhost:8080/api/carrito/63b470df5b43bddfdabb594d/productos/63b466de5bd9c2611a4f1242 HTTP/1.1
 content-type: application/json

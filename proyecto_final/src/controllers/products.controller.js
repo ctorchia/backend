@@ -38,6 +38,7 @@ const getProductByCategory = async (req, res) => {
 const postProduct = async (req, res) => {
     if (administrador) {
         const idProduct = await producto.save(req.body)
+        res.json(idProduct)
     }
     else {
         res.json({
@@ -52,7 +53,7 @@ const postProduct = async (req, res) => {
 const putProduct = async (req, res) => {
     if (administrador) {
         const { id } = req.params
-        const respuesta = await producto.updateById(parseInt(id), req.body)
+        const respuesta = await producto.updateById(id, req.body)
         res.json(respuesta)
     }
     else {
@@ -68,7 +69,7 @@ const putProduct = async (req, res) => {
 const deleteProductById = async (req, res) => {
     if (administrador) {
         const { id } = req.params
-        await producto.deleteById(parseInt(id))
+        await producto.deleteById(id)
     }
     else {
         res.json({

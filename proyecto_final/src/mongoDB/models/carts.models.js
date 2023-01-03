@@ -1,7 +1,13 @@
 const mongoose = require('mongoose')
 
 const CartsSchema = new mongoose.Schema({ 
-    id: {
+    // id: {
+    //     type: String,
+    //     required: true,
+    //     trim: true,
+    //     unique: true
+    // },
+    email: {
         type: String,
         required: true,
         trim: true,
@@ -15,7 +21,12 @@ const CartsSchema = new mongoose.Schema({
     products: {
         type: Array,
         required: true,
-    }
+    },
+    address: {
+        type: String,
+        required: false,
+        trim: true
+    },
 })
 
 module.exports = mongoose.model('Carts', CartsSchema)

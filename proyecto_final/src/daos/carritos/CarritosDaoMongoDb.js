@@ -11,7 +11,7 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
     async addProductToCart(idCart, product) {
         try {
 
-            let carritoById = (await this.getById(parseInt(idCart)))
+            let carritoById = (await this.getById(idCart))
             let timestamp = Date.now()
             if (carritoById) {
                 carritoById.products.push(product)
@@ -41,8 +41,9 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
             logger.info(`Productos: ${cart.products}`);
             if (cart) {
 
-                let productosFiltrados = cart.products.filter(product => product.id !== idProduct)
+                let productosFiltrados = cart.products.filter(product => product._id !== idProduct)
                 cart.products = productosFiltrados
+                console.log(cart.products);
                 await this.updateById(idCart, cart)
                 logger.info('Producto Eliminado')
             } else {

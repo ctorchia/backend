@@ -34,7 +34,7 @@ const postProductToCart = async (req, res) => {
 
 const deleteCartById = async (req, res) => {
     const { id } = req.params
-    await carrito.deleteById(parseInt(id))
+    await carrito.deleteById(id)
 }
 
 //********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
