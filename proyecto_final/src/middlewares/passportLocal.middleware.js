@@ -31,11 +31,12 @@ passport.deserializeUser(function (user, done) {
 // ------------- Passport Middlewares -----------------
 passport.use('login', new LocalStrategy(
     async (username, password, done) => {
-        let user = await users.getByEmail(username)
+        const email = username
+        let user = await users.getByEmail(email)
         logger.info(user);
 
         if (!user) {
-            logger.info(`No existe el usuario ${username}`)
+            logger.info(`No existe el usuario ${email}`)
             return done(null, false, { message: 'User not found' })
         }
 
@@ -51,11 +52,12 @@ passport.use('login', new LocalStrategy(
 passport.use('signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
+    const email = username
 
-    let user = await users.getByEmail(username)
+    let user = await users.getByEmail(email)
 
     if (user) {
-        logger.info(`El usuario ${username} ya existe`)
+        logger.info(`El usuario ${email} ya existe`)
         return done(null, false, { message: 'User already exists' })
     }
 
@@ -64,7 +66,7 @@ passport.use('signup', new LocalStrategy({
     let newUser = {
         completeName,
         phone,
-        email: username,
+        email,
         password: createHash(password)
     }
 
@@ -72,7 +74,7 @@ passport.use('signup', new LocalStrategy({
     const signupMessage = `Datos del Usuario Registrado: <br><br> 
                             Nombre Completo: ${completeName} <br>
                             Telefono: ${phone} <br>
-                            Email: ${username} <br>`
+                            Email: ${email} <br>`
 
     const mailOptions = {
         from: 'MaraArtesanias',
