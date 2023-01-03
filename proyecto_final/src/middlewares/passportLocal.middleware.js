@@ -6,7 +6,7 @@ const UsersDaoMongoDb = require('../daos/usersDaoMongo')
 const users = new UsersDaoMongoDb()
 
 const dotenv = require('dotenv').config() // 1
-const mailer = require('../mailer/mailer')
+const {mailer} = require('../mailer/mailer')
 
 // ---------------------- Utils -----------------------
 const isValidPassword = (user, password) => {
@@ -31,7 +31,7 @@ passport.deserializeUser(function (user, done) {
 // ------------- Passport Middlewares -----------------
 passport.use('login', new LocalStrategy(
     async (username, password, done) => {
-        let user = await users.getByUsername(username)
+        let user = await users.getByEmail(username)
         logger.info(user);
 
         if (!user) {
@@ -51,34 +51,28 @@ passport.use('login', new LocalStrategy(
 passport.use('signup', new LocalStrategy({
     passReqToCallback: true
 }, async (req, username, password, done) => {
-    let user = await users.getByUsername(username)
+
+    let user = await users.getByEmail(username)
 
     if (user) {
         logger.info(`El usuario ${username} ya existe`)
         return done(null, false, { message: 'User already exists' })
     }
 
-    const { email, completeName, address, age, phone, photo } = req.body
+    const { completeName, phone } = req.body
 
     let newUser = {
-        username,
-        password: createHash(password),
-        email,
         completeName,
-        address,
-        age,
         phone,
-        photo
+        email: username,
+        password: createHash(password)
     }
 
     // Enviar correo de Registro al Admin
     const signupMessage = `Datos del Usuario Registrado: <br><br> 
-                            Usuario: ${username} <br>
-                            Email: ${email} <br>
                             Nombre Completo: ${completeName} <br>
-                            Direccion: ${address} <br>
-                            Edad: ${age} <br>
-                            Telefono: ${phone}`
+                            Telefono: ${phone} <br>
+                            Email: ${username} <br>`
 
     const mailOptions = {
         from: 'MaraArtesanias',

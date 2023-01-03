@@ -9,9 +9,9 @@ class UsersDaoMongoDb extends ContenedorMongoDb {
 
     // Otras funciones diferentes
 
-    async getByUsername(username) {
+    async getByEmail(email) {
         try {
-            let objeto = await this.model.find({ username: username })
+            let objeto = await this.model.find({ email: email })
 
             if (objeto) {
                 logger.info(objeto)
