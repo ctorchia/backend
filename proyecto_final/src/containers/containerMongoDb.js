@@ -14,6 +14,7 @@ class ContenedorMongoDb {
             let product = new this.model(obj)
             await product.save()
             logger.info('Objeto Agregado');
+            return product._id
         } catch (error) {
             logger.error(error);
         }
@@ -23,11 +24,14 @@ class ContenedorMongoDb {
 
     async getById(id) {
         try {
-            let objeto = await this.model.find({ _id: id })
+            // let objeto = await this.model.find({ id: id })
+            let objeto = await this.model.findOne({_id:id})
+
+            // console.log(objeto);
 
             if (objeto) {
                 logger.info(objeto)
-                return objeto[0]
+                return objeto
             } else {
                 logger.info('El item no existe');
                 return null

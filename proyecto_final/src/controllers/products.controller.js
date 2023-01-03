@@ -14,9 +14,21 @@ const getProducts = async (req, res) => {
 
 const getProductById = async (req, res) => {
     const { id } = req.params
-    const productoById = await producto.getById(parseInt(id))
+    const productoById = await producto.getById(id)
     productoById ?
         res.json(productoById)
+        :
+        res.json({ error: 'Producto no encontrado' })
+}
+
+//********************** GET (Devuelve productos segun categoria) **********************************
+
+const getProductByCategory = async (req, res) => {
+    const { category } = req.params
+
+    const productosByCategory = await producto.getProductByCategory(category)
+    productosByCategory ?
+        res.json(productosByCategory)
         :
         res.json({ error: 'Producto no encontrado' })
 }
@@ -78,6 +90,7 @@ const routeNotAvailable = async (req, res) => {
 module.exports = {
     getProducts,
     getProductById,
+    getProductByCategory,
     postProduct,
     putProduct,
     deleteProductById,

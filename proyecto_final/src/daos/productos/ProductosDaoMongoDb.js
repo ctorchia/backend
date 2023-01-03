@@ -6,7 +6,16 @@ class ProductosDaoMongoDb extends ContenedorMongoDb {
         super(Products)
     }
 
-    // Otras funciones diferentes
+    async getProductByCategory(category) {
+        try {
+            const listaProductos = await this.getAll()
+            let productosFiltrados = listaProductos.filter(producto => producto.category == category)
+            return productosFiltrados
+
+        } catch (error) {
+            logger.error(error);
+        }
+    }
 
 }
 

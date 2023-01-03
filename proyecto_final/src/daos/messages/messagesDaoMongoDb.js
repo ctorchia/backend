@@ -6,7 +6,7 @@ class MessagesDaoMongoDb extends ContenedorMongoDb {
         super(Messages)
     }
 
-    // getByID(Number) : Object
+    // getByEmail(Number) : Object
 
     async getAllByEmail(email) {
         try {

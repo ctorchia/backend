@@ -85,15 +85,38 @@ POST http://localhost:8080/api/productos/ HTTP/1.1
 content-type: application/json
 
 {
-    "id": "4",
-    "name": "Calculadora",
-    "description": "",
-    "code": 10542,
+    "description": "Teclado",
+    "category": "informatica",
     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-    "price": 555,
+    "price": 1500,
     "stock": 50
 }
+
+###
+POST http://localhost:8080/api/productos/ HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Calculadora",
+    "category": "libreria",
+    "thumbnail": "https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png",
+    "price": 500,
+    "stock": 50
+}
+
+###
+POST http://localhost:8080/api/productos/ HTTP/1.1
+content-type: application/json
+
+{
+    "description": "Mouse",
+    "category": "informatica",
+    "thumbnail": "https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png",
+    "price": 1000,
+    "stock": 80
+}
     
+
 ###
 PUT http://localhost:8080/api/productos/2 HTTP/1.1
 content-type: application/json

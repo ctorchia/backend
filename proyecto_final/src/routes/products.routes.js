@@ -1,5 +1,5 @@
 const express = require('express')
-const {getProducts,getProductById,postProduct,putProduct,deleteProductById,routeNotAvailable} = require('../controllers/products.controller')
+const {getProducts,getProductById,getProductByCategory,postProduct,putProduct,deleteProductById,routeNotAvailable} = require('../controllers/products.controller')
 
 const { Router } = express
 const routerProductos = Router()
@@ -12,6 +12,10 @@ routerProductos.get('/', getProducts)
 //********************** GET (Devuelve un producto según ID) **********************************
 
 routerProductos.get('/:id', getProductById)
+
+//********************** GET (Devuelve productos según Categoria) **********************************
+
+routerProductos.get('/categoria/:category', getProductByCategory)
 
 //************************ POST (Recibe y Agrega un producto) **********************************
 
