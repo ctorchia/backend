@@ -452,3 +452,331 @@
       at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
   valueType: 'number'
 }
+[2023-01-05T13:56:38.281] [ERROR] prod - Error: Orders validation failed: state: Path `state` is required., timestamp: Path `timestamp` is required., orderNumber: Path `orderNumber` is required.
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    state: ValidatorError: Path `state` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'state',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    timestamp: ValidatorError: Path `timestamp` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'timestamp',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    orderNumber: ValidatorError: Path `orderNumber` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'orderNumber',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-05T15:06:54.946] [ERROR] prod - Error: Orders validation failed: state: Path `state` is required., timestamp: Path `timestamp` is required., orderNumber: Path `orderNumber` is required.
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    state: ValidatorError: Path `state` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'state',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    timestamp: ValidatorError: Path `timestamp` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'timestamp',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    orderNumber: ValidatorError: Path `orderNumber` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'orderNumber',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-05T15:11:33.419] [ERROR] prod - Error: Orders validation failed: state: Path `state` is required., timestamp: Path `timestamp` is required., orderNumber: Path `orderNumber` is required.
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    state: ValidatorError: Path `state` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'state',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    timestamp: ValidatorError: Path `timestamp` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'timestamp',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    },
+    orderNumber: ValidatorError: Path `orderNumber` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'orderNumber',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-05T15:17:37.844] [ERROR] prod - Error: Orders validation failed: email: Path `email` is required.
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    email: ValidatorError: Path `email` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'email',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-05T15:21:40.531] [ERROR] prod - Error: Orders validation failed: email: Path `email` is required.
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    email: ValidatorError: Path `email` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'email',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-05T15:23:58.878] [ERROR] prod - Error: Orders validation failed: email: Path `email` is required.
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    email: ValidatorError: Path `email` is required.
+        at validate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1346:13)
+        at SchemaType.doValidate (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1330:7)
+        at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:2834:18
+        at process.processTicksAndRejections (node:internal/process/task_queues:77:11) {
+      properties: [Object],
+      kind: 'required',
+      path: 'email',
+      value: undefined,
+      reason: undefined,
+      [Symbol(mongoose:validatorError)]: true
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-05T15:25:49.031] [ERROR] prod - Error: Orders validation failed: email: Cast to string failed for value "{
+  products: [
+    {
+      _id: '63b4463ffed450c9ffcd2f4f',
+      description: 'Mouse',
+      category: 'informatica',
+      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',
+      price: 1000,
+      quantity: 1
+    },
+    {
+      _id: '63b466de5bd9c2611a4f1242',
+      description: 'Calculadora Cientifica',
+      category: 'libreria',
+      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',
+      price: 500,
+      quantity: 2
+    }
+  ],
+  email: 'sofi@gmail.com'
+}" (type Object) at path "email"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    email: CastError: Cast to string failed for value "{
+      products: [
+        {
+          _id: '63b4463ffed450c9ffcd2f4f',
+          description: 'Mouse',
+          category: 'informatica',
+          thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',
+          price: 1000,
+          quantity: 1
+        },
+        {
+          _id: '63b466de5bd9c2611a4f1242',
+          description: 'Calculadora Cientifica',
+          category: 'libreria',
+          thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',
+          price: 500,
+          quantity: 2
+        }
+      ],
+      email: 'sofi@gmail.com'
+    }" (type Object) at path "email"
+        at SchemaString.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\string.js:603:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:24:33)
+        at postSendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\controllers\orders.controller.js:36:33) {
+      stringValue: '"{\n' +
+        '  products: [\n' +
+        '    {\n' +
+        "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+        "      description: 'Mouse',\n" +
+        "      category: 'informatica',\n" +
+        "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+        '      price: 1000,\n' +
+        '      quantity: 1\n' +
+        '    },\n' +
+        '    {\n' +
+        "      _id: '63b466de5bd9c2611a4f1242',\n" +
+        "      description: 'Calculadora Cientifica',\n" +
+        "      category: 'libreria',\n" +
+        "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+        '      price: 500,\n' +
+        '      quantity: 2\n' +
+        '    }\n' +
+        '  ],\n' +
+        "  email: 'sofi@gmail.com'\n" +
+        '}"',
+      messageFormat: undefined,
+      kind: 'string',
+      value: [Object],
+      path: 'email',
+      reason: null,
+      valueType: 'Object'
+    }
+  },
+  _message: 'Orders validation failed'
+}

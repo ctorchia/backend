@@ -24,9 +24,9 @@ routerCarrito.delete('/:id', deleteCartById)
 
 routerCarrito.delete('/:idCart/productos/:idProduct', deleteProductFromCart)
 
-//********************** POST: '/sendOrder' (Confirmar Compra) **********************************
+// //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 
-routerCarrito.post('/sendOrder', postSendOrder)
+// routerCarrito.post('/sendOrder', postSendOrder)
 
 //********************** '*' Rest of the routes **********************************
 

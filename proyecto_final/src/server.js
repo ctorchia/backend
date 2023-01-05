@@ -2,6 +2,7 @@ const routerProductos = require('./routes/products.routes')
 const routerCarrito = require('./routes/carts.routes')
 const routerLogin = require('./routes/login.routes')
 const routerMessages = require('./routes/messages.routes')
+const routerOrders = require('./routes/orders.routes')
 
 const dotenv = require('dotenv').config() // 1
 
@@ -49,6 +50,7 @@ app.use(passport.session())
 
 app.use('/api/productos', routerProductos)   // Server Original
 app.use('/api/carrito', routerCarrito)       // Server Original
+app.use('/api/orders', routerOrders)
 app.use('', routerLogin)
 // app.use(miscellaneous)
 
