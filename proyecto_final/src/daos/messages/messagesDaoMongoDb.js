@@ -12,7 +12,7 @@ class MessagesDaoMongoDb extends ContenedorMongoDb {
         try {
             const listaMensajes = await this.getAll()
             console.log(email);
-            let mensajesFiltrados = listaMensajes.filter(mensaje => mensaje.author.id == email)
+            let mensajesFiltrados = listaMensajes.filter(mensaje => mensaje.email == email)
             // console.log(mensajesFiltrados);
             return mensajesFiltrados
 

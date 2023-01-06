@@ -5,8 +5,8 @@ const renderChat = (chats) => {
     let mensajesChat = document.querySelector('#mensajesChat');
     let html = chats.map((msj => {
         return `<tr>
-                    <td class="text-primary fw-bold px-2">${msj.author.id}</td>
-                    <td class="text-danger px-2">[${msj.date}]:</td>
+                    <td class="text-primary fw-bold px-2">${msj.email}</td>
+                    <td class="text-danger px-2">[${msj.timestamp}]:</td>
                     <td class="text-success fst-italic px-2">${msj.text}</td> 
                 </tr>
                 `
@@ -16,26 +16,29 @@ const renderChat = (chats) => {
 
 const addMessage = (evt) => {
     // evt.preventDefault()
-    const id = document.querySelector('#id').value;
-    const firstName = document.querySelector('#firstName').value;
-    const lastName = document.querySelector('#lastName').value;
-    const age = document.querySelector('#age').value;
-    const alias = document.querySelector('#alias').value;
-    const avatar = document.querySelector('#avatar').value;
+    const email = document.querySelector('#email').value;
+    // const firstName = document.querySelector('#firstName').value;
+    // const lastName = document.querySelector('#lastName').value;
+    // const age = document.querySelector('#age').value;
+    // const alias = document.querySelector('#alias').value;
+    // const avatar = document.querySelector('#avatar').value;
 
     const text = document.querySelector('#text').value;
     const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
 
     let messageComplete = {
-        author: {
-            id: id,
-            firstName: firstName,
-            lastName: lastName,
-            age: age,
-            alias: alias,
-            avatar: avatar
-        },
-        date: dateMessage,
+
+        // author: {
+        //     email: email,
+        //     firstName: firstName,
+        //     lastName: lastName,
+        //     age: age,
+        //     alias: alias,
+        //     avatar: avatar
+        // },
+        email: email,
+        type: 'usuario',
+        timestamp: dateMessage,
         text: text
     };
 
@@ -105,9 +108,9 @@ sendOrder.addEventListener('click', async () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            username: "pepe",
+            // username: "pepe",
             email: "pepe@gmail.com",
-            phone: "+5491162660189",
+            // phone: "+5491162660189",
             idCart: "6323641f1a6e8f629b4c8d1e",
         }),
     };

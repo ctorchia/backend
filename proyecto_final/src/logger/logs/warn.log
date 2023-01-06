@@ -1647,3 +1647,9 @@
   },
   _message: 'Orders validation failed'
 }
+[2023-01-06T15:57:21.736] [ERROR] prod - TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\messages\MessagesDaoMongoDb.js:15:84
+    at Array.filter (<anonymous>)
+    at MessagesDaoMongoDb.getAllByEmail (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\messages\MessagesDaoMongoDb.js:15:51)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\routes\login.routes.js:23:20
