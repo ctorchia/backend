@@ -754,3 +754,870 @@
   },
   _message: 'Orders validation failed'
 }
+[2023-01-06T00:03:45.523] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "async getLastOrder() {\r\n' +
+  '        try {\r\n' +
+  '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+  '            return lastOrder;\r\n' +
+  '        } catch (error) {\r\n' +
+  '            console.log("Ocurrio un error: " + error);\r\n' +
+  '        }\r\n' +
+  '    }1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "async getLastOrder() {\r\n' +
+      '        try {\r\n' +
+      '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+      '            return lastOrder;\r\n' +
+      '        } catch (error) {\r\n' +
+      '            console.log("Ocurrio un error: " + error);\r\n' +
+      '        }\r\n' +
+      '    }1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:37:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"async getLastOrder() {\\r\\n' +\n` +
+        "  '        try {\\r\\n' +\n" +
+        "  '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\\r\\n' +\n" +
+        "  '            return lastOrder;\\r\\n' +\n" +
+        "  '        } catch (error) {\\r\\n' +\n" +
+        `  '            console.log("Ocurrio un error: " + error);\\r\\n' +\n` +
+        "  '        }\\r\\n' +\n" +
+        `  '    }1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: 'async getLastOrder() {\r\n' +
+        '        try {\r\n' +
+        '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+        '            return lastOrder;\r\n' +
+        '        } catch (error) {\r\n' +
+        '            console.log("Ocurrio un error: " + error);\r\n' +
+        '        }\r\n' +
+        '    }1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:37:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-06T00:07:03.967] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "async getLastOrder() {\r\n' +
+  '        try {\r\n' +
+  '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+  '            console.log(lastOrder);\r\n' +
+  '            return lastOrder;\r\n' +
+  '        } catch (error) {\r\n' +
+  '            console.log("Ocurrio un error: " + error);\r\n' +
+  '        }\r\n' +
+  '    }1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "async getLastOrder() {\r\n' +
+      '        try {\r\n' +
+      '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+      '            console.log(lastOrder);\r\n' +
+      '            return lastOrder;\r\n' +
+      '        } catch (error) {\r\n' +
+      '            console.log("Ocurrio un error: " + error);\r\n' +
+      '        }\r\n' +
+      '    }1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:38:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"async getLastOrder() {\\r\\n' +\n` +
+        "  '        try {\\r\\n' +\n" +
+        "  '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\\r\\n' +\n" +
+        "  '            console.log(lastOrder);\\r\\n' +\n" +
+        "  '            return lastOrder;\\r\\n' +\n" +
+        "  '        } catch (error) {\\r\\n' +\n" +
+        `  '            console.log("Ocurrio un error: " + error);\\r\\n' +\n` +
+        "  '        }\\r\\n' +\n" +
+        `  '    }1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: 'async getLastOrder() {\r\n' +
+        '        try {\r\n' +
+        '            let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+        '            console.log(lastOrder);\r\n' +
+        '            return lastOrder;\r\n' +
+        '        } catch (error) {\r\n' +
+        '            console.log("Ocurrio un error: " + error);\r\n' +
+        '        }\r\n' +
+        '    }1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:38:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-06T00:09:27.207] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "async getLastOrder() {\r\n' +
+  '        try {\r\n' +
+  '            // let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+  '            let lastOrder = await this.model.find().limit(1)\r\n' +
+  '            console.log(lastOrder);\r\n' +
+  '            return lastOrder;\r\n' +
+  '        } catch (error) {\r\n' +
+  '            console.log("Ocurrio un error: " + error);\r\n' +
+  '        }\r\n' +
+  '    }1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "async getLastOrder() {\r\n' +
+      '        try {\r\n' +
+      '            // let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+      '            let lastOrder = await this.model.find().limit(1)\r\n' +
+      '            console.log(lastOrder);\r\n' +
+      '            return lastOrder;\r\n' +
+      '        } catch (error) {\r\n' +
+      '            console.log("Ocurrio un error: " + error);\r\n' +
+      '        }\r\n' +
+      '    }1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"async getLastOrder() {\\r\\n' +\n` +
+        "  '        try {\\r\\n' +\n" +
+        "  '            // let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\\r\\n' +\n" +
+        "  '            let lastOrder = await this.model.find().limit(1)\\r\\n' +\n" +
+        "  '            console.log(lastOrder);\\r\\n' +\n" +
+        "  '            return lastOrder;\\r\\n' +\n" +
+        "  '        } catch (error) {\\r\\n' +\n" +
+        `  '            console.log("Ocurrio un error: " + error);\\r\\n' +\n` +
+        "  '        }\\r\\n' +\n" +
+        `  '    }1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: 'async getLastOrder() {\r\n' +
+        '        try {\r\n' +
+        '            // let lastOrder = await this.model.find().limit(1).sort({ $natural: -1 })\r\n' +
+        '            let lastOrder = await this.model.find().limit(1)\r\n' +
+        '            console.log(lastOrder);\r\n' +
+        '            return lastOrder;\r\n' +
+        '        } catch (error) {\r\n' +
+        '            console.log("Ocurrio un error: " + error);\r\n' +
+        '        }\r\n' +
+        '    }1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-06T00:12:07.620] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "{\n' +
+  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+  '  items: [\n' +
+  '    {\n' +
+  "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+  "      description: 'Mouse',\n" +
+  "      category: 'informatica',\n" +
+  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+  '      price: 1000,\n' +
+  '      quantity: 1\n' +
+  '    },\n' +
+  '    {\n' +
+  "      _id: '63b466de5bd9c2611a4f1242',\n" +
+  "      description: 'Calculadora Cientifica',\n" +
+  "      category: 'libreria',\n" +
+  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+  '      price: 500,\n' +
+  '      quantity: 2\n' +
+  '    }\n' +
+  '  ],\n' +
+  '  orderNumber: 1,\n' +
+  "  timestamp: '5/1/2023, 15:31:41',\n" +
+  "  state: 'generada',\n" +
+  "  email: 'sofi@gmail.com',\n" +
+  '  __v: 0\n' +
+  '}1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "{\n' +
+      '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+      '  items: [\n' +
+      '    {\n' +
+      "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+      "      description: 'Mouse',\n" +
+      "      category: 'informatica',\n" +
+      "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+      '      price: 1000,\n' +
+      '      quantity: 1\n' +
+      '    },\n' +
+      '    {\n' +
+      "      _id: '63b466de5bd9c2611a4f1242',\n" +
+      "      description: 'Calculadora Cientifica',\n" +
+      "      category: 'libreria',\n" +
+      "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+      '      price: 500,\n' +
+      '      quantity: 2\n' +
+      '    }\n' +
+      '  ],\n' +
+      '  orderNumber: 1,\n' +
+      "  timestamp: '5/1/2023, 15:31:41',\n" +
+      "  state: 'generada',\n" +
+      "  email: 'sofi@gmail.com',\n" +
+      '  __v: 0\n' +
+      '}1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"{\\n' +\n` +
+        `  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\\n' +\n` +
+        "  '  items: [\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b4463ffed450c9ffcd2f4f',\\n" +\n` +
+        `  "      description: 'Mouse',\\n" +\n` +
+        `  "      category: 'informatica',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\\n" +\n` +
+        "  '      price: 1000,\\n' +\n" +
+        "  '      quantity: 1\\n' +\n" +
+        "  '    },\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b466de5bd9c2611a4f1242',\\n" +\n` +
+        `  "      description: 'Calculadora Cientifica',\\n" +\n` +
+        `  "      category: 'libreria',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\\n" +\n` +
+        "  '      price: 500,\\n' +\n" +
+        "  '      quantity: 2\\n' +\n" +
+        "  '    }\\n' +\n" +
+        "  '  ],\\n' +\n" +
+        "  '  orderNumber: 1,\\n' +\n" +
+        `  "  timestamp: '5/1/2023, 15:31:41',\\n" +\n` +
+        `  "  state: 'generada',\\n" +\n` +
+        `  "  email: 'sofi@gmail.com',\\n" +\n` +
+        "  '  __v: 0\\n' +\n" +
+        `  '}1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '{\n' +
+        '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+        '  items: [\n' +
+        '    {\n' +
+        "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+        "      description: 'Mouse',\n" +
+        "      category: 'informatica',\n" +
+        "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+        '      price: 1000,\n' +
+        '      quantity: 1\n' +
+        '    },\n' +
+        '    {\n' +
+        "      _id: '63b466de5bd9c2611a4f1242',\n" +
+        "      description: 'Calculadora Cientifica',\n" +
+        "      category: 'libreria',\n" +
+        "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+        '      price: 500,\n' +
+        '      quantity: 2\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  orderNumber: 1,\n' +
+        "  timestamp: '5/1/2023, 15:31:41',\n" +
+        "  state: 'generada',\n" +
+        "  email: 'sofi@gmail.com',\n" +
+        '  __v: 0\n' +
+        '}1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-06T00:14:17.918] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "{\n' +
+  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+  '  items: [\n' +
+  '    {\n' +
+  "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+  "      description: 'Mouse',\n" +
+  "      category: 'informatica',\n" +
+  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+  '      price: 1000,\n' +
+  '      quantity: 1\n' +
+  '    },\n' +
+  '    {\n' +
+  "      _id: '63b466de5bd9c2611a4f1242',\n" +
+  "      description: 'Calculadora Cientifica',\n" +
+  "      category: 'libreria',\n" +
+  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+  '      price: 500,\n' +
+  '      quantity: 2\n' +
+  '    }\n' +
+  '  ],\n' +
+  '  orderNumber: 1,\n' +
+  "  timestamp: '5/1/2023, 15:31:41',\n" +
+  "  state: 'generada',\n" +
+  "  email: 'sofi@gmail.com',\n" +
+  '  __v: 0\n' +
+  '}1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "{\n' +
+      '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+      '  items: [\n' +
+      '    {\n' +
+      "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+      "      description: 'Mouse',\n" +
+      "      category: 'informatica',\n" +
+      "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+      '      price: 1000,\n' +
+      '      quantity: 1\n' +
+      '    },\n' +
+      '    {\n' +
+      "      _id: '63b466de5bd9c2611a4f1242',\n" +
+      "      description: 'Calculadora Cientifica',\n" +
+      "      category: 'libreria',\n" +
+      "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+      '      price: 500,\n' +
+      '      quantity: 2\n' +
+      '    }\n' +
+      '  ],\n' +
+      '  orderNumber: 1,\n' +
+      "  timestamp: '5/1/2023, 15:31:41',\n" +
+      "  state: 'generada',\n" +
+      "  email: 'sofi@gmail.com',\n" +
+      '  __v: 0\n' +
+      '}1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"{\\n' +\n` +
+        `  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\\n' +\n` +
+        "  '  items: [\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b4463ffed450c9ffcd2f4f',\\n" +\n` +
+        `  "      description: 'Mouse',\\n" +\n` +
+        `  "      category: 'informatica',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\\n" +\n` +
+        "  '      price: 1000,\\n' +\n" +
+        "  '      quantity: 1\\n' +\n" +
+        "  '    },\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b466de5bd9c2611a4f1242',\\n" +\n` +
+        `  "      description: 'Calculadora Cientifica',\\n" +\n` +
+        `  "      category: 'libreria',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\\n" +\n` +
+        "  '      price: 500,\\n' +\n" +
+        "  '      quantity: 2\\n' +\n" +
+        "  '    }\\n' +\n" +
+        "  '  ],\\n' +\n" +
+        "  '  orderNumber: 1,\\n' +\n" +
+        `  "  timestamp: '5/1/2023, 15:31:41',\\n" +\n` +
+        `  "  state: 'generada',\\n" +\n` +
+        `  "  email: 'sofi@gmail.com',\\n" +\n` +
+        "  '  __v: 0\\n' +\n" +
+        `  '}1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '{\n' +
+        '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+        '  items: [\n' +
+        '    {\n' +
+        "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+        "      description: 'Mouse',\n" +
+        "      category: 'informatica',\n" +
+        "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+        '      price: 1000,\n' +
+        '      quantity: 1\n' +
+        '    },\n' +
+        '    {\n' +
+        "      _id: '63b466de5bd9c2611a4f1242',\n" +
+        "      description: 'Calculadora Cientifica',\n" +
+        "      category: 'libreria',\n" +
+        "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+        '      price: 500,\n' +
+        '      quantity: 2\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  orderNumber: 1,\n' +
+        "  timestamp: '5/1/2023, 15:31:41',\n" +
+        "  state: 'generada',\n" +
+        "  email: 'sofi@gmail.com',\n" +
+        '  __v: 0\n' +
+        '}1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-06T00:17:20.352] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "{\n' +
+  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+  '  items: [\n' +
+  '    {\n' +
+  "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+  "      description: 'Mouse',\n" +
+  "      category: 'informatica',\n" +
+  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+  '      price: 1000,\n' +
+  '      quantity: 1\n' +
+  '    },\n' +
+  '    {\n' +
+  "      _id: '63b466de5bd9c2611a4f1242',\n" +
+  "      description: 'Calculadora Cientifica',\n" +
+  "      category: 'libreria',\n" +
+  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+  '      price: 500,\n' +
+  '      quantity: 2\n' +
+  '    }\n' +
+  '  ],\n' +
+  '  orderNumber: 1,\n' +
+  "  timestamp: '5/1/2023, 15:31:41',\n" +
+  "  state: 'generada',\n" +
+  "  email: 'sofi@gmail.com',\n" +
+  '  __v: 0\n' +
+  '}1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "{\n' +
+      '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+      '  items: [\n' +
+      '    {\n' +
+      "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+      "      description: 'Mouse',\n" +
+      "      category: 'informatica',\n" +
+      "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+      '      price: 1000,\n' +
+      '      quantity: 1\n' +
+      '    },\n' +
+      '    {\n' +
+      "      _id: '63b466de5bd9c2611a4f1242',\n" +
+      "      description: 'Calculadora Cientifica',\n" +
+      "      category: 'libreria',\n" +
+      "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+      '      price: 500,\n' +
+      '      quantity: 2\n' +
+      '    }\n' +
+      '  ],\n' +
+      '  orderNumber: 1,\n' +
+      "  timestamp: '5/1/2023, 15:31:41',\n" +
+      "  state: 'generada',\n" +
+      "  email: 'sofi@gmail.com',\n" +
+      '  __v: 0\n' +
+      '}1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"{\\n' +\n` +
+        `  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\\n' +\n` +
+        "  '  items: [\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b4463ffed450c9ffcd2f4f',\\n" +\n` +
+        `  "      description: 'Mouse',\\n" +\n` +
+        `  "      category: 'informatica',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\\n" +\n` +
+        "  '      price: 1000,\\n' +\n" +
+        "  '      quantity: 1\\n' +\n" +
+        "  '    },\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b466de5bd9c2611a4f1242',\\n" +\n` +
+        `  "      description: 'Calculadora Cientifica',\\n" +\n` +
+        `  "      category: 'libreria',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\\n" +\n` +
+        "  '      price: 500,\\n' +\n" +
+        "  '      quantity: 2\\n' +\n" +
+        "  '    }\\n' +\n" +
+        "  '  ],\\n' +\n" +
+        "  '  orderNumber: 1,\\n' +\n" +
+        `  "  timestamp: '5/1/2023, 15:31:41',\\n" +\n` +
+        `  "  state: 'generada',\\n" +\n` +
+        `  "  email: 'sofi@gmail.com',\\n" +\n` +
+        "  '  __v: 0\\n' +\n" +
+        `  '}1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '{\n' +
+        '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+        '  items: [\n' +
+        '    {\n' +
+        "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+        "      description: 'Mouse',\n" +
+        "      category: 'informatica',\n" +
+        "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+        '      price: 1000,\n' +
+        '      quantity: 1\n' +
+        '    },\n' +
+        '    {\n' +
+        "      _id: '63b466de5bd9c2611a4f1242',\n" +
+        "      description: 'Calculadora Cientifica',\n" +
+        "      category: 'libreria',\n" +
+        "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+        '      price: 500,\n' +
+        '      quantity: 2\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  orderNumber: 1,\n' +
+        "  timestamp: '5/1/2023, 15:31:41',\n" +
+        "  state: 'generada',\n" +
+        "  email: 'sofi@gmail.com',\n" +
+        '  __v: 0\n' +
+        '}1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}
+[2023-01-06T00:18:44.869] [ERROR] prod - Error: Orders validation failed: orderNumber: Cast to Number failed for value "{\n' +
+  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+  '  items: [\n' +
+  '    {\n' +
+  "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+  "      description: 'Mouse',\n" +
+  "      category: 'informatica',\n" +
+  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+  '      price: 1000,\n' +
+  '      quantity: 1\n' +
+  '    },\n' +
+  '    {\n' +
+  "      _id: '63b466de5bd9c2611a4f1242',\n" +
+  "      description: 'Calculadora Cientifica',\n" +
+  "      category: 'libreria',\n" +
+  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+  '      price: 500,\n' +
+  '      quantity: 2\n' +
+  '    }\n' +
+  '  ],\n' +
+  '  orderNumber: 1,\n' +
+  "  timestamp: '5/1/2023, 15:31:41',\n" +
+  "  state: 'generada',\n" +
+  "  email: 'sofi@gmail.com',\n" +
+  '  __v: 0\n' +
+  '}1" (type string) at path "orderNumber"
+    at ValidationError.inspect (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\error\validation.js:49:26)
+    at formatValue (node:internal/util/inspect:806:19)
+    at inspect (node:internal/util/inspect:365:10)
+    at formatWithOptionsInternal (node:internal/util/inspect:2273:40)
+    at Object.format (node:internal/util/inspect:2130:10)
+    at basicLayout (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\layouts.js:65:52)
+    at app (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\file.js:98:23)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\appenders\logLevelFilter.js:10:7
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\log4js\lib\log4js.js:43:5
+    at Array.forEach (<anonymous>) {
+  errors: {
+    orderNumber: CastError: Cast to Number failed for value "{\n' +
+      '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+      '  items: [\n' +
+      '    {\n' +
+      "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+      "      description: 'Mouse',\n" +
+      "      category: 'informatica',\n" +
+      "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+      '      price: 1000,\n' +
+      '      quantity: 1\n' +
+      '    },\n' +
+      '    {\n' +
+      "      _id: '63b466de5bd9c2611a4f1242',\n" +
+      "      description: 'Calculadora Cientifica',\n" +
+      "      category: 'libreria',\n" +
+      "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+      '      price: 500,\n' +
+      '      quantity: 2\n' +
+      '    }\n' +
+      '  ],\n' +
+      '  orderNumber: 1,\n' +
+      "  timestamp: '5/1/2023, 15:31:41',\n" +
+      "  state: 'generada',\n" +
+      "  email: 'sofi@gmail.com',\n" +
+      '  __v: 0\n' +
+      '}1" (type string) at path "orderNumber"
+        at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:378:11)
+        at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+        at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+        at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+        at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+        at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+        at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+        at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33)
+        at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+      stringValue: `"{\\n' +\n` +
+        `  '  _id: new ObjectId("63b7178d1831a76415e5d453"),\\n' +\n` +
+        "  '  items: [\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b4463ffed450c9ffcd2f4f',\\n" +\n` +
+        `  "      description: 'Mouse',\\n" +\n` +
+        `  "      category: 'informatica',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\\n" +\n` +
+        "  '      price: 1000,\\n' +\n" +
+        "  '      quantity: 1\\n' +\n" +
+        "  '    },\\n' +\n" +
+        "  '    {\\n' +\n" +
+        `  "      _id: '63b466de5bd9c2611a4f1242',\\n" +\n` +
+        `  "      description: 'Calculadora Cientifica',\\n" +\n` +
+        `  "      category: 'libreria',\\n" +\n` +
+        `  "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\\n" +\n` +
+        "  '      price: 500,\\n' +\n" +
+        "  '      quantity: 2\\n' +\n" +
+        "  '    }\\n' +\n" +
+        "  '  ],\\n' +\n" +
+        "  '  orderNumber: 1,\\n' +\n" +
+        `  "  timestamp: '5/1/2023, 15:31:41',\\n" +\n` +
+        `  "  state: 'generada',\\n" +\n` +
+        `  "  email: 'sofi@gmail.com',\\n" +\n` +
+        "  '  __v: 0\\n' +\n" +
+        `  '}1"`,
+      messageFormat: undefined,
+      kind: 'Number',
+      value: '{\n' +
+        '  _id: new ObjectId("63b7178d1831a76415e5d453"),\n' +
+        '  items: [\n' +
+        '    {\n' +
+        "      _id: '63b4463ffed450c9ffcd2f4f',\n" +
+        "      description: 'Mouse',\n" +
+        "      category: 'informatica',\n" +
+        "      thumbnail: 'https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_mouse_48px-1024.png',\n" +
+        '      price: 1000,\n' +
+        '      quantity: 1\n' +
+        '    },\n' +
+        '    {\n' +
+        "      _id: '63b466de5bd9c2611a4f1242',\n" +
+        "      description: 'Calculadora Cientifica',\n" +
+        "      category: 'libreria',\n" +
+        "      thumbnail: 'https://cdn0.iconfinder.com/data/icons/typicons-2/24/calculator-1024.png',\n" +
+        '      price: 500,\n' +
+        '      quantity: 2\n' +
+        '    }\n' +
+        '  ],\n' +
+        '  orderNumber: 1,\n' +
+        "  timestamp: '5/1/2023, 15:31:41',\n" +
+        "  state: 'generada',\n" +
+        "  email: 'sofi@gmail.com',\n" +
+        '  __v: 0\n' +
+        '}1',
+      path: 'orderNumber',
+      reason: AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+      
+        assert.ok(!isNaN(val))
+      
+          at castNumber (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\number.js:27:10)
+          at SchemaNumber.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\number.js:376:12)
+          at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1367:22)
+          at model.$set (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:1092:16)
+          at model.Document (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\document.js:166:12)
+          at model.Model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:119:12)
+          at new model (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:4999:15)
+          at OrdersDaoMongoDb.save (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\containers\containerMongoDb.js:14:27)
+          at OrdersDaoMongoDb.sendOrder (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\src\daos\orders\OrdersDaoMongoDb.js:39:33) {
+        generatedMessage: true,
+        code: 'ERR_ASSERTION',
+        actual: false,
+        expected: true,
+        operator: '=='
+      },
+      valueType: 'string'
+    }
+  },
+  _message: 'Orders validation failed'
+}

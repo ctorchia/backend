@@ -6,14 +6,23 @@ class OrdersDaoMongoDb extends ContenedorMongoDb {
         super(Orders)
     }
 
-    // OJO - BORRAR
+    async getLastOrder() {
+        try {
+            let lastOrder = await this.model.find().limit(1).sort({ orderNumber: -1 })
+            if (lastOrder.length == 0) {
+                return 0;
+            }    
+            return lastOrder[0].orderNumber;
+        
+        } catch (error) {
+            console.log("Ocurrio un error: " + error);
+        }
+    };
 
     async sendOrder(items, email) {
         console.log(email);
         try {
-            // let orderNumber = await this.countDocuments({}) + 1;
-            // console.log(orderNumber);
-            let orderNumber = 1
+            let orderNumber = await this.getLastOrder() + 1;
 
             let orderData = {
                 items: items,
