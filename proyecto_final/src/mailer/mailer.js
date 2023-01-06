@@ -23,12 +23,11 @@ const mailer = async (mailOptions) => {
 }
 
 
-const mailerSendOrder = (products, username, email) => {
+const mailerSendOrder = (products, email) => {
     const sendOrderMessage = `
                         <div style="width:500px">
                         <p>Nuevo pedido del usuario:</p>
-                        <h3>Nombre:${username}</h3>
-                        <h3>Email:${email}</h3>
+                        <h3>${email}</h3>
                         <table style="text-align: center; border-collapse: collapse;width: 100%">
                         
                         <thead>
@@ -43,9 +42,9 @@ const mailerSendOrder = (products, username, email) => {
                         <tbody>`+
                             products.map((el, index) => `
                             <tr>
-                                <td>${el.name}</td>
+                                <td>${el.description}</td>
                                 <td>$ ${el.price}</td>
-                                <td>${el.stock}</td>
+                                <td>${el.quantity}</td>
                                 <td>
                                     <img src=${el.thumbnail} style="width: 50px;height: 50px"/>
                                 </td>
@@ -61,7 +60,7 @@ const mailerSendOrder = (products, username, email) => {
     const mailOptions = {
         from: 'MaraArtesanias',
         to: process.env.MAIL_ADMIN,
-        subject: `Nueva Orden de Compra de ${username}, su email es: ${email}`,
+        subject: `Nueva Orden de Compra de: ${email}`,
         html: sendOrderMessage
         // html: '<h1 style="color: blue;">Contenido de prueba desde <span style="color: green;">Node.js con Nodemailer</span></h1>'
     }

@@ -36,7 +36,10 @@ const postSendOrder = async (req, res) => {
     const idOrder = await order.sendOrder(listaProductos, email)
 
     // Enviar correo por envio de orden
-    // mailerSendOrder(listaProductos, username, email);
+
+    console.log(listaProductos);
+
+    // mailerSendOrder(listaProductos, email);
     // whatsappSendOrder(username, email);
     // smsSendOrder(phone)
 

@@ -23,7 +23,7 @@ class ContenedorMongoDb {
 
     async getById(id) {
         try {
-            let objeto = await this.model.find({ id: id })
+            let objeto = await this.model.find({ _id: id })
 
             if (objeto) {
                 console.log(objeto)
@@ -83,7 +83,7 @@ class ContenedorMongoDb {
     async deleteById(id) {
         try {
             if (this.getById(id)) {
-                await this.model.deleteOne({ id: id })
+                await this.model.deleteOne({ _id: id })
                 console.log('Objeto Eliminado')
             } else {
                 console.log('No se encontró el objeto')
