@@ -1,12 +1,13 @@
 
 require('dotenv').config()
-const parseArgs = require('minimist')
+// const parseArgs = require('minimist')
 
 // ----------- Enviroment ----------- //
 let config = {
     mongoUser : process.env.MONGO_USER,
     mongoPass : process.env.MONGO_PASS,
     sessionSecret : process.env.SESSION_SECRET,
+    sessionTime: process.env.SESSION_TIME,
 }
 
 // ------------- Arguments Info -------------------- //
@@ -19,9 +20,13 @@ let config = {
 
 // let arguments = parseArgs(args, options)
 
-
 // ------------ MongoDb ------------ //
-const mongoDbUrl = 'mongodb+srv://'+config.mongoUser+':'+config.mongoPass+'@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'
+let mongoDbUrl = ""
+if (process.env.NODE_ENV === 'production') {
+    mongoDbUrl = 'mongodb+srv://'+config.mongoUser+':'+config.mongoPass+'@cluster0.vg0dm1l.mongodb.net/?retryWrites=true&w=majority'
+} else {
+    mongoDbUrl = 'mongodb://localhost:27017/ecommerce'   
+}
 
 module.exports = {
     mongoDbUrl,
