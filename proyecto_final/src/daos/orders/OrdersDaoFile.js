@@ -1,12 +1,12 @@
 const ContainerFile = require('../../containers/containerFile');
-const route = './database/messages.json'
+const route = './database/orders.json'
 const fs = require('fs');
 
 
-class MessagesDaoFile extends ContainerFile {
+class OrdersDaoFile extends ContainerFile {
     constructor(){
         super(route)
     }
 }
 
-module.exports = MessagesDaoFile
+module.exports = OrdersDaoFile

@@ -68,7 +68,7 @@
 
 
 ###############################################################################
-############################ MONGO Y FIREBASE #################################
+############################ MONGO  #################################
 ###############################################################################
 
 ############################# PARA PRODUCTOS ##################################
@@ -140,7 +140,7 @@ content-type: application/json
 
 ################### PARA CARRITO ############################################
 ###
-GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
+GET http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
 content-type: application/json
 
 ###
@@ -159,7 +159,7 @@ content-type: application/json
 
 
 ###
-POST http://localhost:8080/api/carrito/63b470df5b43bddfdabb594d/productos HTTP/1.1
+POST http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
 content-type: application/json
 
 {
@@ -172,7 +172,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/api/carrito/63b470df5b43bddfdabb594d/productos HTTP/1.1
+POST http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
 content-type: application/json
 
 {
@@ -185,7 +185,7 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/carrito/63b470df5b43bddfdabb594d/productos/63b466de5bd9c2611a4f1242 HTTP/1.1
+DELETE http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos/63b466de5bd9c2611a4f1242 HTTP/1.1
 content-type: application/json
 
 

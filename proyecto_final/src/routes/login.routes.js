@@ -1,5 +1,5 @@
 const {messagesDao} = require("../daos/index");
-const mensaje = messagesDao
+const message = messagesDao
 //*************************************************/
 const {getRoot, getLogin, postLogin, getLogout, getSignup, getSignupError, getLoginError, postSignup, getOthers} = require('../controllers/login.controller')
 
@@ -19,8 +19,7 @@ routerLogin.get('/chat', async (req, res) => {
 
 routerLogin.get('/chat/:email', async (req, res) => {
   const { email } = req.params
-  const messages = await mensaje.getAllByEmail(email)
-  // console.log(messages);
+  const messages = await message.getAllByEmail(email)
   res.json(messages)
 
 })

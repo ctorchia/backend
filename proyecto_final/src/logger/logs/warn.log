@@ -1739,3 +1739,15 @@
 [2023-01-08T01:43:36.699] [WARN] prod - Se recibio una peticion GET a la ruta /info
 [2023-01-08T01:44:25.271] [WARN] prod - Se recibio una peticion GET a la ruta /info
 [2023-01-08T01:47:17.246] [WARN] prod - Se recibio una peticion GET a la ruta /info
+[2023-01-08T19:43:35.988] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T19:48:29.861] [WARN] prod - Se recibio una peticion GET a la ruta /chat/js/date_fns.min.js
+[2023-01-08T19:48:30.331] [WARN] prod - Se recibio una peticion GET a la ruta /chat/js/index.js
+[2023-01-08T19:48:30.649] [WARN] prod - Se recibio una peticion GET a la ruta /chat/css/index.css
+[2023-01-08T19:48:30.868] [WARN] prod - Se recibio una peticion GET a la ruta /chat/img/favicon.webp
+[2023-01-08T19:48:41.141] [WARN] prod - Se recibio una peticion GET a la ruta /chat/css/index.css
+[2023-01-08T19:49:59.308] [WARN] prod - Se recibio una peticion GET a la ruta /chat/css/index.css
+[2023-01-08T19:49:59.358] [WARN] prod - Se recibio una peticion GET a la ruta /chat/js/index.js
+[2023-01-08T19:49:59.375] [WARN] prod - Se recibio una peticion GET a la ruta /chat/js/date_fns.min.js
+[2023-01-08T19:49:59.607] [WARN] prod - Se recibio una peticion GET a la ruta /chat/img/favicon.webp
+[2023-01-08T19:51:20.730] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T19:59:56.420] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map

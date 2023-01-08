@@ -41,7 +41,7 @@ const addMessage = (evt) => {
 
 const PORT = 8080
 
-const socket = io().connect()     // Socket
+const socket = io().connect()     
 
 socket.on('message-server', (data) => {
     console.log(data)
