@@ -1716,3 +1716,5 @@
 [2023-01-08T00:57:34.674] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
 [2023-01-08T00:59:30.242] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
 [2023-01-08T01:01:20.512] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T01:19:53.389] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T01:23:54.759] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map

@@ -29,19 +29,22 @@ const getOrderById = async (req, res) => {
 //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 
 const postSendOrder = async (req, res) => {
-    const { idCart, email } = req.body
-    const carritoById = await carrito.getById(idCart)
-    listaProductos = carritoById.products
-    console.log("viene en body",email);
-    const idOrder = await order.sendOrder(listaProductos, email)
+    const { emailId } = req.body
+    const carritoByEmail = await carrito.getByEmail(emailId)
+
+    // const carritoById = await carrito.getById(idCart)
+    listaProductos = carritoByEmail.products
+    const idOrder = await order.sendOrder(listaProductos, emailId)
 
     // Enviar correo por envio de orden
 
     console.log(listaProductos);
 
-    // mailerSendOrder(listaProductos, email);
+    mailerSendOrder(listaProductos, emailId);
     // whatsappSendOrder(username, email);
     // smsSendOrder(phone)
+
+    await carrito.deleteById(carritoByEmail._id)
 
     res.json({ mensaje: "Compra confirmada", productos: listaProductos, idOrder })
 }

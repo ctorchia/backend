@@ -113,14 +113,12 @@ sendOrder.addEventListener('click', async () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            // username: "pepe",
-            email: "pepe@gmail.com",
-            // phone: "+5491162660189",
-            idCart: "6323641f1a6e8f629b4c8d1e",
+            emailId,
+            // idCart: "6323641f1a6e8f629b4c8d1e",
         }),
     };
 
-    fetch(`http://localhost:${PORT}/api/carrito/sendOrder`, requestOptions)
+    fetch(`http://localhost:${PORT}/api/orders`, requestOptions)
         .then(res => res.json())
         .then(data => {
             let html = `
