@@ -68,35 +68,40 @@ socket.on('mensajeChat-server', (chats) => {
     renderChat(chats)
 })
 
-// ---------- Pedir productos al servidor -----------------------//
-// getProductsCart = () => {
-//     fetch(`http://localhost:${PORT}/api/carrito/6323641f1a6e8f629b4c8d1e/productos`)
-//         .then(res => res.json())
-//         .then(data => {
-//             renderCart(data)
-//         });
-// }
+let emailId = email.innerHTML
 
-// getProductsCart();
+// ---------- Pedir productos al servidor -----------------------//
+getProductsCart = async () => {
+    
+    console.log("Info en Front:",emailId);
+    await fetch(`http://localhost:${PORT}/api/carrito/${emailId}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log("Esto vuelve del server:", data);
+            renderCart(data.products)
+        });
+}
+
+getProductsCart();
 
 // --------- Renderizar productos del carrito --------------------//
-// const renderCart = (productos) => {
-//     let listado = document.querySelector('#listado');
-//     let html = productos.map((prod => {
-//         return `<tr>
-//                     <td  class="text-center">
-//                         ${prod.name}
-//                     </td>
-//                     <td  class="text-center">
-//                         $ ${prod.price} 
-//                     </td>
-//                     <td class="text-center">
-//                         <img src=${prod.thumbnail} width="50" height="50">
-//                     </td>
-//                 </tr>`
-//     }))
-//     listado.innerHTML = html.join(' ');
-// }
+const renderCart = (productos) => {
+    let listado = document.querySelector('#listado');
+    let html = productos.map((prod => {
+        return `<tr>
+                    <td  class="text-center">
+                        ${prod.description}
+                    </td>
+                    <td  class="text-center">
+                        $ ${prod.price} 
+                    </td>
+                    <td class="text-center">
+                        <img src=${prod.thumbnail} width="50" height="50">
+                    </td>
+                </tr>`
+    }))
+    listado.innerHTML = html.join(' ');
+}
 
 // -------------- Enviar pedido a Server -------------- //
 let sendOrder = document.getElementById('sendOrder')

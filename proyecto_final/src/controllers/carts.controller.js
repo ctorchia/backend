@@ -44,6 +44,14 @@ const deleteProductFromCart = async (req, res) => {
     await carrito.deleteProductById(idCart, idProduct)
 }
 
+const getCartByEmail = async (req, res) => {
+    const { emailId } = req.params
+    console.log("email: ", emailId);
+    const carritoByEmail = await carrito.getByEmail(emailId)
+    console.log(carritoByEmail);
+    res.json(carritoByEmail)
+}
+
 // //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 
 // const postSendOrder = async (req, res) => {
@@ -74,6 +82,7 @@ module.exports = {
     postProductToCart,
     deleteCartById,
     deleteProductFromCart,
+    getCartByEmail,
     // postSendOrder,
     routeNotAvailable
 }

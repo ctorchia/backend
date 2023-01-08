@@ -54,6 +54,20 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
             logger.error(error);
         }
     }
+
+    async getByEmail(email){
+        try {
+            let cart = await this.model.find({email: email})
+            if(cart){
+                return cart[0]
+            }else{
+                return null
+            }
+        } catch (error) {
+            logger.error(error)
+        }
+    }
+
 }
 
 module.exports = CarritosDaoMongoDb

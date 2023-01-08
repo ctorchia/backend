@@ -1,5 +1,5 @@
 const express = require('express')
-const {getProductsFromCart,postCart,postProductToCart,deleteCartById,deleteProductFromCart,routeNotAvailable,postSendOrder} = require('../controllers/carts.controller')
+const {getProductsFromCart,postCart,postProductToCart,deleteCartById,deleteProductFromCart,getCartByEmail,routeNotAvailable,postSendOrder} = require('../controllers/carts.controller')
 
 const { Router } = express
 const routerCarrito = Router()
@@ -23,6 +23,10 @@ routerCarrito.delete('/:id', deleteCartById)
 //********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
 
 routerCarrito.delete('/:idCart/productos/:idProduct', deleteProductFromCart)
+
+//********************** GET: '/email' **********************************
+
+routerCarrito.get('/:emailId', getCartByEmail)
 
 // //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
 

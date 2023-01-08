@@ -2,8 +2,9 @@ const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 
-const UsersDaoMongoDb = require('../daos/usersDaoMongo')
-const users = new UsersDaoMongoDb()
+// const UsersDaoMongoDb = require('../daos/users/usersDaoMongoDb')
+const { usersDao } = require("../daos/index");
+const users = usersDao
 
 const dotenv = require('dotenv').config() // 1
 const {mailer} = require('../mailer/mailer')
