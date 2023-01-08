@@ -1,7 +1,7 @@
-const ContenedorMongoDb = require('../../containers/containerMongoDb')
+const ContainerMongoDb = require('../../containers/containerMongoDb')
 const Messages = require('../../mongoDb/models/messages.model') // 1
 
-class MessagesDaoMongoDb extends ContenedorMongoDb {
+class MessagesDaoMongoDb extends ContainerMongoDb {
     constructor(){
         super(Messages)
     }
@@ -10,11 +10,10 @@ class MessagesDaoMongoDb extends ContenedorMongoDb {
 
     async getAllByEmail(email) {
         try {
-            const listaMensajes = await this.getAll()
+            const messagesList = await this.getAll()
             console.log(email);
-            let mensajesFiltrados = listaMensajes.filter(mensaje => mensaje.email == email)
-            // console.log(mensajesFiltrados);
-            return mensajesFiltrados
+            let filteredMessages = messagesList.filter(message => message.email == email)
+            return filteredMessages
 
         } catch (error) {
             logger.error(error);

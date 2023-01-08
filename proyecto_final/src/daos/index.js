@@ -1,39 +1,39 @@
 const dotenv = require('dotenv').config() // 1
 
-let productosDao
-let carritosDao
+let productsDao
+let cartsDao
 let messagesDao
 let ordersDao
 let usersDao
 
 switch (process.env.TECH) {
     case 'file':
-        const ProductosDaoArchivo = require('./productos/ProductosDaoArchivo')
-        const CarritosDaoArchivo = require('./carritos/CarritosDaoArchivo')
+        const ProductsDaoFile = require('./products/ProductsDaoFile')
+        const CartsDaoFile = require('./carts/CartsDaoFile')
         const MessagesDaoFile = require('./messages/MessagesDaoFile')
         const OrdersDaoFile = require('./orders/OrdersDaoFile')
         const UsersDaoFile = require('./users/UsersDaoFile')
 
-        productosDao = new ProductosDaoArchivo()
-        carritosDao = new CarritosDaoArchivo()
+        productsDao = new ProductsDaoFile()
+        cartsDao = new CartsDaoFile()
         messagesDao = new MessagesDaoFile()
         ordersDao = new OrdersDaoFile()
         usersDao = new UsersDaoFile()
         break
 
     case 'mongoDb':
-        const ProductosDaoMongoDb = require('./productos/ProductosDaoMongoDb')
-        const CarritosDaoMongoDb = require('./carritos/CarritosDaoMongoDb')
+        const ProductsDaoMongoDb = require('./products/ProductsDaoMongoDb')
+        const CartsDaoMongoDb = require('./carts/CartsDaoMongoDb')
         const MessagesDaoMongoDb = require('./messages/MessagesDaoMongoDb')
         const OrdersDaoMongoDb = require('./orders/OrdersDaoMongoDb')
         const UsersDaoMongoDb = require('./users/UsersDaoMongoDb')
         
-        productosDao = new ProductosDaoMongoDb()
-        carritosDao = new CarritosDaoMongoDb()
+        productsDao = new ProductsDaoMongoDb()
+        cartsDao = new CartsDaoMongoDb()
         messagesDao = new MessagesDaoMongoDb()
         ordersDao = new OrdersDaoMongoDb()
         usersDao = new UsersDaoMongoDb()
         break
 }
 
-module.exports = {productosDao, carritosDao, messagesDao, ordersDao, usersDao}
+module.exports = {productsDao, cartsDao, messagesDao, ordersDao, usersDao}

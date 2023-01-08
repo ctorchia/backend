@@ -2,7 +2,7 @@
 
 const renderChat = (chats) => {
 
-    let mensajesChat = document.querySelector('#mensajesChat');
+    let messagesChat = document.querySelector('#messagesChat');
     let html = chats.map((msj => {
         return `<tr>
                     <td class="text-primary fw-bold px-2">${msj.email}</td>
@@ -11,31 +11,17 @@ const renderChat = (chats) => {
                 </tr>
                 `
     }))
-    mensajesChat.innerHTML = html.join(' ');
+    messagesChat.innerHTML = html.join(' ');
 }
 
 const addMessage = (evt) => {
-    // evt.preventDefault()
     const email = document.querySelector('#email').value;
-    // const firstName = document.querySelector('#firstName').value;
-    // const lastName = document.querySelector('#lastName').value;
-    // const age = document.querySelector('#age').value;
-    // const alias = document.querySelector('#alias').value;
-    // const avatar = document.querySelector('#avatar').value;
 
     const text = document.querySelector('#text').value;
     const dateMessage = dateFns.format(new Date(), 'DD/MM/YYYY HH:mm:ss');
 
     let messageComplete = {
 
-        // author: {
-        //     email: email,
-        //     firstName: firstName,
-        //     lastName: lastName,
-        //     age: age,
-        //     alias: alias,
-        //     avatar: avatar
-        // },
         email: email,
         type: 'usuario',
         timestamp: dateMessage,
@@ -46,24 +32,22 @@ const addMessage = (evt) => {
 
     console.log(messageComplete);
 
-    socket.emit('mensajeChat-nuevo', messageComplete, (id) => { // callback para obtener el id del mensaje
+    socket.emit('messageChat-new', messageComplete, (id) => { // callback para obtener el id del mensaje
         console.log(id);
     });
 
     return false;
 }
 
-
 const PORT = 8080
 
-// const socket = io.connect(`http://localhost:${PORT}`)            // Socket
 const socket = io().connect()     // Socket
 
 socket.on('message-server', (data) => {
     console.log(data)
 })
 
-socket.on('mensajeChat-server', (chats) => {
+socket.on('messageChat-server', (chats) => {
     console.log(chats);
     renderChat(chats)
 })
@@ -85,9 +69,9 @@ getProductsCart = async () => {
 getProductsCart();
 
 // --------- Renderizar productos del carrito --------------------//
-const renderCart = (productos) => {
-    let listado = document.querySelector('#listado');
-    let html = productos.map((prod => {
+const renderCart = (products) => {
+    let list = document.querySelector('#list');
+    let html = products.map((prod => {
         return `<tr>
                     <td  class="text-center">
                         ${prod.description}
@@ -100,7 +84,7 @@ const renderCart = (productos) => {
                     </td>
                 </tr>`
     }))
-    listado.innerHTML = html.join(' ');
+    list.innerHTML = html.join(' ');
 }
 
 // -------------- Enviar pedido a Server -------------- //
@@ -114,7 +98,6 @@ sendOrder.addEventListener('click', async () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             emailId,
-            // idCart: "6323641f1a6e8f629b4c8d1e",
         }),
     };
 
@@ -127,9 +110,6 @@ sendOrder.addEventListener('click', async () => {
     </div>
     `;
             cartBody.innerHTML = html;
-            //     setTimeout(() => {
-            //         location.href = '/login'
-            //     }, 2000)
         })
 });
 

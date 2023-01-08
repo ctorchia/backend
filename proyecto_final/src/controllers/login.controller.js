@@ -1,15 +1,11 @@
 const { response } = require('express')
-// const { usersDao } = require("../daos/index");
-// const user = usersDao
 
-const administrador = true
+const administrator = true
 
 const getRoot = async (req, res) => {
     logger.info(`El usuario logueado es ${req.session.passport.user.email}`);
 
     res.render('index', {
-        // username: req.session.passport.user.username,
-        // age: req.session.passport.user.age,
         email: req.session.passport.user.email,
         completeName: req.session.passport.user.completeName,
     })
@@ -94,7 +90,6 @@ const getOthers = async (req, res) => {
     const { url, method } = req
     logger.warn(`Se recibio una peticion ${method} a la ruta ${url}`)
 
-    // res.render('loginError')
     res.send(`<h1>Ruta no existente</h1>`)
 }
 

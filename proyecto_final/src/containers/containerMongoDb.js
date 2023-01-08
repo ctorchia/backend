@@ -1,7 +1,7 @@
-const connectDB = require('../mongoDb/connection')  // 1
-connectDB() // 1
+const connectDB = require('../mongoDb/connection') 
+connectDB()
 
-class ContenedorMongoDb {
+class ContainerMongoDb {
 
     constructor(model){
         this.model = model
@@ -24,14 +24,11 @@ class ContenedorMongoDb {
 
     async getById(id) {
         try {
-            // let objeto = await this.model.find({ id: id })
-            let objeto = await this.model.findOne({_id:id})
+            let object = await this.model.findOne({_id:id})
 
-            // console.log(objeto);
-
-            if (objeto) {
-                logger.info(objeto)
-                return objeto
+            if (object) {
+                logger.info(object)
+                return object
             } else {
                 logger.info('El item no existe');
                 return null
@@ -45,15 +42,14 @@ class ContenedorMongoDb {
 
     async getAll() {
         try {
-            let objetosC = await this.model.find({},{"__v":0})
-            // let objetos = await this.model.find()
+            let objectsC = await this.model.find({},{"__v":0})
             
-            let objetos = objetosC.map(element => {
+            let objects = objectsC.map(element => {
                return {...element._doc, id: element._id.toString()}
             });
 
-            if (objetos) {
-                return objetos
+            if (objects) {
+                return objects
             } else {
                 logger.info('No hay Productos')
             }
@@ -97,14 +93,13 @@ class ContenedorMongoDb {
         }
     }
 
-    // deleteAll() : void   (Ver)
+    // deleteAll() : void 
 
     async deleteAll() {
         await this.model.deleteMany()
-        // await this.model.deleteAll()
         logger.info('Todos los objetos se han eliminado')
     }
 
 }
 
-module.exports = ContenedorMongoDb
+module.exports = ContainerMongoDb

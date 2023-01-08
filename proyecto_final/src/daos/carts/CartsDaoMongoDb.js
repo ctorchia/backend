@@ -1,7 +1,7 @@
-const ContenedorMongoDb = require('../../containers/containerMongoDb')
+const ContainerMongoDb = require('../../containers/containerMongoDb')
 const Carts = require('../../mongoDB/models/carts.models') // 1
 
-class CarritosDaoMongoDb extends ContenedorMongoDb {
+class CartsDaoMongoDb extends ContainerMongoDb {
     constructor() {
         super(Carts)
     }
@@ -11,16 +11,16 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
     async addProductToCart(idCart, product) {
         try {
 
-            let carritoById = (await this.getById(idCart))
+            let cartById = (await this.getById(idCart))
             let timestamp = Date.now()
-            if (carritoById) {
-                carritoById.products.push(product)
+            if (cartById) {
+                cartById.products.push(product)
 
                 await this.model.updateOne(
                     { id: idCart },
-                    { $set: { products: carritoById.products } }
+                    { $set: { products: cartById.products } }
                 )
-                return carritoById;
+                return cartById;
 
             } else {
                 return [];
@@ -41,8 +41,8 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
             logger.info(`Productos: ${cart.products}`);
             if (cart) {
 
-                let productosFiltrados = cart.products.filter(product => product._id !== idProduct)
-                cart.products = productosFiltrados
+                let filteredProducts = cart.products.filter(product => product._id !== idProduct)
+                cart.products = filteredProducts
                 console.log(cart.products);
                 await this.updateById(idCart, cart)
                 logger.info('Producto Eliminado')
@@ -70,4 +70,4 @@ class CarritosDaoMongoDb extends ContenedorMongoDb {
 
 }
 
-module.exports = CarritosDaoMongoDb
+module.exports = CartsDaoMongoDb

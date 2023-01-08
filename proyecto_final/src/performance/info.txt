@@ -1,2 +1,0 @@
-artillery quick --count 20 -n 50 "http://localhost:8080/api/productos" > test_cluster.txt
-artillery quick --count 20 -n 50 "http://localhost:8080/api/productos" > test_fork.txt

@@ -1,8 +1,8 @@
-const ContenedorMongoDb = require('../../containers/containerMongoDb')
+const ContainerMongoDb = require('../../containers/containerMongoDb')
 const logger = require('../../logger/logger')
 const Users = require('../../mongoDb/models/users.model') // 1
 
-class UsersDaoMongoDb extends ContenedorMongoDb {
+class UsersDaoMongoDb extends ContainerMongoDb {
     constructor(){
         super(Users)
     }
@@ -11,11 +11,11 @@ class UsersDaoMongoDb extends ContenedorMongoDb {
 
     async getByEmail(email) {
         try {
-            let objeto = await this.model.find({ email: email })
+            let object = await this.model.find({ email: email })
 
-            if (objeto) {
-                logger.info(objeto)
-                return objeto[0]
+            if (object) {
+                logger.info(object)
+                return object[0]
             } else {
                 logger.error('El item no existe') 
                 return null

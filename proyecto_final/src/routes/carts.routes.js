@@ -1,40 +1,36 @@
 const express = require('express')
-const {getProductsFromCart,postCart,postProductToCart,deleteCartById,deleteProductFromCart,getCartByEmail,routeNotAvailable,postSendOrder} = require('../controllers/carts.controller')
+const {getProductsFromCart,postCart,postProductToCart,deleteCartById,deleteProductFromCart,getCartByEmail,routeNotAvailable} = require('../controllers/carts.controller')
 
 const { Router } = express
-const routerCarrito = Router()
+const routerCart = Router()
 
 //********************** GET: '/:id/productos' (Listar todos los productos de un carrito) **********************************
 
-routerCarrito.get('/:id/productos', getProductsFromCart)
+routerCart.get('/:id/productos', getProductsFromCart)
 
 //********************** POST: '/' (Crea un carrito y devuelve su ID) **********************************
 
-routerCarrito.post('/', postCart)
+routerCart.post('/', postCart)
 
 //********************** POST: '/:id/productos' (Incorporar productos al carrito) **********************************
 
-routerCarrito.post('/:id/productos', postProductToCart)
+routerCart.post('/:id/productos', postProductToCart)
 
 //********************** DELETE: '/:id' (Vacia un carrito y lo elimina) **********************************
 
-routerCarrito.delete('/:id', deleteCartById)
+routerCart.delete('/:id', deleteCartById)
 
 //********************** DELETE: '/:id/productos/:id_prod' (Eliminar un producto del carrito) **********************************
 
-routerCarrito.delete('/:idCart/productos/:idProduct', deleteProductFromCart)
+routerCart.delete('/:idCart/productos/:idProduct', deleteProductFromCart)
 
 //********************** GET: '/email' **********************************
 
-routerCarrito.get('/:emailId', getCartByEmail)
-
-// //********************** POST: '/sendOrder' (Confirmar Compra) **********************************
-
-// routerCarrito.post('/sendOrder', postSendOrder)
+routerCart.get('/:emailId', getCartByEmail)
 
 //********************** '*' Rest of the routes **********************************
 
-routerCarrito.get('*', routeNotAvailable)
+routerCart.get('*', routeNotAvailable)
 
-module.exports = routerCarrito
+module.exports = routerCart
 

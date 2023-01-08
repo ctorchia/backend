@@ -1,22 +1,22 @@
 const { response } = require('express')
-const {productosDao} = require("../daos/index");
-const producto = productosDao
+const {productsDao} = require("../daos/index");
+const product = productsDao
 
-const administrador = true
+const administrator = true
 
 //********************** GET (Devuelve todos los productos) **********************************
 const getProducts = async (req, res) => {
-    const listaProductos = await producto.getAll()
-    res.json(listaProductos)
+    const productsList = await product.getAll()
+    res.json(productsList)
 }
 
 //********************** GET (Devuelve un producto según ID) **********************************
 
 const getProductById = async (req, res) => {
     const { id } = req.params
-    const productoById = await producto.getById(id)
-    productoById ?
-        res.json(productoById)
+    const productById = await product.getById(id)
+    productById ?
+        res.json(productById)
         :
         res.json({ error: 'Producto no encontrado' })
 }
@@ -26,9 +26,9 @@ const getProductById = async (req, res) => {
 const getProductByCategory = async (req, res) => {
     const { category } = req.params
 
-    const productosByCategory = await producto.getProductByCategory(category)
-    productosByCategory ?
-        res.json(productosByCategory)
+    const productByCategory = await product.getProductByCategory(category)
+    productByCategory ?
+        res.json(productByCategory)
         :
         res.json({ error: 'Producto no encontrado' })
 }
@@ -36,8 +36,8 @@ const getProductByCategory = async (req, res) => {
 //************************ POST (Recibe y Agrega un producto) **********************************
 
 const postProduct = async (req, res) => {
-    if (administrador) {
-        const idProduct = await producto.save(req.body)
+    if (administrator) {
+        const idProduct = await product.save(req.body)
         res.json(idProduct)
     }
     else {
@@ -48,13 +48,13 @@ const postProduct = async (req, res) => {
     }
 }
 
-//************************ PUT (Recibe y Actualiza un producto según su ID) ***********************
+//************************ PUT (Recibe y Actualiza un product según su ID) ***********************
 
 const putProduct = async (req, res) => {
-    if (administrador) {
+    if (administrator) {
         const { id } = req.params
-        const respuesta = await producto.updateById(id, req.body)
-        res.json(respuesta)
+        const res = await product.updateById(id, req.body)
+        res.json(res)
     }
     else {
         res.json({
@@ -67,9 +67,9 @@ const putProduct = async (req, res) => {
 //************************ DELETE (Elimina un producto según su ID) ***********************
 
 const deleteProductById = async (req, res) => {
-    if (administrador) {
+    if (administrator) {
         const { id } = req.params
-        await producto.deleteById(id)
+        await product.deleteById(id)
     }
     else {
         res.json({

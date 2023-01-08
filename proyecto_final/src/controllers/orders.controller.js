@@ -1,14 +1,9 @@
-// const { response } = require('express')
-
 const {mailerSendOrder} = require('../mailer/mailer')
-// const {whatsappSendOrder} = require('../mailer/whatsapp')
-// const {smsSendOrder} = require('../mailer/sms')
-
-const {ordersDao, carritosDao} = require("../daos/index");
+const {ordersDao, cartsDao} = require("../daos/index");
 const order = ordersDao
-const carrito = carritosDao
+const cart = cartsDao
 
-const administrador = true
+const administrator = true
 
 //********************** GET (Devuelve todas las ordenes) **********************************
 const getOrders = async (req, res) => {
@@ -30,28 +25,21 @@ const getOrderById = async (req, res) => {
 
 const postSendOrder = async (req, res) => {
     const { emailId } = req.body
-    const carritoByEmail = await carrito.getByEmail(emailId)
+    const cartByEmail = await cart.getByEmail(emailId)
 
-    // const carritoById = await carrito.getById(idCart)
-    listaProductos = carritoByEmail.products
-    const idOrder = await order.sendOrder(listaProductos, emailId)
+    productsList = cartByEmail.products
+    const idOrder = await order.sendOrder(productsList, emailId)
 
-    // Enviar correo por envio de orden
+    mailerSendOrder(productsList, emailId);
 
-    console.log(listaProductos);
+    await cart.deleteById(cartByEmail._id)
 
-    mailerSendOrder(listaProductos, emailId);
-    // whatsappSendOrder(username, email);
-    // smsSendOrder(phone)
-
-    await carrito.deleteById(carritoByEmail._id)
-
-    res.json({ mensaje: "Compra confirmada", productos: listaProductos, idOrder })
+    res.json({ mensaje: "Compra confirmada", productos: productsList, idOrder })
 }
 
 //************************ PUT (Recibe y Actualiza una orden según su ID) ***********************
 const putOrder = async (req, res) => {
-    if (administrador) {
+    if (administrator) {
         const { id } = req.params
         const result = await order.updateById(id, req.body)
         res.json(result)
@@ -66,7 +54,7 @@ const putOrder = async (req, res) => {
 
 //************************ DELETE (Elimina una orden según su ID) ***********************
 const deleteOrderById = async (req, res) => {
-    if (administrador) {
+    if (administrator) {
         const { id } = req.params
         await order.deleteById(id)
     }

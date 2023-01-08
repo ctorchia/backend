@@ -1,5 +1,5 @@
-const routerProductos = require('./routes/products.routes')
-const routerCarrito = require('./routes/carts.routes')
+const routerProducts = require('./routes/products.routes')
+const routerCart = require('./routes/carts.routes')
 const routerLogin = require('./routes/login.routes')
 const routerMessages = require('./routes/messages.routes')
 const routerOrders = require('./routes/orders.routes')
@@ -11,9 +11,8 @@ const MongoStore = require('connect-mongo')
 const session = require('express-session')
 const passport = require('./middlewares/passportLocal.middleware')
 
-
-const express = require('express')                                  // Socket
-const app = express()                                               // Socket
+const express = require('express')                                  
+const app = express()                                               
 const { arguments, config, mongoDbUrl } = require('./config')
 const numCPUs = require('os').cpus().length
 
@@ -24,12 +23,12 @@ app.set('view engine', 'ejs')
 app.set('views', './src/views/pages')
 
 const cluster = require('cluster')
-const { Server: HttpServer } = require('http')                      // Socket
-const { Server: IOServer } = require('socket.io')                   // Socket
+const { Server: HttpServer } = require('http')                    
+const { Server: IOServer } = require('socket.io')                 
 const { log } = require("console")
-const serverHttp = new HttpServer(app)                              // Socket
-const io = new IOServer(serverHttp)                                 // Socket
-app.use(express.static('public'))                                   // Socket
+const serverHttp = new HttpServer(app)                            
+const io = new IOServer(serverHttp)                               
+app.use(express.static('public'))                                 
 
 app.use(session({
     store: MongoStore.create({
@@ -49,38 +48,20 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/info', routerMiscellaneous)
-app.use('/api/productos', routerProductos)   // Server Original
-app.use('/api/carrito', routerCarrito)       // Server Original
+app.use('/api/productos', routerProducts)  
+app.use('/api/carrito', routerCart)       
 app.use('/api/orders', routerOrders)
 app.use('', routerLogin)
 
-io.on('connection', (socket) => {                                   // Socket
+io.on('connection', (socket) => {                                 
     logger.info('new connection IO:', socket.id)
-
-    // socket.emit('mensajeChat-server', 'Welcome to the server CMT2')
-
     routerMessages(socket, io)
 })
-
-// io.on('connection', (socket) => {                                // Socket
-//     logger.info('new connection IO:', socket.id)
-
-//     socket.emit('message-server', 'Welcome to the server CMT')
-
-//     socket.on('disconnect', () => {
-//         logger.info('User disconnected')
-//     })
-
-//     // messages(socket, io)
-// })
-
-// const PORT = arguments.port
-// const MODE = arguments.mode.toUpperCase()
 
 const MODE = process.env.MODE || "FORK";
 const PORT = process.env.PORT || 8080;
 
-if (MODE === 'CLUSTER' && cluster.isMaster) {                       // Socket
+if (MODE === 'CLUSTER' && cluster.isMaster) {                
     logger.info(`Puerto: ${PORT} - Modo: ${MODE}`)
     logger.info(`Master ${process.pid} is running`)
     for (let i = 0; i < numCPUs; i++) {
