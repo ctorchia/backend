@@ -3,6 +3,7 @@ const routerCarrito = require('./routes/carts.routes')
 const routerLogin = require('./routes/login.routes')
 const routerMessages = require('./routes/messages.routes')
 const routerOrders = require('./routes/orders.routes')
+const routerMiscellaneous = require('./routes/miscellaneous.routes.js')
 
 const dotenv = require('dotenv').config() // 1
 
@@ -10,7 +11,6 @@ const MongoStore = require('connect-mongo')
 const session = require('express-session')
 const passport = require('./middlewares/passportLocal.middleware')
 
-const miscellaneous = require('./routes/miscellaneous.routes.js')
 
 const express = require('express')                                  // Socket
 const app = express()                                               // Socket
@@ -48,11 +48,11 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use('/info', routerMiscellaneous)
 app.use('/api/productos', routerProductos)   // Server Original
 app.use('/api/carrito', routerCarrito)       // Server Original
 app.use('/api/orders', routerOrders)
 app.use('', routerLogin)
-// app.use(miscellaneous)
 
 io.on('connection', (socket) => {                                   // Socket
     logger.info('new connection IO:', socket.id)
