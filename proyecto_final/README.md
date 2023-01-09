@@ -120,5 +120,17 @@ Las funcionalidades principales son:
   - **DELETE de orden por id:** 
     ```localhost:8080/ordenes/:id```
 
-## INFO:
+## Login:
+  - **GET de acceso a Chat:**
+    ```localhost:8080/chat```
+  
+  - **GET de filtrado de chats por email:**
+    ```localhost:8080/chat/:email```
+
+## Info:
+  - **GET de acceso a informacion de variables de Entorno:**
+    ```localhost:8080/info```
+
+
+## INFORMACION ADICIONAL:
 - El archivo .REST tiene configuradas rutas de prueba para los endpoint.
