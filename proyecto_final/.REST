@@ -1,73 +1,4 @@
 ###############################################################################
-################################### FILE ######################################
-###############################################################################
-
-#################### PARA PRODUCTOS ############################################
-
-# GET http://localhost:8080/productos/1 HTTP/1.1
-# content-type: application/json
-
-# POST http://localhost:8080/productos/ HTTP/1.1
-# content-type: application/json
-
-# {
-#     "name": "Teclado",
-#     "description": "",
-#     "code": 10109,
-#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-#     "price": 200,
-#     "stock": 15
-# }
-
-# PUT http://localhost:8080/productos/6 HTTP/1.1
-# content-type: application/json
-
-# {
-#     "name": "Goma",
-#     "description": "",
-#     "code": 10109,
-#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-08-256.png",
-#     "price": 1000,
-#     "stock": 15
-# }
-
-# DELETE http://localhost:8080/productos/6 HTTP/1.1
-# content-type: application/json
-
-################### PARA CARRITO ############################################
-
-# POST http://localhost:8080/carrito/ HTTP/1.1
-# content-type: application/json
-
-# {
-#     "products":[]
-# }
-
-# DELETE http://localhost:8080/carrito/2 HTTP/1.1
-# content-type: application/json
-
-# GET http://localhost:8080/carrito/1/productos HTTP/1.1
-# content-type: application/json
-
-# POST http://localhost:8080/carrito/2/productos HTTP/1.1
-# content-type: application/json
-
-# {
-#     "name": "Teclado 3",
-#     "description": "",
-#     "code": 10109,
-#     "thumbnail": "https://cdn1.iconfinder.com/data/icons/software-hardware/200/software-24-128.png",
-#     "price": 200,
-#     "stock": 15
-# }
-
-# DELETE http://localhost:8080/carrito/2/productos/2 HTTP/1.1
-# content-type: application/json
-
-
-
-
-###############################################################################
 ############################ MONGO  #################################
 ###############################################################################
 
@@ -77,7 +8,7 @@ GET http://localhost:8080/productos HTTP/1.1
 content-type: application/json
 
 ###
-GET http://localhost:8080/productos/1 HTTP/1.1
+GET http://localhost:8080/productos/63b445e8fed450c9ffcd2f4b HTTP/1.1
 content-type: application/json
 
 ###

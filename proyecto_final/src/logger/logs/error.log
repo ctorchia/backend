@@ -1733,3 +1733,87 @@
       at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
   valueType: 'string'
 }
+[2023-01-09T12:09:19.332] [ERROR] prod - MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+    at Model.$wrapCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:5192:32)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4901:21
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4900:10)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-viuh7bv-shard-00-00.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-01.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-02.vg0dm1l.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-q0bbgz-shard-0',
+    maxElectionId: new ObjectId("7fffffff0000000000000010"),
+    maxSetVersion: 1,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined
+}
+[2023-01-09T12:15:59.650] [ERROR] prod - MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+    at Model.$wrapCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:5192:32)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4901:21
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4900:10)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-viuh7bv-shard-00-00.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-01.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-02.vg0dm1l.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-q0bbgz-shard-0',
+    maxElectionId: new ObjectId("7fffffff0000000000000010"),
+    maxSetVersion: 1,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined
+}
+[2023-01-09T12:16:31.527] [ERROR] prod - MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+    at Model.$wrapCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:5192:32)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4901:21
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4900:10)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-viuh7bv-shard-00-00.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-01.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-02.vg0dm1l.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-q0bbgz-shard-0',
+    maxElectionId: new ObjectId("7fffffff0000000000000010"),
+    maxSetVersion: 1,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined
+}
