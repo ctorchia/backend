@@ -4,10 +4,10 @@
 
 #################### PARA PRODUCTOS ############################################
 
-# GET http://localhost:8080/api/productos/1 HTTP/1.1
+# GET http://localhost:8080/productos/1 HTTP/1.1
 # content-type: application/json
 
-# POST http://localhost:8080/api/productos/ HTTP/1.1
+# POST http://localhost:8080/productos/ HTTP/1.1
 # content-type: application/json
 
 # {
@@ -19,7 +19,7 @@
 #     "stock": 15
 # }
 
-# PUT http://localhost:8080/api/productos/6 HTTP/1.1
+# PUT http://localhost:8080/productos/6 HTTP/1.1
 # content-type: application/json
 
 # {
@@ -31,25 +31,25 @@
 #     "stock": 15
 # }
 
-# DELETE http://localhost:8080/api/productos/6 HTTP/1.1
+# DELETE http://localhost:8080/productos/6 HTTP/1.1
 # content-type: application/json
 
 ################### PARA CARRITO ############################################
 
-# POST http://localhost:8080/api/carrito/ HTTP/1.1
+# POST http://localhost:8080/carrito/ HTTP/1.1
 # content-type: application/json
 
 # {
 #     "products":[]
 # }
 
-# DELETE http://localhost:8080/api/carrito/2 HTTP/1.1
+# DELETE http://localhost:8080/carrito/2 HTTP/1.1
 # content-type: application/json
 
-# GET http://localhost:8080/api/carrito/1/productos HTTP/1.1
+# GET http://localhost:8080/carrito/1/productos HTTP/1.1
 # content-type: application/json
 
-# POST http://localhost:8080/api/carrito/2/productos HTTP/1.1
+# POST http://localhost:8080/carrito/2/productos HTTP/1.1
 # content-type: application/json
 
 # {
@@ -61,7 +61,7 @@
 #     "stock": 15
 # }
 
-# DELETE http://localhost:8080/api/carrito/2/productos/2 HTTP/1.1
+# DELETE http://localhost:8080/carrito/2/productos/2 HTTP/1.1
 # content-type: application/json
 
 
@@ -73,15 +73,15 @@
 
 ############################# PARA PRODUCTOS ##################################
 
-GET http://localhost:8080/api/productos HTTP/1.1
+GET http://localhost:8080/productos HTTP/1.1
 content-type: application/json
 
 ###
-GET http://localhost:8080/api/productos/1 HTTP/1.1
+GET http://localhost:8080/productos/1 HTTP/1.1
 content-type: application/json
 
 ###
-POST http://localhost:8080/api/productos/ HTTP/1.1
+POST http://localhost:8080/productos/ HTTP/1.1
 content-type: application/json
 
 {
@@ -93,7 +93,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/api/productos/ HTTP/1.1
+POST http://localhost:8080/productos/ HTTP/1.1
 content-type: application/json
 
 {
@@ -105,7 +105,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/api/productos/ HTTP/1.1
+POST http://localhost:8080/productos/ HTTP/1.1
 content-type: application/json
 
 {
@@ -118,7 +118,7 @@ content-type: application/json
     
 
 ###
-PUT http://localhost:8080/api/productos/63b447eafed450c9ffcd2f52 HTTP/1.1
+PUT http://localhost:8080/productos/63b447eafed450c9ffcd2f52 HTTP/1.1
 content-type: application/json
 
 {
@@ -132,7 +132,7 @@ content-type: application/json
 
 
 ###
-DELETE http://localhost:8080/api/productos/63b447eafed450c9ffcd2f52 HTTP/1.1
+DELETE http://localhost:8080/productos/63b447eafed450c9ffcd2f52 HTTP/1.1
 content-type: application/json
 
 
@@ -140,11 +140,11 @@ content-type: application/json
 
 ################### PARA CARRITO ############################################
 ###
-GET http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
+GET http://localhost:8080/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
 content-type: application/json
 
 ###
-POST http://localhost:8080/api/carrito/ HTTP/1.1
+POST http://localhost:8080/carrito/ HTTP/1.1
 content-type: application/json
 
 {
@@ -154,12 +154,12 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/carrito/63b46c7b0eb8a6d3c2ea200a HTTP/1.1
+DELETE http://localhost:8080/carrito/63b46c7b0eb8a6d3c2ea200a HTTP/1.1
 content-type: application/json
 
 
 ###
-POST http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
+POST http://localhost:8080/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
 content-type: application/json
 
 {
@@ -172,7 +172,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
+POST http://localhost:8080/carrito/63bb4980784eeceb1b044a27/productos HTTP/1.1
 content-type: application/json
 
 {
@@ -185,21 +185,21 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8080/api/carrito/63bb4980784eeceb1b044a27/productos/63b466de5bd9c2611a4f1242 HTTP/1.1
+DELETE http://localhost:8080/carrito/63bb4980784eeceb1b044a27/productos/63b466de5bd9c2611a4f1242 HTTP/1.1
 content-type: application/json
 
 
 ############################# PARA ORDENES ##################################
 
-GET http://localhost:8080/api/orders HTTP/1.1
+GET http://localhost:8080/ordenes HTTP/1.1
 content-type: application/json
 
 ###
-GET http://localhost:8080/api/orders/63b795440e2731f9247d9a2b HTTP/1.1
+GET http://localhost:8080/ordenes/63b795440e2731f9247d9a2b HTTP/1.1
 content-type: application/json
 
 ###
-POST http://localhost:8080/api/orders/ HTTP/1.1
+POST http://localhost:8080/ordenes/ HTTP/1.1
 content-type: application/json
 
 {
@@ -208,7 +208,7 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:8080/api/orders/ HTTP/1.1
+POST http://localhost:8080/ordenes/ HTTP/1.1
 content-type: application/json
 
 {
@@ -217,7 +217,7 @@ content-type: application/json
 }
     
 ###
-PUT http://localhost:8080/api/orders/63b447eafed450c9ffcd2f52 HTTP/1.1
+PUT http://localhost:8080/ordenes/63b447eafed450c9ffcd2f52 HTTP/1.1
 content-type: application/json
 
 {
@@ -226,5 +226,5 @@ content-type: application/json
 
 
 ###
-DELETE http://localhost:8080/api/orders/63b795440e2731f9247d9a2b HTTP/1.1
+DELETE http://localhost:8080/ordenes/63b795440e2731f9247d9a2b HTTP/1.1
 content-type: application/json

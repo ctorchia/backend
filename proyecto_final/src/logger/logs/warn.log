@@ -1751,3 +1751,185 @@
 [2023-01-08T19:49:59.607] [WARN] prod - Se recibio una peticion GET a la ruta /chat/img/favicon.webp
 [2023-01-08T19:51:20.730] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
 [2023-01-08T19:59:56.420] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T23:05:09.395] [ERROR] prod - MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+    at Model.$wrapCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:5192:32)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4901:21
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4900:10)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-viuh7bv-shard-00-00.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-01.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-02.vg0dm1l.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-q0bbgz-shard-0',
+    maxElectionId: new ObjectId("7fffffff0000000000000010"),
+    maxSetVersion: 1,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined
+}
+[2023-01-08T23:05:09.439] [ERROR] prod - MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/
+    at Model.$wrapCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\model.js:5192:32)
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4901:21
+    at C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\helpers\promiseOrCallback.js:40:10)
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4900:10)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-viuh7bv-shard-00-00.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-01.vg0dm1l.mongodb.net:27017' => [ServerDescription],
+      'ac-viuh7bv-shard-00-02.vg0dm1l.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-q0bbgz-shard-0',
+    maxElectionId: new ObjectId("7fffffff0000000000000010"),
+    maxSetVersion: 1,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined
+}
+[2023-01-08T23:18:29.455] [WARN] prod - Se recibio una peticion GET a la ruta /chat
+[2023-01-08T23:18:40.135] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:18:42.832] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:18:43.097] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:18:44.099] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:20:26.678] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:20:26.684] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:20:26.705] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:20:26.901] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:20:37.439] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:20:37.445] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:20:37.450] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:20:37.696] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:21:20.555] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:21:20.562] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:22:04.462] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:22:04.739] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:22:04.743] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:22:06.912] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:22:07.127] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:22:49.228] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:22:49.237] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:22:49.274] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:22:49.528] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:23:16.944] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:23:17.721] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:23:17.734] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:23:17.979] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:23:33.290] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:23:50.565] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:23:50.755] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:23:50.771] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:23:51.659] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:27:53.664] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/js/index.js
+[2023-01-08T23:27:53.672] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/css/index.css
+[2023-01-08T23:27:55.748] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/js/date_fns.min.js
+[2023-01-08T23:27:55.962] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/img/favicon.webp
+[2023-01-08T23:27:58.644] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:27:58.649] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:27:58.958] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:27:59.128] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:32:49.004] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:32:49.590] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:32:50.824] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:32:51.076] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:33:03.368] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:33:03.372] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:33:03.379] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:33:03.631] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:33:08.297] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:36:42.119] [WARN] prod - Se recibio una peticion GET a la ruta /chat/cristian@gmail.com
+[2023-01-08T23:39:03.974] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T23:39:26.076] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:39:26.175] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:39:35.438] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:39:36.357] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:40:30.274] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/js/date_fns.min.js
+[2023-01-08T23:40:30.461] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/js/index.js
+[2023-01-08T23:40:33.711] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/css/index.css
+[2023-01-08T23:40:33.888] [WARN] prod - Se recibio una peticion GET a la ruta /api/chat/img/favicon.webp
+[2023-01-08T23:40:54.347] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:40:57.902] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:41:00.932] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:41:01.338] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:43:45.864] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:43:46.292] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:43:46.633] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:43:49.758] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:44:58.946] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:44:59.306] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:45:00.324] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:45:01.067] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:45:35.637] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:45:35.706] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:45:37.228] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:45:37.514] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:54:01.736] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:54:01.741] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:54:01.788] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:54:03.139] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:54:12.570] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T23:54:54.019] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-08T23:55:07.837] [WARN] prod - Se recibio una peticion GET a la ruta /api/css/index.css
+[2023-01-08T23:55:07.842] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/index.js
+[2023-01-08T23:55:07.848] [WARN] prod - Se recibio una peticion GET a la ruta /api/js/date_fns.min.js
+[2023-01-08T23:55:08.271] [WARN] prod - Se recibio una peticion GET a la ruta /api/img/favicon.webp
+[2023-01-08T23:58:08.794] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:02:34.742] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:02:35.598] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:02:54.687] [WARN] prod - Se recibio una peticion GET a la ruta /chat
+[2023-01-09T00:03:06.809] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:09:38.259] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:12:32.647] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:12:36.313] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:13:05.937] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:14:13.660] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:17:51.020] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:20:18.683] [WARN] prod - Se recibio una peticion GET a la ruta /favicon.ico
+[2023-01-09T00:20:29.728] [WARN] prod - Se recibio una peticion GET a la ruta /login/chat
+[2023-01-09T00:24:32.742] [WARN] prod - Se recibio una peticion GET a la ruta /carrito/sofi@gmail.com
+[2023-01-09T00:25:19.039] [WARN] prod - Se recibio una peticion GET a la ruta /carrito/sofi@gmail.com
+[2023-01-09T00:25:19.130] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:26:50.883] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T00:41:19.464] [WARN] prod - Se recibio una peticion GET a la ruta /js/date_fns.min.js.map
+[2023-01-09T01:20:27.176] [ERROR] prod - CastError: Cast to ObjectId failed for value "63b445e8fed450c9ffcd2f4" (type string) at path "_id" for model "Products"
+    at model.Query.exec (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4884:21)
+    at Query.then (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:4983:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  messageFormat: undefined,
+  stringValue: '"63b445e8fed450c9ffcd2f4"',
+  kind: 'ObjectId',
+  value: '63b445e8fed450c9ffcd2f4',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\error.js:41:28)
+      at new ObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\bson\lib\objectid.js:67:23)
+      at castObjectId (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at ObjectId.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schema\objectid.js:246:12)
+      at SchemaType.applySetters (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1201:12)
+      at SchemaType._castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1648:15)
+      at SchemaType.castForQuery (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1636:15)
+      at SchemaType.castForQueryWrapper (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\schematype.js:1612:20)
+      at cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\cast.js:347:32)
+      at Query.cast (C:\Users\CMT\Desktop\Workspace\backend\proyecto_final\node_modules\mongoose\lib\query.js:5312:12),
+  valueType: 'string'
+}

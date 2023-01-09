@@ -1,11 +1,12 @@
 const routerProducts = require('./routes/products.routes')
 const routerCart = require('./routes/carts.routes')
 const routerLogin = require('./routes/login.routes')
-const routerMessages = require('./routes/messages.routes')
+const routerChat = require('./routes/chats.routes')
+const routerMessagesWebsockets = require('./routes/messages.routes')
 const routerOrders = require('./routes/orders.routes')
 const routerMiscellaneous = require('./routes/miscellaneous.routes.js')
 
-const dotenv = require('dotenv').config() // 1
+const dotenv = require('dotenv').config()
 
 const MongoStore = require('connect-mongo')
 const session = require('express-session')
@@ -48,14 +49,15 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/info', routerMiscellaneous)
-app.use('/api/productos', routerProducts)  
-app.use('/api/carrito', routerCart)       
-app.use('/api/orders', routerOrders)
+app.use('/productos', routerProducts)  
+app.use('/carrito', routerCart)       
+app.use('/ordenes', routerOrders)
+app.use('/chat', routerChat)
 app.use('', routerLogin)
 
 io.on('connection', (socket) => {                                 
     logger.info('new connection IO:', socket.id)
-    routerMessages(socket, io)
+    routerMessagesWebsockets(socket, io)
 })
 
 const MODE = process.env.MODE || "FORK";

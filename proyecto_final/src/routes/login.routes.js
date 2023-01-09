@@ -1,29 +1,9 @@
-const {messagesDao} = require("../daos/index");
-const message = messagesDao
-//*************************************************/
 const {getRoot, getLogin, postLogin, getLogout, getSignup, getSignupError, getLoginError, postSignup, getOthers} = require('../controllers/login.controller')
 
 const express = require("express");
-const checkAuth = require('../middlewares/auth.middleware');
-const logger = require('../logger/logger');
-const passport = require('passport')
-
 const routerLogin = express.Router();
-
-// *************************************
-routerLogin.get('/chat', async (req, res) => {
-  logger.info(`El usuario logueado es`);
-  res.render('chat')
-
-})
-
-routerLogin.get('/chat/:email', async (req, res) => {
-  const { email } = req.params
-  const messages = await message.getAllByEmail(email)
-  res.json(messages)
-
-})
-// *************************************
+const checkAuth = require('../middlewares/auth.middleware');
+const passport = require('passport')
 
 routerLogin.get('/', checkAuth, getRoot)
 

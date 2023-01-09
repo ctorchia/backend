@@ -58,7 +58,7 @@ let emailId = email.innerHTML
 getProductsCart = async () => {
     
     console.log("Info en Front:",emailId);
-    await fetch(`http://localhost:${PORT}/api/carrito/${emailId}`)
+    await fetch(`http://localhost:${PORT}/carrito/${emailId}`)
         .then(res => res.json())
         .then(data => {
             console.log("Esto vuelve del server:", data);
@@ -101,7 +101,7 @@ sendOrder.addEventListener('click', async () => {
         }),
     };
 
-    fetch(`http://localhost:${PORT}/api/orders`, requestOptions)
+    fetch(`http://localhost:${PORT}/ordenes`, requestOptions)
         .then(res => res.json())
         .then(data => {
             let html = `
