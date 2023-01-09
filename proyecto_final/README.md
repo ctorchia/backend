@@ -17,7 +17,7 @@ Las funcionalidades principales son:
 
 # 1. Puesta en marcha
 
-## A. Instalación del proyecto y dependencias
+## Instalación del proyecto y dependencias
 
 - Clonar el repositorio
 
@@ -25,7 +25,7 @@ Las funcionalidades principales son:
   
   ```npm install```
 
-## B. Ejecución en localhost
+## Ejecución en localhost
   - En el fichero ".env" se pueden setear las siguientes variables:
    * Tecnología de Persistencia
    * Entorno de ejecucion (DEVELOPMENT o PRODUCTION)
@@ -58,7 +58,7 @@ Las funcionalidades principales son:
 
 # 3. Endpoints
 
-## A. Login:
+## Login:
   - **POST de registro de usuario:**
     ```localhost:8080/signup```
   
@@ -68,7 +68,7 @@ Las funcionalidades principales son:
   - **GET de cierre de sesión de usuario:**
     ```localhost:8080/logout```
 
-## B. Productos:
+## Productos:
   - **GET de todos los productos:** 
     ```localhost:8080/productos```
 
@@ -87,7 +87,7 @@ Las funcionalidades principales son:
   - **DELETE de producto:**
     ```localhost:8080/productos/:id```
 
-## C. Carritos:
+## Carritos:
 
   - **GET de todos los productos en carrito por id:** 
     ```localhost:8080/carrito/:id/productos```
@@ -104,7 +104,7 @@ Las funcionalidades principales son:
   - **DELETE de producto con id en carrito y de producto:** 
     ```localhost:8080/carrito/:idCarrito/productos/:idProducto```
 
-## D. Ordenes:
+## Ordenes:
   - **GET de todas las ordenes:** 
     ```localhost:8080/ordenes/```
 
